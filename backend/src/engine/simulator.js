@@ -59,7 +59,7 @@ export function calculateTeamStrength(players) {
   return Math.min(100, avg / 1.5)
 }
 
-function calculateMVP(events, player1) {
+function calculateMVP(events, player1, player2) {
   if (!events || events.length === 0) {
     // ゴールなし → player1 の最高総合値の選手
     const players = player1.players || []
@@ -116,6 +116,7 @@ function calculateMVP(events, player1) {
   // ポジションを player1/player2 から検索
   const allPlayers = [
     ...(player1.players || []),
+    ...(player2?.players || []),
   ]
   const found = allPlayers.find(p => p.id === topId)
   const position = found ? found.position : 'FW'
@@ -130,10 +131,6 @@ function calculateMVP(events, player1) {
 }
 
 export function simulateMatch(player1, player2) {
-  // 後方互換性: players が未定義なら空配列
-  if (!player1.players) player1.players = []
-  if (!player2.players) player2.players = []
-
   const { formation: f1, tactic: t1 } = player1
   const { formation: f2, tactic: t2 } = player2
 
@@ -164,7 +161,7 @@ export function simulateMatch(player1, player2) {
   }
 
   const events = generateMatchEvents(player1, player2, result, score)
-  const mvp = calculateMVP(events, player1)
+  const mvp = calculateMVP(events, player1, player2)
 
   return {
     result,

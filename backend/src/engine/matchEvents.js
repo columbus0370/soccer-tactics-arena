@@ -314,7 +314,7 @@ export function generateMatchEvents(player1, player2, result, score) {
 
       // 2枚目イエロー → レッドカード、または独立した5%確率
       const isSecondYellow = player && player.id && yellowCards[player.id] >= 2
-      const isRandomRed = !redGiven && Math.random() < 0.05 && i === count - 1
+      const isRandomRed = !redGiven && Math.random() < 0.05
       if ((isSecondYellow || isRandomRed) && !redGiven) {
         const redMinute = Math.min(90, minute + randomInt(1, 5))
         const tmplR = DESCRIPTIONS.red_card[Math.floor(Math.random() * DESCRIPTIONS.red_card.length)]

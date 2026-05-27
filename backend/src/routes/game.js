@@ -33,12 +33,20 @@ router.post('/simulate', (req, res) => {
     }
   }
 
-  // player1.players / player2.players が存在しない場合は空配列にフォールバック（後方互換性）
-  if (!player1.players) player1.players = []
-  if (!player2.players) player2.players = []
+  if (!Array.isArray(player1.players) || player1.players.length === 0) {
+    return res.status(400).json({ error: 'player1.players は1人以上の選手が必要です' })
+  }
+  if (!Array.isArray(player2.players) || player2.players.length === 0) {
+    return res.status(400).json({ error: 'player2.players は1人以上の選手が必要です' })
+  }
 
-  const result = simulateMatch(player1, player2)
-  res.json(result)
+  try {
+    const result = simulateMatch(player1, player2)
+    res.json(result)
+  } catch (err) {
+    console.error('simulateMatch error:', err)
+    res.status(500).json({ error: '試合シミュレーション中にエラーが発生しました' })
+  }
 })
 
 export default router
