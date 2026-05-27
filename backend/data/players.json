@@ -1,0 +1,7284 @@
+{
+  "meta": {
+    "version": "3.0",
+    "season": "2025-26",
+    "squad_list_source": "Premier League official (post Jan 2026 window)",
+    "source_url": "https://www.premierleague.com/en/news/4580687/202526-premier-league-squad-lists",
+    "note": "Skipper names are fictional parodies of real players. All 20 PL clubs included (incl. relegated teams Burnley, West Ham, Wolves per Jan 2026 squad lists).",
+    "relegated": [
+      "Burnley",
+      "West Ham United",
+      "Wolverhampton Wanderers"
+    ],
+    "champions": "Arsenal"
+  },
+  "teams": [
+    {
+      "team_id": "bournemouth",
+      "team_name": "South Coast Cherries",
+      "pl_finish": 6,
+      "primary_color": "#DA291C",
+      "players": [
+        {
+          "id": "BOU01",
+          "skipper_name": "Tyler Adams",
+          "real_ref": "Tyler Adams",
+          "position": "MF",
+          "nationality": "USA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 58,
+            "passing": 70,
+            "dribbling": 64,
+            "physical": 76,
+            "defense": 72
+          }
+        },
+        {
+          "id": "BOU02",
+          "skipper_name": "Amine Adli",
+          "real_ref": "Amine Adli",
+          "position": "FW",
+          "nationality": "MAR",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 70,
+            "passing": 66,
+            "dribbling": 76,
+            "physical": 62,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BOU03",
+          "skipper_name": "Owen Bevan",
+          "real_ref": "Owen Bevan",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 36,
+            "passing": 60,
+            "dribbling": 46,
+            "physical": 64,
+            "defense": 66
+          }
+        },
+        {
+          "id": "BOU04",
+          "skipper_name": "David Brooks",
+          "real_ref": "David Brooks",
+          "position": "FW",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 64,
+            "dribbling": 72,
+            "physical": 60,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BOU05",
+          "skipper_name": "Ryan Christie",
+          "real_ref": "Ryan Christie",
+          "position": "MF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 64,
+            "passing": 72,
+            "dribbling": 68,
+            "physical": 68,
+            "defense": 60
+          }
+        },
+        {
+          "id": "BOU06",
+          "skipper_name": "Lewis Cook",
+          "real_ref": "Lewis Cook",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 58,
+            "passing": 74,
+            "dribbling": 62,
+            "physical": 72,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BOU07",
+          "skipper_name": "Evanilson",
+          "real_ref": "Evanilson",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 78,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 72,
+            "defense": 32
+          }
+        },
+        {
+          "id": "BOU08",
+          "skipper_name": "Will Dennis",
+          "real_ref": "Will Dennis",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 13,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 74
+          }
+        },
+        {
+          "id": "BOU09",
+          "skipper_name": "Bafode Diakite",
+          "real_ref": "Bafode Diakite",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 38,
+            "passing": 68,
+            "dribbling": 54,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "BOU10",
+          "skipper_name": "Fraser Forster",
+          "real_ref": "Fraser Forster",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 55,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "BOU11",
+          "skipper_name": "James Hill",
+          "real_ref": "James Hill",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 36,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "BOU12",
+          "skipper_name": "Justin Kluivrt",
+          "real_ref": "Justin Kluivert",
+          "position": "FW",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 72,
+            "passing": 66,
+            "dribbling": 78,
+            "physical": 62,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BOU13",
+          "skipper_name": "Christos Mandas",
+          "real_ref": "Christos Mandas",
+          "position": "GK",
+          "nationality": "GRE",
+          "loan_status": "loan_in(Lazio)",
+          "stats": {
+            "speed": 54,
+            "shooting": 14,
+            "passing": 60,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "BOU14",
+          "skipper_name": "Djorde Petrovic",
+          "real_ref": "Djorde Petrovic",
+          "position": "GK",
+          "nationality": "SRB",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "BOU15",
+          "skipper_name": "Dominic Sadi",
+          "real_ref": "Dominic Sadi",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 68,
+            "physical": 62,
+            "defense": 32
+          }
+        },
+        {
+          "id": "BOU16",
+          "skipper_name": "Alex Scott",
+          "real_ref": "Alex Scott",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 62,
+            "passing": 76,
+            "dribbling": 70,
+            "physical": 68,
+            "defense": 64
+          }
+        },
+        {
+          "id": "BOU17",
+          "skipper_name": "Marcos Senesi",
+          "real_ref": "Marcos Senesi",
+          "position": "DF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 40,
+            "passing": 66,
+            "dribbling": 50,
+            "physical": 78,
+            "defense": 80
+          }
+        },
+        {
+          "id": "BOU18",
+          "skipper_name": "Adam Smith",
+          "real_ref": "Adam Smith",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 58,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "BOU19",
+          "skipper_name": "Marcus Tavernier",
+          "real_ref": "Marcus Tavernier",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 66,
+            "passing": 70,
+            "dribbling": 72,
+            "physical": 64,
+            "defense": 54
+          }
+        },
+        {
+          "id": "BOU20",
+          "skipper_name": "Adrien Truffert",
+          "real_ref": "Adrien Truffert",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 46,
+            "passing": 66,
+            "dribbling": 62,
+            "physical": 66,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BOU21",
+          "skipper_name": "Enes Unal",
+          "real_ref": "Enes Unal",
+          "position": "FW",
+          "nationality": "TUR",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 72,
+            "passing": 56,
+            "dribbling": 62,
+            "physical": 74,
+            "defense": 30
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "arsenal",
+      "team_name": "North London Cannons",
+      "pl_finish": 1,
+      "primary_color": "#EF0107",
+      "players": [
+        {
+          "id": "ARS01",
+          "skipper_name": "Kepa A.",
+          "real_ref": "Kepa Arrizabalaga",
+          "position": "GK",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 16,
+            "passing": 68,
+            "dribbling": 26,
+            "physical": 74,
+            "defense": 82
+          }
+        },
+        {
+          "id": "ARS02",
+          "skipper_name": "Riccardo Cala",
+          "real_ref": "Riccardo Calafiori",
+          "position": "DF",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 42,
+            "passing": 72,
+            "dribbling": 62,
+            "physical": 78,
+            "defense": 82
+          }
+        },
+        {
+          "id": "ARS03",
+          "skipper_name": "Gabriel M.",
+          "real_ref": "Gabriel Magalhaes",
+          "position": "DF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 55,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 88,
+            "defense": 89
+          }
+        },
+        {
+          "id": "ARS04",
+          "skipper_name": "Eberechi Eze",
+          "real_ref": "Eberechi Eze",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": "transferred_in(summer2025,ex-CrystalPalace)",
+          "stats": {
+            "speed": 82,
+            "shooting": 80,
+            "passing": 82,
+            "dribbling": 86,
+            "physical": 62,
+            "defense": 50
+          }
+        },
+        {
+          "id": "ARS05",
+          "skipper_name": "Gabriel F.",
+          "real_ref": "Gabriel Fernando",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 68,
+            "passing": 82,
+            "dribbling": 74,
+            "physical": 78,
+            "defense": 78
+          }
+        },
+        {
+          "id": "ARS06",
+          "skipper_name": "Viktor Gyokr",
+          "real_ref": "Viktor Gyokeres",
+          "position": "FW",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 90,
+            "passing": 62,
+            "dribbling": 76,
+            "physical": 82,
+            "defense": 34
+          }
+        },
+        {
+          "id": "ARS07",
+          "skipper_name": "Kay Havetz",
+          "real_ref": "Kai Havertz",
+          "position": "FW",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 80,
+            "passing": 72,
+            "dribbling": 75,
+            "physical": 78,
+            "defense": 48
+          }
+        },
+        {
+          "id": "ARS08",
+          "skipper_name": "Pier Hincap",
+          "real_ref": "Piero Hincapie",
+          "position": "DF",
+          "nationality": "ECU",
+          "loan_status": "loan_in(Leverkusen)",
+          "stats": {
+            "speed": 80,
+            "shooting": 38,
+            "passing": 70,
+            "dribbling": 60,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "ARS09",
+          "skipper_name": "Noni Madueke",
+          "real_ref": "Noni Madueke",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": "transferred_in(summer2025,ex-Chelsea)",
+          "stats": {
+            "speed": 86,
+            "shooting": 74,
+            "passing": 66,
+            "dribbling": 84,
+            "physical": 62,
+            "defense": 36
+          }
+        },
+        {
+          "id": "ARS10",
+          "skipper_name": "Mikel Merino",
+          "real_ref": "Mikel Merino",
+          "position": "MF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 66,
+            "passing": 80,
+            "dribbling": 66,
+            "physical": 80,
+            "defense": 76
+          }
+        },
+        {
+          "id": "ARS11",
+          "skipper_name": "Christian Norgo",
+          "real_ref": "Christian Norgaard",
+          "position": "MF",
+          "nationality": "DEN",
+          "loan_status": "transferred_in(summer2025,ex-Brentford)",
+          "stats": {
+            "speed": 70,
+            "shooting": 62,
+            "passing": 76,
+            "dribbling": 64,
+            "physical": 80,
+            "defense": 76
+          }
+        },
+        {
+          "id": "ARS12",
+          "skipper_name": "Martyn Odegar",
+          "real_ref": "Martin Odegaard",
+          "position": "MF",
+          "nationality": "NOR",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 78,
+            "passing": 90,
+            "dribbling": 85,
+            "physical": 65,
+            "defense": 60
+          }
+        },
+        {
+          "id": "ARS13",
+          "skipper_name": "Davi Rasa",
+          "real_ref": "David Raya",
+          "position": "GK",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 62,
+            "shooting": 20,
+            "passing": 68,
+            "dribbling": 30,
+            "physical": 72,
+            "defense": 84
+          }
+        },
+        {
+          "id": "ARS14",
+          "skipper_name": "Deklan Ryce",
+          "real_ref": "Declan Rice",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 68,
+            "passing": 82,
+            "dribbling": 72,
+            "physical": 86,
+            "defense": 83
+          }
+        },
+        {
+          "id": "ARS15",
+          "skipper_name": "Bukay Saka",
+          "real_ref": "Bukayo Saka",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 82,
+            "passing": 80,
+            "dribbling": 88,
+            "physical": 68,
+            "defense": 62
+          }
+        },
+        {
+          "id": "ARS16",
+          "skipper_name": "Willum Saliba",
+          "real_ref": "William Saliba",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 35,
+            "passing": 72,
+            "dribbling": 55,
+            "physical": 85,
+            "defense": 90
+          }
+        },
+        {
+          "id": "ARS17",
+          "skipper_name": "Gabri Martell",
+          "real_ref": "Gabriel Martinelli",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 90,
+            "shooting": 78,
+            "passing": 68,
+            "dribbling": 84,
+            "physical": 68,
+            "defense": 42
+          }
+        },
+        {
+          "id": "ARS18",
+          "skipper_name": "Jurren Tember",
+          "real_ref": "Jurrien Timber",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 45,
+            "passing": 74,
+            "dribbling": 70,
+            "physical": 76,
+            "defense": 83
+          }
+        },
+        {
+          "id": "ARS19",
+          "skipper_name": "Leo Trossa",
+          "real_ref": "Leandro Trossard",
+          "position": "FW",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 78,
+            "passing": 74,
+            "dribbling": 80,
+            "physical": 65,
+            "defense": 55
+          }
+        },
+        {
+          "id": "ARS20",
+          "skipper_name": "Ben Wight",
+          "real_ref": "Ben White",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 40,
+            "passing": 74,
+            "dribbling": 62,
+            "physical": 76,
+            "defense": 82
+          }
+        },
+        {
+          "id": "ARS21",
+          "skipper_name": "Martin Zubim",
+          "real_ref": "Martin Zubimendi",
+          "position": "MF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 60,
+            "passing": 84,
+            "dribbling": 68,
+            "physical": 78,
+            "defense": 78
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "astonvilla",
+      "team_name": "Midland Villans",
+      "pl_finish": 4,
+      "primary_color": "#670E36",
+      "players": [
+        {
+          "id": "AVL01",
+          "skipper_name": "Leon Bailey",
+          "real_ref": "Leon Bailey",
+          "position": "FW",
+          "nationality": "JAM",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 74,
+            "passing": 66,
+            "dribbling": 86,
+            "physical": 64,
+            "defense": 38
+          }
+        },
+        {
+          "id": "AVL02",
+          "skipper_name": "Tammy Abraham",
+          "real_ref": "Tammy Abraham",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 76,
+            "passing": 58,
+            "dribbling": 66,
+            "physical": 76,
+            "defense": 34
+          }
+        },
+        {
+          "id": "AVL03",
+          "skipper_name": "Ross Barkly",
+          "real_ref": "Ross Barkley",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 68,
+            "passing": 76,
+            "dribbling": 70,
+            "physical": 74,
+            "defense": 60
+          }
+        },
+        {
+          "id": "AVL04",
+          "skipper_name": "Marco Bizot",
+          "real_ref": "Marco Bizot",
+          "position": "GK",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 80
+          }
+        },
+        {
+          "id": "AVL05",
+          "skipper_name": "Emil Bwendia",
+          "real_ref": "Emiliano Buendia",
+          "position": "MF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 78,
+            "dribbling": 80,
+            "physical": 62,
+            "defense": 48
+          }
+        },
+        {
+          "id": "AVL06",
+          "skipper_name": "Matty Cash",
+          "real_ref": "Matty Cash",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 50,
+            "passing": 70,
+            "dribbling": 66,
+            "physical": 72,
+            "defense": 76
+          }
+        },
+        {
+          "id": "AVL07",
+          "skipper_name": "Lucas Digne",
+          "real_ref": "Lucas Digne",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 52,
+            "passing": 74,
+            "dribbling": 66,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "AVL08",
+          "skipper_name": "Harvey Elliott",
+          "real_ref": "Harvey Elliott",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": "loan_in(Liverpool)",
+          "stats": {
+            "speed": 78,
+            "shooting": 68,
+            "passing": 78,
+            "dribbling": 80,
+            "physical": 62,
+            "defense": 55
+          }
+        },
+        {
+          "id": "AVL09",
+          "skipper_name": "Pau Torres",
+          "real_ref": "Pau Torres",
+          "position": "DF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 44,
+            "passing": 76,
+            "dribbling": 60,
+            "physical": 80,
+            "defense": 86
+          }
+        },
+        {
+          "id": "AVL10",
+          "skipper_name": "Andres Garcia",
+          "real_ref": "Andres Garcia",
+          "position": "MF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 58,
+            "passing": 72,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 60
+          }
+        },
+        {
+          "id": "AVL11",
+          "skipper_name": "Boubacar Kamara",
+          "real_ref": "Boubacar Kamara",
+          "position": "MF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 58,
+            "passing": 76,
+            "dribbling": 66,
+            "physical": 82,
+            "defense": 80
+          }
+        },
+        {
+          "id": "AVL12",
+          "skipper_name": "Ezri Konsa",
+          "real_ref": "Ezri Konsa",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 52,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "AVL13",
+          "skipper_name": "Ian Maatsen",
+          "real_ref": "Ian Maatsen",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 50,
+            "passing": 70,
+            "dribbling": 64,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "AVL14",
+          "skipper_name": "Emi Martynez",
+          "real_ref": "Emiliano Martinez",
+          "position": "GK",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 20,
+            "passing": 68,
+            "dribbling": 30,
+            "physical": 76,
+            "defense": 90
+          }
+        },
+        {
+          "id": "AVL15",
+          "skipper_name": "John McGinn",
+          "real_ref": "John McGinn",
+          "position": "MF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 72,
+            "passing": 74,
+            "dribbling": 70,
+            "physical": 78,
+            "defense": 68
+          }
+        },
+        {
+          "id": "AVL16",
+          "skipper_name": "Tyrone Mings",
+          "real_ref": "Tyrone Mings",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 42,
+            "passing": 66,
+            "dribbling": 46,
+            "physical": 82,
+            "defense": 80
+          }
+        },
+        {
+          "id": "AVL17",
+          "skipper_name": "Amadou Onana",
+          "real_ref": "Amadou Onana",
+          "position": "MF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 62,
+            "passing": 74,
+            "dribbling": 68,
+            "physical": 86,
+            "defense": 76
+          }
+        },
+        {
+          "id": "AVL18",
+          "skipper_name": "Viktor Lindlov",
+          "real_ref": "Victor Lindelof",
+          "position": "DF",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 70,
+            "dribbling": 50,
+            "physical": 78,
+            "defense": 82
+          }
+        },
+        {
+          "id": "AVL19",
+          "skipper_name": "Morgan Rogers",
+          "real_ref": "Morgan Rogers",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 72,
+            "passing": 68,
+            "dribbling": 80,
+            "physical": 66,
+            "defense": 40
+          }
+        },
+        {
+          "id": "AVL20",
+          "skipper_name": "Jadon Sancho",
+          "real_ref": "Jadon Sancho",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": "loan_in(ManUtd)",
+          "stats": {
+            "speed": 84,
+            "shooting": 74,
+            "passing": 72,
+            "dribbling": 86,
+            "physical": 64,
+            "defense": 40
+          }
+        },
+        {
+          "id": "AVL21",
+          "skipper_name": "Douglas Luyz",
+          "real_ref": "Douglas Luiz",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 70,
+            "passing": 80,
+            "dribbling": 74,
+            "physical": 78,
+            "defense": 74
+          }
+        },
+        {
+          "id": "AVL22",
+          "skipper_name": "Youri Tieleman",
+          "real_ref": "Youri Tielemans",
+          "position": "MF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 72,
+            "passing": 84,
+            "dribbling": 72,
+            "physical": 70,
+            "defense": 66
+          }
+        },
+        {
+          "id": "AVL23",
+          "skipper_name": "Olly Watkens",
+          "real_ref": "Ollie Watkins",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 84,
+            "passing": 66,
+            "dribbling": 76,
+            "physical": 74,
+            "defense": 36
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "brentford",
+      "team_name": "West London Bees",
+      "pl_finish": 9,
+      "primary_color": "#E30613",
+      "players": [
+        {
+          "id": "BRE01",
+          "skipper_name": "Val Adedokun",
+          "real_ref": "Valentino Adedokun",
+          "position": "FW",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 60,
+            "defense": 32
+          }
+        },
+        {
+          "id": "BRE02",
+          "skipper_name": "Kristoffer Ajer",
+          "real_ref": "Kristoffer Ajer",
+          "position": "DF",
+          "nationality": "NOR",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 50,
+            "physical": 78,
+            "defense": 78
+          }
+        },
+        {
+          "id": "BRE03",
+          "skipper_name": "Ellery Balcomb",
+          "real_ref": "Ellery Balcombe",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 74
+          }
+        },
+        {
+          "id": "BRE04",
+          "skipper_name": "Nathan Collins",
+          "real_ref": "Nathan Collins",
+          "position": "DF",
+          "nationality": "IRL",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 82,
+            "defense": 84
+          }
+        },
+        {
+          "id": "BRE05",
+          "skipper_name": "Matt Cox",
+          "real_ref": "Matthew Cox",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 72
+          }
+        },
+        {
+          "id": "BRE06",
+          "skipper_name": "Mikkel Damsgar",
+          "real_ref": "Mikkel Damsgaard",
+          "position": "MF",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 72,
+            "dribbling": 74,
+            "physical": 62,
+            "defense": 52
+          }
+        },
+        {
+          "id": "BRE07",
+          "skipper_name": "Josh Dasilva",
+          "real_ref": "Josh Dasilva",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 62,
+            "passing": 72,
+            "dribbling": 68,
+            "physical": 68,
+            "defense": 62
+          }
+        },
+        {
+          "id": "BRE08",
+          "skipper_name": "Fabio Carvalho",
+          "real_ref": "Fabio Carvalho",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 68,
+            "passing": 74,
+            "dribbling": 76,
+            "physical": 60,
+            "defense": 52
+          }
+        },
+        {
+          "id": "BRE09",
+          "skipper_name": "Jordan Henderson",
+          "real_ref": "Jordan Henderson",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 60,
+            "passing": 78,
+            "dribbling": 66,
+            "physical": 70,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BRE10",
+          "skipper_name": "Rico Henry",
+          "real_ref": "Rico Henry",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 46,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BRE11",
+          "skipper_name": "Aaron Hickey",
+          "real_ref": "Aaron Hickey",
+          "position": "DF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 50,
+            "passing": 68,
+            "dribbling": 64,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "BRE12",
+          "skipper_name": "Vitaly Janelt",
+          "real_ref": "Vitaly Janelt",
+          "position": "MF",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 60,
+            "passing": 70,
+            "dribbling": 62,
+            "physical": 74,
+            "defense": 68
+          }
+        },
+        {
+          "id": "BRE13",
+          "skipper_name": "Mathias Jensen",
+          "real_ref": "Mathias Jensen",
+          "position": "MF",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 60,
+            "passing": 74,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 62
+          }
+        },
+        {
+          "id": "BRE14",
+          "skipper_name": "Caoimhin Kell",
+          "real_ref": "Caoimhin Kelleher",
+          "position": "GK",
+          "nationality": "IRL",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 15,
+            "passing": 66,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "BRE15",
+          "skipper_name": "Keane L-Potter",
+          "real_ref": "Keane Lewis-Potter",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 66,
+            "passing": 62,
+            "dribbling": 74,
+            "physical": 64,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BRE16",
+          "skipper_name": "Igor Thiago",
+          "real_ref": "Igor Thiago",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 84,
+            "passing": 60,
+            "dribbling": 72,
+            "physical": 78,
+            "defense": 30
+          }
+        },
+        {
+          "id": "BRE17",
+          "skipper_name": "Reiss Nelson",
+          "real_ref": "Reiss Nelson",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": "loan_in(Arsenal)",
+          "stats": {
+            "speed": 84,
+            "shooting": 68,
+            "passing": 62,
+            "dribbling": 76,
+            "physical": 58,
+            "defense": 34
+          }
+        },
+        {
+          "id": "BRE18",
+          "skipper_name": "Dango Ouattara",
+          "real_ref": "Dango Ouattara",
+          "position": "FW",
+          "nationality": "BFA",
+          "loan_status": "transferred_in(ex-Bournemouth)",
+          "stats": {
+            "speed": 90,
+            "shooting": 70,
+            "passing": 60,
+            "dribbling": 82,
+            "physical": 62,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BRE19",
+          "skipper_name": "Ethan Pinnock",
+          "real_ref": "Ethan Pinnock",
+          "position": "DF",
+          "nationality": "JAM",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 42,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "BRE20",
+          "skipper_name": "Kevin Schade",
+          "real_ref": "Kevin Schade",
+          "position": "FW",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 68,
+            "passing": 60,
+            "dribbling": 76,
+            "physical": 60,
+            "defense": 34
+          }
+        },
+        {
+          "id": "BRE21",
+          "skipper_name": "Hakon Valdim",
+          "real_ref": "Hakon Valdimarsson",
+          "position": "GK",
+          "nationality": "ISL",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 13,
+            "passing": 60,
+            "dribbling": 22,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "BRE22",
+          "skipper_name": "Sepp V.D.B.",
+          "real_ref": "Sepp van den Berg",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 50,
+            "physical": 78,
+            "defense": 80
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "brighton",
+      "team_name": "South Coast Seagulls",
+      "pl_finish": 8,
+      "primary_color": "#0057B8",
+      "players": [
+        {
+          "id": "BHA01",
+          "skipper_name": "Yasin Ayari",
+          "real_ref": "Yasin Ayari",
+          "position": "MF",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 60,
+            "passing": 70,
+            "dribbling": 66,
+            "physical": 66,
+            "defense": 58
+          }
+        },
+        {
+          "id": "BHA02",
+          "skipper_name": "Olivier Bosca",
+          "real_ref": "Olivier Boscagli",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 40,
+            "passing": 70,
+            "dribbling": 52,
+            "physical": 78,
+            "defense": 80
+          }
+        },
+        {
+          "id": "BHA03",
+          "skipper_name": "Maxim De Cuype",
+          "real_ref": "Maxim De Cuyper",
+          "position": "DF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 48,
+            "passing": 68,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "BHA04",
+          "skipper_name": "Igor Julio",
+          "real_ref": "Igor Julio",
+          "position": "DF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 42,
+            "passing": 66,
+            "dribbling": 54,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "BHA05",
+          "skipper_name": "Lewis Dunk",
+          "real_ref": "Lewis Dunk",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 48,
+            "passing": 72,
+            "dribbling": 48,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "BHA06",
+          "skipper_name": "Diego Gomez",
+          "real_ref": "Diego Gomez",
+          "position": "MF",
+          "nationality": "PAR",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 62,
+            "passing": 72,
+            "dribbling": 66,
+            "physical": 66,
+            "defense": 62
+          }
+        },
+        {
+          "id": "BHA07",
+          "skipper_name": "Pascal Gross",
+          "real_ref": "Pascal Gross",
+          "position": "MF",
+          "nationality": "GER",
+          "loan_status": "transferred_in(Jan2026,ex-Dortmund)",
+          "stats": {
+            "speed": 70,
+            "shooting": 68,
+            "passing": 82,
+            "dribbling": 70,
+            "physical": 66,
+            "defense": 62
+          }
+        },
+        {
+          "id": "BHA08",
+          "skipper_name": "Ferdi Kadioglu",
+          "real_ref": "Ferdi Kadioglu",
+          "position": "DF",
+          "nationality": "TUR",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 50,
+            "passing": 70,
+            "dribbling": 68,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "BHA09",
+          "skipper_name": "Solly March",
+          "real_ref": "Solly March",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 66,
+            "passing": 66,
+            "dribbling": 76,
+            "physical": 62,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BHA10",
+          "skipper_name": "Tom McGill",
+          "real_ref": "Tom McGill",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 74
+          }
+        },
+        {
+          "id": "BHA11",
+          "skipper_name": "James Milner",
+          "real_ref": "James Milner",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 58,
+            "passing": 74,
+            "dribbling": 64,
+            "physical": 70,
+            "defense": 64
+          }
+        },
+        {
+          "id": "BHA12",
+          "skipper_name": "Kaoru Mitoma",
+          "real_ref": "Kaoru Mitoma",
+          "position": "FW",
+          "nationality": "JPN",
+          "loan_status": null,
+          "stats": {
+            "speed": 90,
+            "shooting": 74,
+            "passing": 70,
+            "dribbling": 90,
+            "physical": 62,
+            "defense": 40
+          }
+        },
+        {
+          "id": "BHA13",
+          "skipper_name": "Matt O'Riley",
+          "real_ref": "Matt O'Riley",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": "loan_in(Marseille)",
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 78,
+            "dribbling": 70,
+            "physical": 66,
+            "defense": 60
+          }
+        },
+        {
+          "id": "BHA14",
+          "skipper_name": "Carl Rushworth",
+          "real_ref": "Carl Rushworth",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 13,
+            "passing": 60,
+            "dribbling": 22,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "BHA15",
+          "skipper_name": "Georginio Rutt",
+          "real_ref": "Georginio Rutter",
+          "position": "FW",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 68,
+            "dribbling": 76,
+            "physical": 66,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BHA16",
+          "skipper_name": "Jason Steele",
+          "real_ref": "Jason Steele",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 13,
+            "passing": 60,
+            "dribbling": 20,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "BHA17",
+          "skipper_name": "Jan-Paul V.H.",
+          "real_ref": "Jan Paul van Hecke",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 40,
+            "passing": 70,
+            "dribbling": 52,
+            "physical": 78,
+            "defense": 82
+          }
+        },
+        {
+          "id": "BHA18",
+          "skipper_name": "Joel Veltman",
+          "real_ref": "Joel Veltman",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 45,
+            "passing": 68,
+            "dribbling": 60,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "BHA19",
+          "skipper_name": "Bart Verbrugen",
+          "real_ref": "Bart Verbruggen",
+          "position": "GK",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 16,
+            "passing": 68,
+            "dribbling": 26,
+            "physical": 74,
+            "defense": 84
+          }
+        },
+        {
+          "id": "BHA20",
+          "skipper_name": "Adam Webster",
+          "real_ref": "Adam Webster",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 42,
+            "passing": 66,
+            "dribbling": 48,
+            "physical": 78,
+            "defense": 80
+          }
+        },
+        {
+          "id": "BHA21",
+          "skipper_name": "Danny Welbeck",
+          "real_ref": "Danny Welbeck",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 68,
+            "passing": 62,
+            "dribbling": 70,
+            "physical": 66,
+            "defense": 36
+          }
+        },
+        {
+          "id": "BHA22",
+          "skipper_name": "Mats Wieffer",
+          "real_ref": "Mats Wieffer",
+          "position": "MF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 60,
+            "passing": 76,
+            "dribbling": 66,
+            "physical": 78,
+            "defense": 74
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "burnley",
+      "team_name": "Turf Moor Clarets",
+      "pl_finish": 19,
+      "primary_color": "#6C1D45",
+      "relegated": true,
+      "players": [
+        {
+          "id": "BUR01",
+          "skipper_name": "Mohamed Amdouni",
+          "real_ref": "Mohamed Amdouni",
+          "position": "FW",
+          "nationality": "SUI",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 68,
+            "passing": 58,
+            "dribbling": 70,
+            "physical": 64,
+            "defense": 30
+          }
+        },
+        {
+          "id": "BUR02",
+          "skipper_name": "Jaidon Anthony",
+          "real_ref": "Jaidon Anthony",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 62,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 60,
+            "defense": 34
+          }
+        },
+        {
+          "id": "BUR03",
+          "skipper_name": "Ashley Barnes",
+          "real_ref": "Ashley Barnes",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 68,
+            "passing": 50,
+            "dribbling": 56,
+            "physical": 76,
+            "defense": 30
+          }
+        },
+        {
+          "id": "BUR04",
+          "skipper_name": "Armando Broja",
+          "real_ref": "Armando Broja",
+          "position": "FW",
+          "nationality": "ALB",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 58,
+            "dribbling": 66,
+            "physical": 74,
+            "defense": 32
+          }
+        },
+        {
+          "id": "BUR05",
+          "skipper_name": "Martin Dubravka",
+          "real_ref": "Martin Dubravka",
+          "position": "GK",
+          "nationality": "SVK",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 80
+          }
+        },
+        {
+          "id": "BUR06",
+          "skipper_name": "Marcus Edwards",
+          "real_ref": "Marcus Edwards",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 62,
+            "dribbling": 74,
+            "physical": 58,
+            "defense": 34
+          }
+        },
+        {
+          "id": "BUR07",
+          "skipper_name": "Hjalmar Ekdal",
+          "real_ref": "Hjalmar Ekdal",
+          "position": "MF",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 56,
+            "passing": 70,
+            "dribbling": 60,
+            "physical": 72,
+            "defense": 66
+          }
+        },
+        {
+          "id": "BUR08",
+          "skipper_name": "Maxime Esteve",
+          "real_ref": "Maxime Esteve",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 48,
+            "physical": 78,
+            "defense": 78
+          }
+        },
+        {
+          "id": "BUR09",
+          "skipper_name": "Zian Flemming",
+          "real_ref": "Zian Flemming",
+          "position": "MF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 62,
+            "passing": 68,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 58
+          }
+        },
+        {
+          "id": "BUR10",
+          "skipper_name": "Lyle Foster",
+          "real_ref": "Lyle Foster",
+          "position": "FW",
+          "nationality": "RSA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 52,
+            "dribbling": 62,
+            "physical": 72,
+            "defense": 30
+          }
+        },
+        {
+          "id": "BUR11",
+          "skipper_name": "Quilindschy H.",
+          "real_ref": "Quilindschy Hartman",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 44,
+            "passing": 66,
+            "dribbling": 62,
+            "physical": 68,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BUR12",
+          "skipper_name": "Vaclav Hladky",
+          "real_ref": "Vaclav Hladky",
+          "position": "GK",
+          "nationality": "CZE",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 20,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "BUR13",
+          "skipper_name": "Bashir Humphr.",
+          "real_ref": "Bashir Humphreys",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 40,
+            "passing": 62,
+            "dribbling": 54,
+            "physical": 68,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BUR14",
+          "skipper_name": "Jacob B.Larsen",
+          "real_ref": "Jacob Bruun Larsen",
+          "position": "FW",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 66,
+            "passing": 60,
+            "dribbling": 72,
+            "physical": 60,
+            "defense": 34
+          }
+        },
+        {
+          "id": "BUR15",
+          "skipper_name": "Josh Laurent",
+          "real_ref": "Joshua Laurent",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 56,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 72,
+            "defense": 62
+          }
+        },
+        {
+          "id": "BUR16",
+          "skipper_name": "Hannibal Mejbri",
+          "real_ref": "Hannibal Mejbri",
+          "position": "MF",
+          "nationality": "TUN",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 62,
+            "passing": 72,
+            "dribbling": 68,
+            "physical": 68,
+            "defense": 60
+          }
+        },
+        {
+          "id": "BUR17",
+          "skipper_name": "Ibra Morris",
+          "real_ref": "Ibrahima Morris",
+          "position": "FW",
+          "nationality": "SUI",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 62,
+            "passing": 54,
+            "dribbling": 68,
+            "physical": 62,
+            "defense": 30
+          }
+        },
+        {
+          "id": "BUR18",
+          "skipper_name": "Lucas Pires",
+          "real_ref": "Lucas Pires",
+          "position": "DF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 60,
+            "physical": 64,
+            "defense": 68
+          }
+        },
+        {
+          "id": "BUR19",
+          "skipper_name": "Connor Roberts",
+          "real_ref": "Connor Roberts",
+          "position": "DF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 44,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 70
+          }
+        },
+        {
+          "id": "BUR20",
+          "skipper_name": "Loum Tchaouna",
+          "real_ref": "Loum Tchaouna",
+          "position": "FW",
+          "nationality": "CMR",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 62,
+            "defense": 32
+          }
+        },
+        {
+          "id": "BUR21",
+          "skipper_name": "Mike Tresor",
+          "real_ref": "Mike Tresor",
+          "position": "MF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 64,
+            "passing": 66,
+            "dribbling": 72,
+            "physical": 62,
+            "defense": 50
+          }
+        },
+        {
+          "id": "BUR22",
+          "skipper_name": "Axel Tuanzebe",
+          "real_ref": "Axel Tuanzebe",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 50,
+            "physical": 76,
+            "defense": 74
+          }
+        },
+        {
+          "id": "BUR23",
+          "skipper_name": "Kyle Walkyr",
+          "real_ref": "Kyle Walker",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 48,
+            "passing": 70,
+            "dribbling": 70,
+            "physical": 76,
+            "defense": 78
+          }
+        },
+        {
+          "id": "BUR24",
+          "skipper_name": "James W-Prowse",
+          "real_ref": "James Ward-Prowse",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 72,
+            "passing": 82,
+            "dribbling": 66,
+            "physical": 66,
+            "defense": 60
+          }
+        },
+        {
+          "id": "BUR25",
+          "skipper_name": "Joe Worrall",
+          "real_ref": "Joe Worrall",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 40,
+            "passing": 64,
+            "dribbling": 44,
+            "physical": 76,
+            "defense": 76
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "chelsea",
+      "team_name": "West London Blues",
+      "pl_finish": 10,
+      "primary_color": "#034694",
+      "players": [
+        {
+          "id": "CHE01",
+          "skipper_name": "Tosin Adara",
+          "real_ref": "Tosin Adarabioyo",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 48,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CHE02",
+          "skipper_name": "Benoit Badash",
+          "real_ref": "Benoit Badiashile",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 70,
+            "dribbling": 52,
+            "physical": 82,
+            "defense": 84
+          }
+        },
+        {
+          "id": "CHE03",
+          "skipper_name": "Moises Cacedo",
+          "real_ref": "Moises Caicedo",
+          "position": "MF",
+          "nationality": "ECU",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 65,
+            "passing": 80,
+            "dribbling": 74,
+            "physical": 84,
+            "defense": 84
+          }
+        },
+        {
+          "id": "CHE04",
+          "skipper_name": "Trevoh Chalob",
+          "real_ref": "Trevoh Chalobah",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CHE05",
+          "skipper_name": "Marc Cukurela",
+          "real_ref": "Marc Cucurella",
+          "position": "DF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 45,
+            "passing": 72,
+            "dribbling": 65,
+            "physical": 72,
+            "defense": 78
+          }
+        },
+        {
+          "id": "CHE06",
+          "skipper_name": "Liam Delap",
+          "real_ref": "Liam Delap",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 74,
+            "passing": 56,
+            "dribbling": 62,
+            "physical": 76,
+            "defense": 30
+          }
+        },
+        {
+          "id": "CHE07",
+          "skipper_name": "Enzo Fernandz",
+          "real_ref": "Enzo Fernandez",
+          "position": "MF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 70,
+            "passing": 84,
+            "dribbling": 76,
+            "physical": 74,
+            "defense": 70
+          }
+        },
+        {
+          "id": "CHE08",
+          "skipper_name": "Wesley Fofan",
+          "real_ref": "Wesley Fofana",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 38,
+            "passing": 70,
+            "dribbling": 56,
+            "physical": 82,
+            "defense": 86
+          }
+        },
+        {
+          "id": "CHE09",
+          "skipper_name": "Malo Gusto",
+          "real_ref": "Malo Gusto",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 50,
+            "passing": 70,
+            "dribbling": 68,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "CHE10",
+          "skipper_name": "Reece James",
+          "real_ref": "Reece James",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 62,
+            "passing": 76,
+            "dribbling": 74,
+            "physical": 76,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CHE11",
+          "skipper_name": "Filip Jorgensn",
+          "real_ref": "Filip Jorgensen",
+          "position": "GK",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 16,
+            "passing": 66,
+            "dribbling": 26,
+            "physical": 74,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CHE12",
+          "skipper_name": "Joao Pedro",
+          "real_ref": "Joao Pedro",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 78,
+            "passing": 66,
+            "dribbling": 76,
+            "physical": 72,
+            "defense": 38
+          }
+        },
+        {
+          "id": "CHE13",
+          "skipper_name": "Pedro Neto",
+          "real_ref": "Pedro Neto",
+          "position": "FW",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 90,
+            "shooting": 76,
+            "passing": 72,
+            "dribbling": 88,
+            "physical": 62,
+            "defense": 38
+          }
+        },
+        {
+          "id": "CHE14",
+          "skipper_name": "Rob Lynch",
+          "real_ref": "Robert Lynch",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 72
+          }
+        },
+        {
+          "id": "CHE15",
+          "skipper_name": "Cole Palmar",
+          "real_ref": "Cole Palmer",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 86,
+            "passing": 84,
+            "dribbling": 86,
+            "physical": 64,
+            "defense": 52
+          }
+        },
+        {
+          "id": "CHE16",
+          "skipper_name": "Levi Colwill",
+          "real_ref": "Levi Colwill",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 40,
+            "passing": 72,
+            "dribbling": 58,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "CHE17",
+          "skipper_name": "Teddy S-Lowe",
+          "real_ref": "Teddy Sharman-Lowe",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 72
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "crystalpalace",
+      "team_name": "South London Eagles",
+      "pl_finish": 15,
+      "primary_color": "#1B458F",
+      "players": [
+        {
+          "id": "CRY01",
+          "skipper_name": "Walter Benitez",
+          "real_ref": "Walter Benitez",
+          "position": "GK",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 15,
+            "passing": 64,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CRY02",
+          "skipper_name": "Nathan Clyne",
+          "real_ref": "Nathaniel Clyne",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 40,
+            "passing": 64,
+            "dribbling": 58,
+            "physical": 66,
+            "defense": 70
+          }
+        },
+        {
+          "id": "CRY03",
+          "skipper_name": "Justin Devenny",
+          "real_ref": "Justin Devenny",
+          "position": "MF",
+          "nationality": "NIR",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 60,
+            "passing": 66,
+            "dribbling": 66,
+            "physical": 62,
+            "defense": 54
+          }
+        },
+        {
+          "id": "CRY04",
+          "skipper_name": "Cheick Doucure",
+          "real_ref": "Cheick Doucoure",
+          "position": "MF",
+          "nationality": "MLI",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 58,
+            "passing": 72,
+            "dribbling": 64,
+            "physical": 78,
+            "defense": 76
+          }
+        },
+        {
+          "id": "CRY05",
+          "skipper_name": "Evan Guessand",
+          "real_ref": "Evann Guessand",
+          "position": "FW",
+          "nationality": "FRA",
+          "loan_status": "loan_in(AstonVilla)",
+          "stats": {
+            "speed": 84,
+            "shooting": 66,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 62,
+            "defense": 32
+          }
+        },
+        {
+          "id": "CRY06",
+          "skipper_name": "Dean Henderson",
+          "real_ref": "Dean Henderson",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 16,
+            "passing": 64,
+            "dribbling": 26,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CRY07",
+          "skipper_name": "Will Hughes",
+          "real_ref": "Will Hughes",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 58,
+            "passing": 72,
+            "dribbling": 62,
+            "physical": 68,
+            "defense": 62
+          }
+        },
+        {
+          "id": "CRY08",
+          "skipper_name": "Brennan Johnson",
+          "real_ref": "Brennan Johnson",
+          "position": "FW",
+          "nationality": "WAL",
+          "loan_status": "transferred_in(Jan2026,ex-Tottenham)",
+          "stats": {
+            "speed": 88,
+            "shooting": 74,
+            "passing": 65,
+            "dribbling": 82,
+            "physical": 64,
+            "defense": 38
+          }
+        },
+        {
+          "id": "CRY09",
+          "skipper_name": "Daichi Kamada",
+          "real_ref": "Daichi Kamada",
+          "position": "MF",
+          "nationality": "JPN",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 68,
+            "passing": 76,
+            "dribbling": 72,
+            "physical": 64,
+            "defense": 56
+          }
+        },
+        {
+          "id": "CRY10",
+          "skipper_name": "Maxence Lacroix",
+          "real_ref": "Maxence Lacroix",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "CRY11",
+          "skipper_name": "Jorgen S.Larsen",
+          "real_ref": "Jorgen Strand Larsen",
+          "position": "FW",
+          "nationality": "NOR",
+          "loan_status": "transferred_in(Jan2026,ex-Wolves)",
+          "stats": {
+            "speed": 78,
+            "shooting": 76,
+            "passing": 58,
+            "dribbling": 62,
+            "physical": 78,
+            "defense": 30
+          }
+        },
+        {
+          "id": "CRY12",
+          "skipper_name": "Jefferson Lerma",
+          "real_ref": "Jefferson Lerma",
+          "position": "MF",
+          "nationality": "COL",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 60,
+            "passing": 68,
+            "dribbling": 58,
+            "physical": 80,
+            "defense": 72
+          }
+        },
+        {
+          "id": "CRY13",
+          "skipper_name": "J-P Mateta",
+          "real_ref": "Jean-Philippe Mateta",
+          "position": "FW",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 78,
+            "passing": 58,
+            "dribbling": 66,
+            "physical": 76,
+            "defense": 32
+          }
+        },
+        {
+          "id": "CRY14",
+          "skipper_name": "Remi Matthews",
+          "real_ref": "Remi Matthews",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "CRY15",
+          "skipper_name": "Tyrick Mitchell",
+          "real_ref": "Tyrick Mitchell",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "CRY16",
+          "skipper_name": "Daniel Munoz",
+          "real_ref": "Daniel Munoz",
+          "position": "DF",
+          "nationality": "COL",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 60,
+            "physical": 70,
+            "defense": 72
+          }
+        },
+        {
+          "id": "CRY17",
+          "skipper_name": "Eddie Nketiah",
+          "real_ref": "Eddie Nketiah",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 76,
+            "passing": 60,
+            "dribbling": 70,
+            "physical": 66,
+            "defense": 35
+          }
+        },
+        {
+          "id": "CRY18",
+          "skipper_name": "Yeremy Pino",
+          "real_ref": "Yeremy Pino",
+          "position": "FW",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 70,
+            "passing": 64,
+            "dribbling": 76,
+            "physical": 60,
+            "defense": 36
+          }
+        },
+        {
+          "id": "CRY19",
+          "skipper_name": "Chadi Riad",
+          "real_ref": "Chadi Riad",
+          "position": "DF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 50,
+            "physical": 78,
+            "defense": 78
+          }
+        },
+        {
+          "id": "CRY20",
+          "skipper_name": "Chris Richards",
+          "real_ref": "Chris Richards",
+          "position": "DF",
+          "nationality": "USA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 36,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 74,
+            "defense": 76
+          }
+        },
+        {
+          "id": "CRY21",
+          "skipper_name": "Ismaila Sarr",
+          "real_ref": "Ismaila Sarr",
+          "position": "FW",
+          "nationality": "SEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 90,
+            "shooting": 70,
+            "passing": 62,
+            "dribbling": 80,
+            "physical": 64,
+            "defense": 36
+          }
+        },
+        {
+          "id": "CRY22",
+          "skipper_name": "Borna Sosa",
+          "real_ref": "Borna Sosa",
+          "position": "DF",
+          "nationality": "CRO",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 46,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 66,
+            "defense": 68
+          }
+        },
+        {
+          "id": "CRY23",
+          "skipper_name": "Chris Uche",
+          "real_ref": "Christantus Uche",
+          "position": "FW",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 70,
+            "physical": 60,
+            "defense": 32
+          }
+        },
+        {
+          "id": "CRY24",
+          "skipper_name": "Adam Warton",
+          "real_ref": "Adam Wharton",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 56,
+            "passing": 80,
+            "dribbling": 64,
+            "physical": 74,
+            "defense": 76
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "everton",
+      "team_name": "Merseyside Blues",
+      "pl_finish": 13,
+      "primary_color": "#003399",
+      "players": [
+        {
+          "id": "EVE01",
+          "skipper_name": "Carlos Alcaraz",
+          "real_ref": "Carlos Alcaraz",
+          "position": "MF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 62,
+            "passing": 68,
+            "dribbling": 66,
+            "physical": 68,
+            "defense": 58
+          }
+        },
+        {
+          "id": "EVE02",
+          "skipper_name": "Thierno Barry",
+          "real_ref": "Thierno Barry",
+          "position": "FW",
+          "nationality": "GUI",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 68,
+            "passing": 56,
+            "dribbling": 66,
+            "physical": 66,
+            "defense": 30
+          }
+        },
+        {
+          "id": "EVE03",
+          "skipper_name": "Jarrad Branth",
+          "real_ref": "Jarrad Branthwaite",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 44,
+            "passing": 66,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "EVE04",
+          "skipper_name": "Seamus Coleman",
+          "real_ref": "Seamus Coleman",
+          "position": "DF",
+          "nationality": "IRL",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 58,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "EVE05",
+          "skipper_name": "K. Dewsbury",
+          "real_ref": "Kiernan Dewsbury-Hall",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 68,
+            "passing": 78,
+            "dribbling": 72,
+            "physical": 74,
+            "defense": 68
+          }
+        },
+        {
+          "id": "EVE06",
+          "skipper_name": "James Garner",
+          "real_ref": "James Garner",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 60,
+            "passing": 74,
+            "dribbling": 64,
+            "physical": 70,
+            "defense": 66
+          }
+        },
+        {
+          "id": "EVE07",
+          "skipper_name": "Berce Gomes",
+          "real_ref": "Berce Gomes",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 58,
+            "passing": 68,
+            "dribbling": 60,
+            "physical": 64,
+            "defense": 56
+          }
+        },
+        {
+          "id": "EVE08",
+          "skipper_name": "Jack Grealish",
+          "real_ref": "Jack Grealish",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 76,
+            "dribbling": 88,
+            "physical": 68,
+            "defense": 42
+          }
+        },
+        {
+          "id": "EVE09",
+          "skipper_name": "Idrissa Gueye",
+          "real_ref": "Idrissa Gueye",
+          "position": "MF",
+          "nationality": "SEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 60,
+            "passing": 74,
+            "dribbling": 66,
+            "physical": 78,
+            "defense": 74
+          }
+        },
+        {
+          "id": "EVE10",
+          "skipper_name": "Tim Iroegbnam",
+          "real_ref": "Tim Iroegbunam",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 56,
+            "passing": 68,
+            "dribbling": 62,
+            "physical": 74,
+            "defense": 66
+          }
+        },
+        {
+          "id": "EVE11",
+          "skipper_name": "Michael Keane",
+          "real_ref": "Michael Keane",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 42,
+            "passing": 64,
+            "dribbling": 44,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "EVE12",
+          "skipper_name": "Tom King",
+          "real_ref": "Thomas King",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 72
+          }
+        },
+        {
+          "id": "EVE13",
+          "skipper_name": "Dwight McNeil",
+          "real_ref": "Dwight McNeil",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 68,
+            "dribbling": 74,
+            "physical": 62,
+            "defense": 40
+          }
+        },
+        {
+          "id": "EVE14",
+          "skipper_name": "Vitali Mykolnko",
+          "real_ref": "Vitaliy Mykolenko",
+          "position": "DF",
+          "nationality": "UKR",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 44,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "EVE15",
+          "skipper_name": "Iliman Ndiaye",
+          "real_ref": "Iliman Ndiaye",
+          "position": "FW",
+          "nationality": "SEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 70,
+            "passing": 66,
+            "dribbling": 80,
+            "physical": 62,
+            "defense": 38
+          }
+        },
+        {
+          "id": "EVE16",
+          "skipper_name": "Jake O'Brien",
+          "real_ref": "Jake O'Brien",
+          "position": "DF",
+          "nationality": "IRL",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "EVE17",
+          "skipper_name": "Nathan Patterson",
+          "real_ref": "Nathan Patterson",
+          "position": "DF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 46,
+            "passing": 66,
+            "dribbling": 62,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "EVE18",
+          "skipper_name": "Jordan Pickford",
+          "real_ref": "Jordan Pickford",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 18,
+            "passing": 66,
+            "dribbling": 28,
+            "physical": 72,
+            "defense": 84
+          }
+        },
+        {
+          "id": "EVE19",
+          "skipper_name": "Merlin Rohl",
+          "real_ref": "Merlin Rohl",
+          "position": "MF",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 58,
+            "passing": 68,
+            "dribbling": 62,
+            "physical": 66,
+            "defense": 58
+          }
+        },
+        {
+          "id": "EVE20",
+          "skipper_name": "James Tarkowsk",
+          "real_ref": "James Tarkowski",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 44,
+            "physical": 82,
+            "defense": 82
+          }
+        },
+        {
+          "id": "EVE21",
+          "skipper_name": "Mark Travers",
+          "real_ref": "Mark Travers",
+          "position": "GK",
+          "nationality": "IRL",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 13,
+            "passing": 60,
+            "dribbling": 22,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "EVE22",
+          "skipper_name": "Reece Welch",
+          "real_ref": "Reece Welch",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 74,
+            "defense": 74
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "fulham",
+      "team_name": "West London Cottagers",
+      "pl_finish": 11,
+      "primary_color": "#CC0000",
+      "players": [
+        {
+          "id": "FUL01",
+          "skipper_name": "Joachim Anders",
+          "real_ref": "Joachim Andersen",
+          "position": "DF",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 44,
+            "passing": 72,
+            "dribbling": 52,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "FUL02",
+          "skipper_name": "Calvin Bassey",
+          "real_ref": "Calvin Bassey",
+          "position": "DF",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 36,
+            "passing": 62,
+            "dribbling": 48,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "FUL03",
+          "skipper_name": "Sander Berge",
+          "real_ref": "Sander Berge",
+          "position": "MF",
+          "nationality": "NOR",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 60,
+            "passing": 74,
+            "dribbling": 62,
+            "physical": 78,
+            "defense": 68
+          }
+        },
+        {
+          "id": "FUL04",
+          "skipper_name": "Oscar Bobb",
+          "real_ref": "Oscar Bobb",
+          "position": "FW",
+          "nationality": "NOR",
+          "loan_status": "loan_in(ManCity)",
+          "stats": {
+            "speed": 86,
+            "shooting": 68,
+            "passing": 64,
+            "dribbling": 80,
+            "physical": 58,
+            "defense": 34
+          }
+        },
+        {
+          "id": "FUL05",
+          "skipper_name": "Alex Borto",
+          "real_ref": "Alex Borto",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 36,
+            "passing": 60,
+            "dribbling": 44,
+            "physical": 66,
+            "defense": 64
+          }
+        },
+        {
+          "id": "FUL06",
+          "skipper_name": "Tom Cairney",
+          "real_ref": "Tom Cairney",
+          "position": "MF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 62,
+            "passing": 76,
+            "dribbling": 64,
+            "physical": 66,
+            "defense": 56
+          }
+        },
+        {
+          "id": "FUL07",
+          "skipper_name": "Timothy Castagne",
+          "real_ref": "Timothy Castagne",
+          "position": "DF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 46,
+            "passing": 68,
+            "dribbling": 62,
+            "physical": 70,
+            "defense": 72
+          }
+        },
+        {
+          "id": "FUL08",
+          "skipper_name": "Samuel Chukwueze",
+          "real_ref": "Samuel Chukwueze",
+          "position": "FW",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 70,
+            "passing": 62,
+            "dribbling": 78,
+            "physical": 60,
+            "defense": 34
+          }
+        },
+        {
+          "id": "FUL09",
+          "skipper_name": "Jorge Cuenca",
+          "real_ref": "Jorge Cuenca",
+          "position": "DF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 46,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "FUL10",
+          "skipper_name": "Issa Diop",
+          "real_ref": "Issa Diop",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "FUL11",
+          "skipper_name": "Alex Iwobi",
+          "real_ref": "Alex Iwobi",
+          "position": "MF",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 72,
+            "dribbling": 76,
+            "physical": 66,
+            "defense": 48
+          }
+        },
+        {
+          "id": "FUL12",
+          "skipper_name": "Raul Jimenez",
+          "real_ref": "Raul Jimenez",
+          "position": "FW",
+          "nationality": "MEX",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 76,
+            "passing": 60,
+            "dribbling": 66,
+            "physical": 74,
+            "defense": 32
+          }
+        },
+        {
+          "id": "FUL13",
+          "skipper_name": "Benj. Lecomte",
+          "real_ref": "Benjamin Lecomte",
+          "position": "GK",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 13,
+            "passing": 60,
+            "dribbling": 22,
+            "physical": 70,
+            "defense": 78
+          }
+        },
+        {
+          "id": "FUL14",
+          "skipper_name": "Bernd Leno",
+          "real_ref": "Bernd Leno",
+          "position": "GK",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 16,
+            "passing": 66,
+            "dribbling": 26,
+            "physical": 72,
+            "defense": 84
+          }
+        },
+        {
+          "id": "FUL15",
+          "skipper_name": "Sasa Lukic",
+          "real_ref": "Sasa Lukic",
+          "position": "MF",
+          "nationality": "SRB",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 62,
+            "passing": 72,
+            "dribbling": 62,
+            "physical": 72,
+            "defense": 62
+          }
+        },
+        {
+          "id": "FUL16",
+          "skipper_name": "Rodrigo Muniz",
+          "real_ref": "Rodrigo Muniz",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 78,
+            "passing": 58,
+            "dribbling": 64,
+            "physical": 76,
+            "defense": 32
+          }
+        },
+        {
+          "id": "FUL17",
+          "skipper_name": "Harrison Reed",
+          "real_ref": "Harrison Reed",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 56,
+            "passing": 72,
+            "dribbling": 60,
+            "physical": 70,
+            "defense": 68
+          }
+        },
+        {
+          "id": "FUL18",
+          "skipper_name": "Antonee Robin",
+          "real_ref": "Antonee Robinson",
+          "position": "DF",
+          "nationality": "USA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 46,
+            "passing": 66,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 70
+          }
+        },
+        {
+          "id": "FUL19",
+          "skipper_name": "Kevin Santos",
+          "real_ref": "Kevin Santos",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 62,
+            "passing": 70,
+            "dribbling": 64,
+            "physical": 66,
+            "defense": 58
+          }
+        },
+        {
+          "id": "FUL20",
+          "skipper_name": "Ryan Sessegnon",
+          "real_ref": "Ryan Sessegnon",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 52,
+            "passing": 66,
+            "dribbling": 68,
+            "physical": 66,
+            "defense": 68
+          }
+        },
+        {
+          "id": "FUL21",
+          "skipper_name": "Emile S-Rowe",
+          "real_ref": "Emile Smith Rowe",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 68,
+            "passing": 76,
+            "dribbling": 74,
+            "physical": 62,
+            "defense": 52
+          }
+        },
+        {
+          "id": "FUL22",
+          "skipper_name": "Kenny Tete",
+          "real_ref": "Kenny Tete",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "FUL23",
+          "skipper_name": "Harry Wilson",
+          "real_ref": "Harry Wilson",
+          "position": "MF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 66,
+            "passing": 70,
+            "dribbling": 68,
+            "physical": 60,
+            "defense": 50
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "leeds",
+      "team_name": "Yorkshire Whites",
+      "pl_finish": 14,
+      "primary_color": "#FFCD00",
+      "players": [
+        {
+          "id": "LEE01",
+          "skipper_name": "Brenden Aaronson",
+          "real_ref": "Brenden Aaronson",
+          "position": "MF",
+          "nationality": "USA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 64,
+            "passing": 68,
+            "dribbling": 68,
+            "physical": 64,
+            "defense": 54
+          }
+        },
+        {
+          "id": "LEE02",
+          "skipper_name": "Ethan Ampadu",
+          "real_ref": "Ethan Ampadu",
+          "position": "MF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 58,
+            "passing": 72,
+            "dribbling": 62,
+            "physical": 74,
+            "defense": 68
+          }
+        },
+        {
+          "id": "LEE03",
+          "skipper_name": "Jaka Bijol",
+          "real_ref": "Jaka Bijol",
+          "position": "DF",
+          "nationality": "SVN",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "LEE04",
+          "skipper_name": "Jayden Bogle",
+          "real_ref": "Jayden Bogle",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 40,
+            "passing": 58,
+            "dribbling": 54,
+            "physical": 64,
+            "defense": 64
+          }
+        },
+        {
+          "id": "LEE05",
+          "skipper_name": "Seb Bornauw",
+          "real_ref": "Sebastiaan Bornauw",
+          "position": "DF",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 46,
+            "physical": 80,
+            "defense": 78
+          }
+        },
+        {
+          "id": "LEE06",
+          "skipper_name": "Sam Byram",
+          "real_ref": "Sam Byram",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 36,
+            "passing": 56,
+            "dribbling": 44,
+            "physical": 62,
+            "defense": 62
+          }
+        },
+        {
+          "id": "LEE07",
+          "skipper_name": "Alex Cairns",
+          "real_ref": "Alex Cairns",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 72
+          }
+        },
+        {
+          "id": "LEE08",
+          "skipper_name": "Dom C-Lewin",
+          "real_ref": "Dominic Calvert-Lewin",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 76,
+            "passing": 58,
+            "dribbling": 64,
+            "physical": 76,
+            "defense": 34
+          }
+        },
+        {
+          "id": "LEE09",
+          "skipper_name": "Karl Darlow",
+          "real_ref": "Karl Darlow",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 70,
+            "defense": 82
+          }
+        },
+        {
+          "id": "LEE10",
+          "skipper_name": "Wilfrid Gnonto",
+          "real_ref": "Wilfried Gnonto",
+          "position": "FW",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 64,
+            "passing": 60,
+            "dribbling": 74,
+            "physical": 58,
+            "defense": 34
+          }
+        },
+        {
+          "id": "LEE11",
+          "skipper_name": "Ilia Gruev",
+          "real_ref": "Ilia Gruev",
+          "position": "MF",
+          "nationality": "BUL",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 56,
+            "passing": 68,
+            "dribbling": 58,
+            "physical": 74,
+            "defense": 66
+          }
+        },
+        {
+          "id": "LEE12",
+          "skipper_name": "Gabriel Gudmund",
+          "real_ref": "Gabriel Gudmundsson",
+          "position": "DF",
+          "nationality": "ISL",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 42,
+            "passing": 64,
+            "dribbling": 54,
+            "physical": 68,
+            "defense": 68
+          }
+        },
+        {
+          "id": "LEE13",
+          "skipper_name": "Dan James",
+          "real_ref": "Dan James",
+          "position": "FW",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 60,
+            "passing": 56,
+            "dribbling": 70,
+            "physical": 60,
+            "defense": 32
+          }
+        },
+        {
+          "id": "LEE14",
+          "skipper_name": "James Justin",
+          "real_ref": "James Justin",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "LEE15",
+          "skipper_name": "Sean Longstaff",
+          "real_ref": "Sean Longstaff",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 62,
+            "passing": 72,
+            "dribbling": 62,
+            "physical": 76,
+            "defense": 70
+          }
+        },
+        {
+          "id": "LEE16",
+          "skipper_name": "Illan Meslier",
+          "real_ref": "Illan Meslier",
+          "position": "GK",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 24,
+            "physical": 70,
+            "defense": 80
+          }
+        },
+        {
+          "id": "LEE17",
+          "skipper_name": "Lukas Nmecha",
+          "real_ref": "Lukas Nmecha",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 70,
+            "passing": 56,
+            "dribbling": 66,
+            "physical": 70,
+            "defense": 30
+          }
+        },
+        {
+          "id": "LEE18",
+          "skipper_name": "Noah Okafor",
+          "real_ref": "Noah Okafor",
+          "position": "FW",
+          "nationality": "SUI",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 70,
+            "passing": 60,
+            "dribbling": 72,
+            "physical": 64,
+            "defense": 32
+          }
+        },
+        {
+          "id": "LEE19",
+          "skipper_name": "Lucas Perri",
+          "real_ref": "Lucas Perri",
+          "position": "GK",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 13,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 76
+          }
+        },
+        {
+          "id": "LEE20",
+          "skipper_name": "Joel Piroe",
+          "real_ref": "Joel Piroe",
+          "position": "FW",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 74,
+            "passing": 56,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 28
+          }
+        },
+        {
+          "id": "LEE21",
+          "skipper_name": "Joe Rodon",
+          "real_ref": "Joe Rodon",
+          "position": "DF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 46,
+            "physical": 76,
+            "defense": 78
+          }
+        },
+        {
+          "id": "LEE22",
+          "skipper_name": "Anton Stach",
+          "real_ref": "Anton Stach",
+          "position": "MF",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 64,
+            "passing": 76,
+            "dribbling": 62,
+            "physical": 74,
+            "defense": 72
+          }
+        },
+        {
+          "id": "LEE23",
+          "skipper_name": "Pascal Struijk",
+          "real_ref": "Pascal Struijk",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 36,
+            "passing": 62,
+            "dribbling": 44,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "LEE24",
+          "skipper_name": "Ao Tanaka",
+          "real_ref": "Ao Tanaka",
+          "position": "MF",
+          "nationality": "JPN",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 58,
+            "passing": 70,
+            "dribbling": 60,
+            "physical": 70,
+            "defense": 66
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "liverpool",
+      "team_name": "Riverside Reds",
+      "pl_finish": 5,
+      "primary_color": "#C8102E",
+      "players": [
+        {
+          "id": "LIV01",
+          "skipper_name": "Owen Beck",
+          "real_ref": "Owen Beck",
+          "position": "DF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 44,
+            "passing": 62,
+            "dribbling": 54,
+            "physical": 62,
+            "defense": 64
+          }
+        },
+        {
+          "id": "LIV02",
+          "skipper_name": "Alisson B.",
+          "real_ref": "Alisson Becker",
+          "position": "GK",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 18,
+            "passing": 72,
+            "dribbling": 28,
+            "physical": 75,
+            "defense": 90
+          }
+        },
+        {
+          "id": "LIV03",
+          "skipper_name": "Conor Bradly",
+          "real_ref": "Conor Bradley",
+          "position": "DF",
+          "nationality": "NIR",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 52,
+            "passing": 72,
+            "dribbling": 68,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "LIV04",
+          "skipper_name": "Fede Chesa",
+          "real_ref": "Federico Chiesa",
+          "position": "FW",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 76,
+            "passing": 68,
+            "dribbling": 82,
+            "physical": 66,
+            "defense": 40
+          }
+        },
+        {
+          "id": "LIV05",
+          "skipper_name": "Harvey Davies",
+          "real_ref": "Harvey Davies",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 70
+          }
+        },
+        {
+          "id": "LIV06",
+          "skipper_name": "Hugo Ekitike",
+          "real_ref": "Hugo Ekitike",
+          "position": "FW",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 76,
+            "passing": 60,
+            "dribbling": 76,
+            "physical": 70,
+            "defense": 32
+          }
+        },
+        {
+          "id": "LIV07",
+          "skipper_name": "Watari Endo",
+          "real_ref": "Wataru Endo",
+          "position": "MF",
+          "nationality": "JPN",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 58,
+            "passing": 74,
+            "dribbling": 64,
+            "physical": 82,
+            "defense": 80
+          }
+        },
+        {
+          "id": "LIV08",
+          "skipper_name": "Jeremie Frimpong",
+          "real_ref": "Jeremie Frimpong",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 56,
+            "passing": 70,
+            "dribbling": 72,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "LIV09",
+          "skipper_name": "Cody Gakpoo",
+          "real_ref": "Cody Gakpo",
+          "position": "FW",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 76,
+            "passing": 68,
+            "dribbling": 80,
+            "physical": 70,
+            "defense": 40
+          }
+        },
+        {
+          "id": "LIV10",
+          "skipper_name": "Joe Gomez",
+          "real_ref": "Joe Gomez",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 38,
+            "passing": 68,
+            "dribbling": 55,
+            "physical": 78,
+            "defense": 82
+          }
+        },
+        {
+          "id": "LIV11",
+          "skipper_name": "Ryan Graven",
+          "real_ref": "Ryan Gravenberch",
+          "position": "MF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 65,
+            "passing": 80,
+            "dribbling": 76,
+            "physical": 80,
+            "defense": 70
+          }
+        },
+        {
+          "id": "LIV12",
+          "skipper_name": "Alex Isak",
+          "real_ref": "Alexander Isak",
+          "position": "FW",
+          "nationality": "SWE",
+          "loan_status": "transferred_in(ex-Newcastle)",
+          "stats": {
+            "speed": 88,
+            "shooting": 86,
+            "passing": 66,
+            "dribbling": 80,
+            "physical": 74,
+            "defense": 35
+          }
+        },
+        {
+          "id": "LIV13",
+          "skipper_name": "Curtis Joens",
+          "real_ref": "Curtis Jones",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 68,
+            "passing": 76,
+            "dribbling": 74,
+            "physical": 70,
+            "defense": 62
+          }
+        },
+        {
+          "id": "LIV14",
+          "skipper_name": "Milos Kerkez",
+          "real_ref": "Milos Kerkez",
+          "position": "DF",
+          "nationality": "HUN",
+          "loan_status": "transferred_in(ex-Bournemouth)",
+          "stats": {
+            "speed": 82,
+            "shooting": 48,
+            "passing": 68,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "LIV15",
+          "skipper_name": "Ibrahim Konat",
+          "real_ref": "Ibrahima Konate",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 42,
+            "passing": 68,
+            "dribbling": 52,
+            "physical": 88,
+            "defense": 86
+          }
+        },
+        {
+          "id": "LIV16",
+          "skipper_name": "Alexis Macal",
+          "real_ref": "Alexis Mac Allister",
+          "position": "MF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 72,
+            "passing": 84,
+            "dribbling": 76,
+            "physical": 76,
+            "defense": 72
+          }
+        },
+        {
+          "id": "LIV17",
+          "skipper_name": "Giorgi Mamard",
+          "real_ref": "Giorgi Mamardashvili",
+          "position": "GK",
+          "nationality": "GEO",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 15,
+            "passing": 62,
+            "dribbling": 24,
+            "physical": 74,
+            "defense": 84
+          }
+        },
+        {
+          "id": "LIV18",
+          "skipper_name": "Calvin Ramsay",
+          "real_ref": "Calvin Ramsay",
+          "position": "DF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 42,
+            "passing": 64,
+            "dribbling": 56,
+            "physical": 64,
+            "defense": 66
+          }
+        },
+        {
+          "id": "LIV19",
+          "skipper_name": "Andy Robson",
+          "real_ref": "Andrew Robertson",
+          "position": "DF",
+          "nationality": "SCO",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 55,
+            "passing": 78,
+            "dribbling": 70,
+            "physical": 74,
+            "defense": 76
+          }
+        },
+        {
+          "id": "LIV20",
+          "skipper_name": "Mo Salah",
+          "real_ref": "Mohamed Salah",
+          "position": "FW",
+          "nationality": "EGY",
+          "loan_status": null,
+          "stats": {
+            "speed": 90,
+            "shooting": 92,
+            "passing": 78,
+            "dribbling": 90,
+            "physical": 70,
+            "defense": 45
+          }
+        },
+        {
+          "id": "LIV21",
+          "skipper_name": "Domink Szobos",
+          "real_ref": "Dominik Szoboszlai",
+          "position": "MF",
+          "nationality": "HUN",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 78,
+            "passing": 82,
+            "dribbling": 80,
+            "physical": 74,
+            "defense": 62
+          }
+        },
+        {
+          "id": "LIV22",
+          "skipper_name": "Virgil V.D.",
+          "real_ref": "Virgil van Dijk",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 60,
+            "passing": 78,
+            "dribbling": 55,
+            "physical": 90,
+            "defense": 92
+          }
+        },
+        {
+          "id": "LIV23",
+          "skipper_name": "Rhys Williams",
+          "real_ref": "Rhys Williams",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 34,
+            "passing": 60,
+            "dribbling": 40,
+            "physical": 72,
+            "defense": 68
+          }
+        },
+        {
+          "id": "LIV24",
+          "skipper_name": "Florian Wirtz",
+          "real_ref": "Florian Wirtz",
+          "position": "MF",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 80,
+            "passing": 86,
+            "dribbling": 86,
+            "physical": 64,
+            "defense": 54
+          }
+        },
+        {
+          "id": "LIV25",
+          "skipper_name": "Fred Woodman",
+          "real_ref": "Freddie Woodman",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 74
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "mancity",
+      "team_name": "Sky Blue Citizens",
+      "pl_finish": 2,
+      "primary_color": "#6CABDD",
+      "players": [
+        {
+          "id": "MCI01",
+          "skipper_name": "Rayan Ait-Nuri",
+          "real_ref": "Rayan Ait-Nouri",
+          "position": "DF",
+          "nationality": "ALG",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 50,
+            "passing": 68,
+            "dribbling": 68,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "MCI02",
+          "skipper_name": "Nathan Ake",
+          "real_ref": "Nathan Ake",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 44,
+            "passing": 72,
+            "dribbling": 56,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "MCI03",
+          "skipper_name": "Marcus Betting",
+          "real_ref": "Marcus Bettinelli",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "MCI04",
+          "skipper_name": "Rayan Cherki",
+          "real_ref": "Rayan Cherki",
+          "position": "MF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 74,
+            "passing": 80,
+            "dribbling": 84,
+            "physical": 62,
+            "defense": 50
+          }
+        },
+        {
+          "id": "MCI05",
+          "skipper_name": "Jeremy Doku",
+          "real_ref": "Jeremy Doku",
+          "position": "FW",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 94,
+            "shooting": 74,
+            "passing": 70,
+            "dribbling": 92,
+            "physical": 62,
+            "defense": 38
+          }
+        },
+        {
+          "id": "MCI06",
+          "skipper_name": "Gigi Donnarumma",
+          "real_ref": "Gianluigi Donnarumma",
+          "position": "GK",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 16,
+            "passing": 68,
+            "dribbling": 26,
+            "physical": 76,
+            "defense": 88
+          }
+        },
+        {
+          "id": "MCI07",
+          "skipper_name": "Ruben Diaz",
+          "real_ref": "Ruben Dias",
+          "position": "DF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 45,
+            "passing": 76,
+            "dribbling": 55,
+            "physical": 86,
+            "defense": 91
+          }
+        },
+        {
+          "id": "MCI08",
+          "skipper_name": "Phil Foden",
+          "real_ref": "Phil Foden",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 82,
+            "passing": 84,
+            "dribbling": 88,
+            "physical": 64,
+            "defense": 52
+          }
+        },
+        {
+          "id": "MCI09",
+          "skipper_name": "Nicolas Gonz",
+          "real_ref": "Nicolas Gonzalez",
+          "position": "FW",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 72,
+            "passing": 64,
+            "dribbling": 74,
+            "physical": 66,
+            "defense": 36
+          }
+        },
+        {
+          "id": "MCI10",
+          "skipper_name": "Marc Guehi",
+          "real_ref": "Marc Guehi",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": "transferred_in(Jan2026,ex-CrystalPalace)",
+          "stats": {
+            "speed": 74,
+            "shooting": 42,
+            "passing": 68,
+            "dribbling": 54,
+            "physical": 78,
+            "defense": 84
+          }
+        },
+        {
+          "id": "MCI11",
+          "skipper_name": "Josko Gvardol",
+          "real_ref": "Josko Gvardiol",
+          "position": "DF",
+          "nationality": "CRO",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 58,
+            "passing": 74,
+            "dribbling": 65,
+            "physical": 84,
+            "defense": 84
+          }
+        },
+        {
+          "id": "MCI12",
+          "skipper_name": "Erlin Holand",
+          "real_ref": "Erling Haaland",
+          "position": "FW",
+          "nationality": "NOR",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 95,
+            "passing": 60,
+            "dribbling": 72,
+            "physical": 88,
+            "defense": 30
+          }
+        },
+        {
+          "id": "MCI13",
+          "skipper_name": "Rodri H.",
+          "real_ref": "Rodri",
+          "position": "MF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 68,
+            "passing": 90,
+            "dribbling": 72,
+            "physical": 85,
+            "defense": 85
+          }
+        },
+        {
+          "id": "MCI14",
+          "skipper_name": "Mateo Kovacic",
+          "real_ref": "Mateo Kovacic",
+          "position": "MF",
+          "nationality": "CRO",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 66,
+            "passing": 82,
+            "dribbling": 74,
+            "physical": 70,
+            "defense": 66
+          }
+        },
+        {
+          "id": "MCI15",
+          "skipper_name": "Omar Marmoush",
+          "real_ref": "Omar Marmoush",
+          "position": "FW",
+          "nationality": "EGY",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 78,
+            "passing": 68,
+            "dribbling": 78,
+            "physical": 68,
+            "defense": 36
+          }
+        },
+        {
+          "id": "MCI16",
+          "skipper_name": "Bernardo S.",
+          "real_ref": "Bernardo Silva",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 76,
+            "passing": 88,
+            "dribbling": 86,
+            "physical": 66,
+            "defense": 64
+          }
+        },
+        {
+          "id": "MCI17",
+          "skipper_name": "Matheo Nunes",
+          "real_ref": "Matheus Nunes",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 65,
+            "passing": 78,
+            "dribbling": 80,
+            "physical": 76,
+            "defense": 68
+          }
+        },
+        {
+          "id": "MCI18",
+          "skipper_name": "Tijjani Reijnders",
+          "real_ref": "Tijjani Reijnders",
+          "position": "MF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 82,
+            "dribbling": 76,
+            "physical": 72,
+            "defense": 66
+          }
+        },
+        {
+          "id": "MCI19",
+          "skipper_name": "Antoine Semeny",
+          "real_ref": "Antoine Semenyo",
+          "position": "FW",
+          "nationality": "GHA",
+          "loan_status": "transferred_in(Jan2026,ex-Bournemouth)",
+          "stats": {
+            "speed": 88,
+            "shooting": 72,
+            "passing": 62,
+            "dribbling": 80,
+            "physical": 68,
+            "defense": 38
+          }
+        },
+        {
+          "id": "MCI20",
+          "skipper_name": "John Stohns",
+          "real_ref": "John Stones",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 48,
+            "passing": 78,
+            "dribbling": 60,
+            "physical": 80,
+            "defense": 86
+          }
+        },
+        {
+          "id": "MCI21",
+          "skipper_name": "James Trafford",
+          "real_ref": "James Trafford",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 78
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "manutd",
+      "team_name": "Red Theatre Devils",
+      "pl_finish": 3,
+      "primary_color": "#DA020E",
+      "players": [
+        {
+          "id": "MUN01",
+          "skipper_name": "Altay Bayindir",
+          "real_ref": "Altay Bayindir",
+          "position": "GK",
+          "nationality": "TUR",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 78
+          }
+        },
+        {
+          "id": "MUN02",
+          "skipper_name": "Bruno Fernandz",
+          "real_ref": "Bruno Fernandes",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 84,
+            "passing": 90,
+            "dribbling": 80,
+            "physical": 70,
+            "defense": 58
+          }
+        },
+        {
+          "id": "MUN03",
+          "skipper_name": "Casemiro K.",
+          "real_ref": "Casemiro",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 65,
+            "passing": 78,
+            "dribbling": 65,
+            "physical": 86,
+            "defense": 86
+          }
+        },
+        {
+          "id": "MUN04",
+          "skipper_name": "Diogo Dalot",
+          "real_ref": "Diogo Dalot",
+          "position": "DF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 55,
+            "passing": 72,
+            "dribbling": 70,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "MUN05",
+          "skipper_name": "Matthijs D.L.",
+          "real_ref": "Matthijs de Ligt",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 42,
+            "passing": 72,
+            "dribbling": 52,
+            "physical": 85,
+            "defense": 87
+          }
+        },
+        {
+          "id": "MUN06",
+          "skipper_name": "Amad Diallo",
+          "real_ref": "Amad Diallo",
+          "position": "FW",
+          "nationality": "CIV",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 72,
+            "passing": 64,
+            "dribbling": 78,
+            "physical": 60,
+            "defense": 36
+          }
+        },
+        {
+          "id": "MUN07",
+          "skipper_name": "Tom Heaton",
+          "real_ref": "Tom Heaton",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "MUN08",
+          "skipper_name": "Senne Lammens",
+          "real_ref": "Senne Lammens",
+          "position": "GK",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "MUN09",
+          "skipper_name": "Harry Magwire",
+          "real_ref": "Harry Maguire",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 50,
+            "passing": 68,
+            "dribbling": 45,
+            "physical": 84,
+            "defense": 82
+          }
+        },
+        {
+          "id": "MUN10",
+          "skipper_name": "Tyrell Malacia",
+          "real_ref": "Tyrell Malacia",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 44,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "MUN11",
+          "skipper_name": "Lisandro M.",
+          "real_ref": "Lisandro Martinez",
+          "position": "DF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 42,
+            "passing": 72,
+            "dribbling": 55,
+            "physical": 86,
+            "defense": 88
+          }
+        },
+        {
+          "id": "MUN12",
+          "skipper_name": "Noussair Mazr",
+          "real_ref": "Noussair Mazraoui",
+          "position": "DF",
+          "nationality": "MAR",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 46,
+            "passing": 68,
+            "dribbling": 62,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "MUN13",
+          "skipper_name": "Bryan Mbuemo",
+          "real_ref": "Bryan Mbeumo",
+          "position": "FW",
+          "nationality": "CMR",
+          "loan_status": "transferred_in(summer2025,ex-Brentford)",
+          "stats": {
+            "speed": 88,
+            "shooting": 82,
+            "passing": 68,
+            "dribbling": 84,
+            "physical": 66,
+            "defense": 40
+          }
+        },
+        {
+          "id": "MUN14",
+          "skipper_name": "Dermot Mee",
+          "real_ref": "Dermot Mee",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 34,
+            "passing": 58,
+            "dribbling": 40,
+            "physical": 70,
+            "defense": 66
+          }
+        },
+        {
+          "id": "MUN15",
+          "skipper_name": "Mason Mount",
+          "real_ref": "Mason Mount",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 72,
+            "passing": 80,
+            "dribbling": 76,
+            "physical": 66,
+            "defense": 60
+          }
+        },
+        {
+          "id": "MUN16",
+          "skipper_name": "Matheus Cunha",
+          "real_ref": "Matheus Cunha",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 80,
+            "passing": 68,
+            "dribbling": 82,
+            "physical": 70,
+            "defense": 38
+          }
+        },
+        {
+          "id": "MUN17",
+          "skipper_name": "Benjamin Sesko",
+          "real_ref": "Benjamin Sesko",
+          "position": "FW",
+          "nationality": "SVN",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 80,
+            "passing": 58,
+            "dribbling": 70,
+            "physical": 78,
+            "defense": 30
+          }
+        },
+        {
+          "id": "MUN18",
+          "skipper_name": "Luke Shaw",
+          "real_ref": "Luke Shaw",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 50,
+            "passing": 74,
+            "dribbling": 66,
+            "physical": 74,
+            "defense": 76
+          }
+        },
+        {
+          "id": "MUN19",
+          "skipper_name": "Manuel Ugarte",
+          "real_ref": "Manuel Ugarte",
+          "position": "MF",
+          "nationality": "URU",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 60,
+            "passing": 74,
+            "dribbling": 64,
+            "physical": 82,
+            "defense": 78
+          }
+        },
+        {
+          "id": "MUN20",
+          "skipper_name": "Joshua Zirkzee",
+          "real_ref": "Joshua Zirkzee",
+          "position": "FW",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 74,
+            "passing": 66,
+            "dribbling": 70,
+            "physical": 70,
+            "defense": 32
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "newcastle",
+      "team_name": "Tyne Magpies",
+      "pl_finish": 12,
+      "primary_color": "#241F20",
+      "players": [
+        {
+          "id": "NEW01",
+          "skipper_name": "Joelinton C.",
+          "real_ref": "Joelinton",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 68,
+            "passing": 70,
+            "dribbling": 74,
+            "physical": 86,
+            "defense": 70
+          }
+        },
+        {
+          "id": "NEW02",
+          "skipper_name": "Harvey Barnes",
+          "real_ref": "Harvey Barnes",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 72,
+            "passing": 66,
+            "dribbling": 80,
+            "physical": 64,
+            "defense": 38
+          }
+        },
+        {
+          "id": "NEW03",
+          "skipper_name": "Sven Botman",
+          "real_ref": "Sven Botman",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 70,
+            "dribbling": 50,
+            "physical": 82,
+            "defense": 85
+          }
+        },
+        {
+          "id": "NEW04",
+          "skipper_name": "Dan Burn",
+          "real_ref": "Dan Burn",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 42,
+            "passing": 66,
+            "dribbling": 44,
+            "physical": 82,
+            "defense": 80
+          }
+        },
+        {
+          "id": "NEW05",
+          "skipper_name": "Anthony Elanga",
+          "real_ref": "Anthony Elanga",
+          "position": "FW",
+          "nationality": "SWE",
+          "loan_status": "transferred_in(ex-NottmForest)",
+          "stats": {
+            "speed": 90,
+            "shooting": 68,
+            "passing": 62,
+            "dribbling": 80,
+            "physical": 62,
+            "defense": 36
+          }
+        },
+        {
+          "id": "NEW06",
+          "skipper_name": "Mark Gillespie",
+          "real_ref": "Mark Gillespie",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "NEW07",
+          "skipper_name": "Anthony Gordn",
+          "real_ref": "Anthony Gordon",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 76,
+            "passing": 70,
+            "dribbling": 84,
+            "physical": 66,
+            "defense": 44
+          }
+        },
+        {
+          "id": "NEW08",
+          "skipper_name": "Bruno Guimares",
+          "real_ref": "Bruno Guimaraes",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 72,
+            "passing": 86,
+            "dribbling": 78,
+            "physical": 82,
+            "defense": 76
+          }
+        },
+        {
+          "id": "NEW09",
+          "skipper_name": "Emil Kraft",
+          "real_ref": "Emil Kraft",
+          "position": "DF",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 54,
+            "physical": 72,
+            "defense": 74
+          }
+        },
+        {
+          "id": "NEW10",
+          "skipper_name": "Tino Livramento",
+          "real_ref": "Tino Livramento",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 48,
+            "passing": 70,
+            "dribbling": 68,
+            "physical": 68,
+            "defense": 74
+          }
+        },
+        {
+          "id": "NEW11",
+          "skipper_name": "Jacob Murphy",
+          "real_ref": "Jacob Murphy",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 60,
+            "dribbling": 72,
+            "physical": 60,
+            "defense": 36
+          }
+        },
+        {
+          "id": "NEW12",
+          "skipper_name": "William Osula",
+          "real_ref": "William Osula",
+          "position": "FW",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 54,
+            "dribbling": 64,
+            "physical": 68,
+            "defense": 28
+          }
+        },
+        {
+          "id": "NEW13",
+          "skipper_name": "Nick Pope",
+          "real_ref": "Nick Pope",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 60,
+            "shooting": 16,
+            "passing": 65,
+            "dribbling": 26,
+            "physical": 76,
+            "defense": 88
+          }
+        },
+        {
+          "id": "NEW14",
+          "skipper_name": "Aaron Ramsdale",
+          "real_ref": "Aaron Ramsdale",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 15,
+            "passing": 64,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "NEW15",
+          "skipper_name": "Jacob Ramsey",
+          "real_ref": "Jacob Ramsey",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": "transferred_in(summer2025,ex-AstonVilla)",
+          "stats": {
+            "speed": 78,
+            "shooting": 68,
+            "passing": 76,
+            "dribbling": 74,
+            "physical": 72,
+            "defense": 64
+          }
+        },
+        {
+          "id": "NEW16",
+          "skipper_name": "John Ruddy",
+          "real_ref": "John Ruddy",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 50,
+            "shooting": 11,
+            "passing": 54,
+            "dribbling": 18,
+            "physical": 68,
+            "defense": 70
+          }
+        },
+        {
+          "id": "NEW17",
+          "skipper_name": "Fabian Shaar",
+          "real_ref": "Fabian Schar",
+          "position": "DF",
+          "nationality": "SUI",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 52,
+            "passing": 76,
+            "dribbling": 55,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "NEW18",
+          "skipper_name": "Malick Thiaw",
+          "real_ref": "Malick Thiaw",
+          "position": "DF",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 38,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 82,
+            "defense": 82
+          }
+        },
+        {
+          "id": "NEW19",
+          "skipper_name": "Sandro Tonali",
+          "real_ref": "Sandro Tonali",
+          "position": "MF",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 66,
+            "passing": 80,
+            "dribbling": 72,
+            "physical": 76,
+            "defense": 70
+          }
+        },
+        {
+          "id": "NEW20",
+          "skipper_name": "Kieran Tripper",
+          "real_ref": "Kieran Trippier",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 65,
+            "passing": 82,
+            "dribbling": 68,
+            "physical": 72,
+            "defense": 76
+          }
+        },
+        {
+          "id": "NEW21",
+          "skipper_name": "Joe Willok",
+          "real_ref": "Joe Willock",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 65,
+            "passing": 70,
+            "dribbling": 70,
+            "physical": 72,
+            "defense": 60
+          }
+        },
+        {
+          "id": "NEW22",
+          "skipper_name": "Yoane Wissa",
+          "real_ref": "Yoane Wissa",
+          "position": "FW",
+          "nationality": "COD",
+          "loan_status": "transferred_in(summer2025,ex-Brentford)",
+          "stats": {
+            "speed": 86,
+            "shooting": 74,
+            "passing": 60,
+            "dribbling": 78,
+            "physical": 66,
+            "defense": 36
+          }
+        },
+        {
+          "id": "NEW23",
+          "skipper_name": "Nick Woltemade",
+          "real_ref": "Nick Woltemade",
+          "position": "FW",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 68,
+            "passing": 58,
+            "dribbling": 68,
+            "physical": 72,
+            "defense": 30
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "nottmforest",
+      "team_name": "Forest Tridents",
+      "pl_finish": 16,
+      "primary_color": "#DD0000",
+      "players": [
+        {
+          "id": "NFO01",
+          "skipper_name": "Ola Aina",
+          "real_ref": "Ola Aina",
+          "position": "DF",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 46,
+            "passing": 66,
+            "dribbling": 62,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "NFO02",
+          "skipper_name": "Elliot Andersn",
+          "real_ref": "Elliot Anderson",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 76,
+            "dribbling": 74,
+            "physical": 72,
+            "defense": 64
+          }
+        },
+        {
+          "id": "NFO03",
+          "skipper_name": "Taiwo Awoniyi",
+          "real_ref": "Taiwo Awoniyi",
+          "position": "FW",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 74,
+            "passing": 56,
+            "dribbling": 68,
+            "physical": 74,
+            "defense": 32
+          }
+        },
+        {
+          "id": "NFO04",
+          "skipper_name": "Dilane Bakwa",
+          "real_ref": "Dilane Bakwa",
+          "position": "FW",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 62,
+            "passing": 58,
+            "dribbling": 70,
+            "physical": 58,
+            "defense": 30
+          }
+        },
+        {
+          "id": "NFO05",
+          "skipper_name": "Murillo D.",
+          "real_ref": "Murillo",
+          "position": "DF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 52,
+            "physical": 78,
+            "defense": 82
+          }
+        },
+        {
+          "id": "NFO06",
+          "skipper_name": "Nicolas D.",
+          "real_ref": "Nicolas Dominguez",
+          "position": "MF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 60,
+            "passing": 72,
+            "dribbling": 64,
+            "physical": 72,
+            "defense": 66
+          }
+        },
+        {
+          "id": "NFO07",
+          "skipper_name": "Morgan G-White",
+          "real_ref": "Morgan Gibbs-White",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 70,
+            "passing": 78,
+            "dribbling": 78,
+            "physical": 66,
+            "defense": 56
+          }
+        },
+        {
+          "id": "NFO08",
+          "skipper_name": "Omari Giraud",
+          "real_ref": "Omari Giraud-Hutchinson",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 70,
+            "physical": 62,
+            "defense": 32
+          }
+        },
+        {
+          "id": "NFO09",
+          "skipper_name": "Angus Gunn",
+          "real_ref": "Angus Gunn",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 13,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 78
+          }
+        },
+        {
+          "id": "NFO10",
+          "skipper_name": "Callum H-Odoi",
+          "real_ref": "Callum Hudson-Odoi",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 70,
+            "passing": 68,
+            "dribbling": 82,
+            "physical": 62,
+            "defense": 38
+          }
+        },
+        {
+          "id": "NFO11",
+          "skipper_name": "Lorenzo Lucca",
+          "real_ref": "Lorenzo Lucca",
+          "position": "FW",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 74,
+            "passing": 54,
+            "dribbling": 60,
+            "physical": 76,
+            "defense": 28
+          }
+        },
+        {
+          "id": "NFO12",
+          "skipper_name": "Igor Maciel",
+          "real_ref": "Igor Maciel",
+          "position": "DF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 36,
+            "passing": 64,
+            "dribbling": 48,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "NFO13",
+          "skipper_name": "John Victor",
+          "real_ref": "John Victor",
+          "position": "DF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 48,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "NFO14",
+          "skipper_name": "James McAtee",
+          "real_ref": "James McAtee",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 64,
+            "passing": 74,
+            "dribbling": 68,
+            "physical": 66,
+            "defense": 58
+          }
+        },
+        {
+          "id": "NFO15",
+          "skipper_name": "Nikola Milenk",
+          "real_ref": "Nikola Milenkovic",
+          "position": "DF",
+          "nationality": "SRB",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 48,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 82,
+            "defense": 84
+          }
+        },
+        {
+          "id": "NFO16",
+          "skipper_name": "Dan Ndoye",
+          "real_ref": "Dan Ndoye",
+          "position": "FW",
+          "nationality": "SUI",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 68,
+            "passing": 60,
+            "dribbling": 78,
+            "physical": 62,
+            "defense": 34
+          }
+        },
+        {
+          "id": "NFO17",
+          "skipper_name": "Luca Netz",
+          "real_ref": "Luca Netz",
+          "position": "DF",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 44,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 66,
+            "defense": 68
+          }
+        },
+        {
+          "id": "NFO18",
+          "skipper_name": "Stefan Ortega",
+          "real_ref": "Stefan Ortega",
+          "position": "GK",
+          "nationality": "GER",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 14,
+            "passing": 64,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "NFO19",
+          "skipper_name": "Felipe Rodrigues",
+          "real_ref": "Felipe Rodrigues",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 70,
+            "passing": 62,
+            "dribbling": 76,
+            "physical": 64,
+            "defense": 34
+          }
+        },
+        {
+          "id": "NFO20",
+          "skipper_name": "Ibrahim Sangar",
+          "real_ref": "Ibrahim Sangare",
+          "position": "MF",
+          "nationality": "CIV",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 60,
+            "passing": 72,
+            "dribbling": 66,
+            "physical": 84,
+            "defense": 78
+          }
+        },
+        {
+          "id": "NFO21",
+          "skipper_name": "Nicolo Savona",
+          "real_ref": "Nicolo Savona",
+          "position": "DF",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 50,
+            "physical": 74,
+            "defense": 72
+          }
+        },
+        {
+          "id": "NFO22",
+          "skipper_name": "Matz Sels",
+          "real_ref": "Matz Sels",
+          "position": "GK",
+          "nationality": "BEL",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 15,
+            "passing": 64,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 86
+          }
+        },
+        {
+          "id": "NFO23",
+          "skipper_name": "Neco Williams",
+          "real_ref": "Neco Williams",
+          "position": "DF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 44,
+            "passing": 64,
+            "dribbling": 58,
+            "physical": 66,
+            "defense": 70
+          }
+        },
+        {
+          "id": "NFO24",
+          "skipper_name": "Chris Wood",
+          "real_ref": "Chris Wood",
+          "position": "FW",
+          "nationality": "NZL",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 80,
+            "passing": 55,
+            "dribbling": 58,
+            "physical": 80,
+            "defense": 32
+          }
+        },
+        {
+          "id": "NFO25",
+          "skipper_name": "Ryan Yates",
+          "real_ref": "Ryan Yates",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 58,
+            "passing": 68,
+            "dribbling": 58,
+            "physical": 76,
+            "defense": 70
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "sunderland",
+      "team_name": "Wearside Black Cats",
+      "pl_finish": 7,
+      "primary_color": "#EB172B",
+      "players": [
+        {
+          "id": "SUN01",
+          "skipper_name": "Omar Alderete",
+          "real_ref": "Omar Alderete",
+          "position": "DF",
+          "nationality": "PAR",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 66,
+            "dribbling": 46,
+            "physical": 78,
+            "defense": 78
+          }
+        },
+        {
+          "id": "SUN02",
+          "skipper_name": "Abdoullah Ba",
+          "real_ref": "Abdoullah Ba",
+          "position": "FW",
+          "nationality": "SEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 68,
+            "physical": 62,
+            "defense": 30
+          }
+        },
+        {
+          "id": "SUN03",
+          "skipper_name": "Daniel Ballard",
+          "real_ref": "Daniel Ballard",
+          "position": "DF",
+          "nationality": "NIR",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 46,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "SUN04",
+          "skipper_name": "Brian Brobbey",
+          "real_ref": "Brian Brobbey",
+          "position": "FW",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 54,
+            "dribbling": 66,
+            "physical": 80,
+            "defense": 28
+          }
+        },
+        {
+          "id": "SUN05",
+          "skipper_name": "Dennis Cirkin",
+          "real_ref": "Dennis Cirkin",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 40,
+            "passing": 62,
+            "dribbling": 54,
+            "physical": 66,
+            "defense": 68
+          }
+        },
+        {
+          "id": "SUN06",
+          "skipper_name": "Melker Ellborg",
+          "real_ref": "Melker Ellborg",
+          "position": "MF",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 58,
+            "passing": 68,
+            "dribbling": 60,
+            "physical": 66,
+            "defense": 58
+          }
+        },
+        {
+          "id": "SUN07",
+          "skipper_name": "Lutsharel G.",
+          "real_ref": "Lutsharel Geertruida",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 44,
+            "passing": 70,
+            "dribbling": 60,
+            "physical": 72,
+            "defense": 76
+          }
+        },
+        {
+          "id": "SUN08",
+          "skipper_name": "Trai Hume",
+          "real_ref": "Trai Hume",
+          "position": "DF",
+          "nationality": "NIR",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 42,
+            "passing": 62,
+            "dribbling": 56,
+            "physical": 66,
+            "defense": 70
+          }
+        },
+        {
+          "id": "SUN09",
+          "skipper_name": "Wilson Isidor",
+          "real_ref": "Wilson Isidor",
+          "position": "FW",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 66,
+            "passing": 56,
+            "dribbling": 68,
+            "physical": 66,
+            "defense": 30
+          }
+        },
+        {
+          "id": "SUN10",
+          "skipper_name": "Enzo Le Fee",
+          "real_ref": "Enzo Le Fee",
+          "position": "MF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 74,
+            "dribbling": 70,
+            "physical": 64,
+            "defense": 58
+          }
+        },
+        {
+          "id": "SUN11",
+          "skipper_name": "Reinildo Mand",
+          "real_ref": "Reinildo Mandava",
+          "position": "DF",
+          "nationality": "MOZ",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 54,
+            "physical": 72,
+            "defense": 74
+          }
+        },
+        {
+          "id": "SUN12",
+          "skipper_name": "Simon Moore",
+          "real_ref": "Simon Moore",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "SUN13",
+          "skipper_name": "Nordi Mukiele",
+          "real_ref": "Nordi Mukiele",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 42,
+            "passing": 68,
+            "dribbling": 60,
+            "physical": 72,
+            "defense": 74
+          }
+        },
+        {
+          "id": "SUN14",
+          "skipper_name": "Romaine Mundle",
+          "real_ref": "Romaine Mundle",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 60,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 58,
+            "defense": 32
+          }
+        },
+        {
+          "id": "SUN15",
+          "skipper_name": "Luke O'Nien",
+          "real_ref": "Luke O'Nien",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 40,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 72,
+            "defense": 72
+          }
+        },
+        {
+          "id": "SUN16",
+          "skipper_name": "Ian Poveda",
+          "real_ref": "Ian Poveda",
+          "position": "FW",
+          "nationality": "COL",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 60,
+            "passing": 58,
+            "dribbling": 72,
+            "physical": 56,
+            "defense": 30
+          }
+        },
+        {
+          "id": "SUN17",
+          "skipper_name": "Nilson Ramirez",
+          "real_ref": "Nilson Ramirez",
+          "position": "FW",
+          "nationality": "COL",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 62,
+            "passing": 58,
+            "dribbling": 68,
+            "physical": 58,
+            "defense": 30
+          }
+        },
+        {
+          "id": "SUN18",
+          "skipper_name": "Adam Richardson",
+          "real_ref": "Adam Richardson",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 36,
+            "passing": 60,
+            "dribbling": 46,
+            "physical": 68,
+            "defense": 68
+          }
+        },
+        {
+          "id": "SUN19",
+          "skipper_name": "Robin Roefs",
+          "real_ref": "Robin Roefs",
+          "position": "GK",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 13,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 68,
+            "defense": 74
+          }
+        },
+        {
+          "id": "SUN20",
+          "skipper_name": "Bertrand Traore",
+          "real_ref": "Bertrand Traore",
+          "position": "FW",
+          "nationality": "BFA",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 66,
+            "passing": 62,
+            "dribbling": 74,
+            "physical": 62,
+            "defense": 34
+          }
+        },
+        {
+          "id": "SUN21",
+          "skipper_name": "Granit Shaka",
+          "real_ref": "Granit Xhaka",
+          "position": "MF",
+          "nationality": "SUI",
+          "loan_status": "transferred_in(ex-Arsenal)",
+          "stats": {
+            "speed": 70,
+            "shooting": 70,
+            "passing": 85,
+            "dribbling": 68,
+            "physical": 80,
+            "defense": 78
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "tottenham",
+      "team_name": "North Spurs FC",
+      "pl_finish": 17,
+      "primary_color": "#132257",
+      "players": [
+        {
+          "id": "TOT01",
+          "skipper_name": "Brandon Austin",
+          "real_ref": "Brandon Austin",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 56,
+            "dribbling": 18,
+            "physical": 68,
+            "defense": 72
+          }
+        },
+        {
+          "id": "TOT02",
+          "skipper_name": "Rodrigo Bentancur",
+          "real_ref": "Rodrigo Bentancur",
+          "position": "MF",
+          "nationality": "URU",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 62,
+            "passing": 78,
+            "dribbling": 68,
+            "physical": 74,
+            "defense": 68
+          }
+        },
+        {
+          "id": "TOT03",
+          "skipper_name": "Yves Bissouma",
+          "real_ref": "Yves Bissouma",
+          "position": "MF",
+          "nationality": "MLI",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 60,
+            "passing": 76,
+            "dribbling": 70,
+            "physical": 84,
+            "defense": 80
+          }
+        },
+        {
+          "id": "TOT04",
+          "skipper_name": "Matt Craig",
+          "real_ref": "Matthew Craig",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 34,
+            "passing": 58,
+            "dribbling": 40,
+            "physical": 68,
+            "defense": 64
+          }
+        },
+        {
+          "id": "TOT05",
+          "skipper_name": "Kevin Danso",
+          "real_ref": "Kevin Danso",
+          "position": "DF",
+          "nationality": "AUT",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 40,
+            "passing": 66,
+            "dribbling": 48,
+            "physical": 82,
+            "defense": 82
+          }
+        },
+        {
+          "id": "TOT06",
+          "skipper_name": "Ben Davies",
+          "real_ref": "Ben Davies",
+          "position": "DF",
+          "nationality": "WAL",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 68,
+            "dribbling": 52,
+            "physical": 74,
+            "defense": 78
+          }
+        },
+        {
+          "id": "TOT07",
+          "skipper_name": "Richarlison",
+          "real_ref": "Richarlison",
+          "position": "FW",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 78,
+            "passing": 60,
+            "dribbling": 76,
+            "physical": 76,
+            "defense": 38
+          }
+        },
+        {
+          "id": "TOT08",
+          "skipper_name": "Radu Dragusin",
+          "real_ref": "Radu Dragusin",
+          "position": "DF",
+          "nationality": "ROU",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 36,
+            "passing": 66,
+            "dribbling": 48,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "TOT09",
+          "skipper_name": "Conor Gallagher",
+          "real_ref": "Conor Gallagher",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 74,
+            "dribbling": 70,
+            "physical": 78,
+            "defense": 68
+          }
+        },
+        {
+          "id": "TOT10",
+          "skipper_name": "Antonin Kinsky",
+          "real_ref": "Antonin Kinsky",
+          "position": "GK",
+          "nationality": "CZE",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 80
+          }
+        },
+        {
+          "id": "TOT11",
+          "skipper_name": "Randal Kolo M.",
+          "real_ref": "Randal Kolo Muani",
+          "position": "FW",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 76,
+            "passing": 60,
+            "dribbling": 72,
+            "physical": 74,
+            "defense": 32
+          }
+        },
+        {
+          "id": "TOT12",
+          "skipper_name": "Mohammed Kudus",
+          "real_ref": "Mohammed Kudus",
+          "position": "FW",
+          "nationality": "GHA",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 74,
+            "passing": 68,
+            "dribbling": 80,
+            "physical": 64,
+            "defense": 40
+          }
+        },
+        {
+          "id": "TOT13",
+          "skipper_name": "Dejan Kulusev",
+          "real_ref": "Dejan Kulusevski",
+          "position": "FW",
+          "nationality": "SWE",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 74,
+            "passing": 72,
+            "dribbling": 82,
+            "physical": 68,
+            "defense": 44
+          }
+        },
+        {
+          "id": "TOT14",
+          "skipper_name": "Joao Palhinha",
+          "real_ref": "Joao Palhinha",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 58,
+            "passing": 72,
+            "dribbling": 58,
+            "physical": 84,
+            "defense": 80
+          }
+        },
+        {
+          "id": "TOT15",
+          "skipper_name": "James Maddison",
+          "real_ref": "James Maddison",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 78,
+            "passing": 86,
+            "dribbling": 80,
+            "physical": 64,
+            "defense": 54
+          }
+        },
+        {
+          "id": "TOT16",
+          "skipper_name": "Pedro Porro",
+          "real_ref": "Pedro Porro",
+          "position": "DF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 55,
+            "passing": 74,
+            "dribbling": 72,
+            "physical": 70,
+            "defense": 76
+          }
+        },
+        {
+          "id": "TOT17",
+          "skipper_name": "Cristian Romero",
+          "real_ref": "Cristian Romero",
+          "position": "DF",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 48,
+            "passing": 70,
+            "dribbling": 60,
+            "physical": 84,
+            "defense": 88
+          }
+        },
+        {
+          "id": "TOT18",
+          "skipper_name": "Pape Sarr",
+          "real_ref": "Pape Matar Sarr",
+          "position": "MF",
+          "nationality": "SEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 65,
+            "passing": 74,
+            "dribbling": 76,
+            "physical": 76,
+            "defense": 68
+          }
+        },
+        {
+          "id": "TOT19",
+          "skipper_name": "Xavi Simons",
+          "real_ref": "Xavi Simons",
+          "position": "MF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 74,
+            "passing": 82,
+            "dribbling": 82,
+            "physical": 64,
+            "defense": 54
+          }
+        },
+        {
+          "id": "TOT20",
+          "skipper_name": "Dominic Solanke",
+          "real_ref": "Dominic Solanke",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 76,
+            "passing": 62,
+            "dribbling": 66,
+            "physical": 76,
+            "defense": 34
+          }
+        },
+        {
+          "id": "TOT21",
+          "skipper_name": "Djed Spence",
+          "real_ref": "Djed Spence",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 42,
+            "passing": 62,
+            "dribbling": 58,
+            "physical": 66,
+            "defense": 68
+          }
+        },
+        {
+          "id": "TOT22",
+          "skipper_name": "Destiny Udogie",
+          "real_ref": "Destiny Udogie",
+          "position": "DF",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 52,
+            "passing": 70,
+            "dribbling": 68,
+            "physical": 72,
+            "defense": 76
+          }
+        },
+        {
+          "id": "TOT23",
+          "skipper_name": "Micky V.D.V.",
+          "real_ref": "Micky van de Ven",
+          "position": "DF",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 40,
+            "passing": 72,
+            "dribbling": 58,
+            "physical": 80,
+            "defense": 84
+          }
+        },
+        {
+          "id": "TOT24",
+          "skipper_name": "Guglio Vicario",
+          "real_ref": "Guglielmo Vicario",
+          "position": "GK",
+          "nationality": "ITA",
+          "loan_status": null,
+          "stats": {
+            "speed": 62,
+            "shooting": 18,
+            "passing": 68,
+            "dribbling": 28,
+            "physical": 74,
+            "defense": 84
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "westham",
+      "team_name": "East London Hammers",
+      "pl_finish": 18,
+      "primary_color": "#7A263A",
+      "relegated": true,
+      "players": [
+        {
+          "id": "WHU01",
+          "skipper_name": "Alphonse Areola",
+          "real_ref": "Alphonse Areola",
+          "position": "GK",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 24,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "WHU02",
+          "skipper_name": "Jarrod Bowen",
+          "real_ref": "Jarrod Bowen",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 84,
+            "shooting": 76,
+            "passing": 68,
+            "dribbling": 80,
+            "physical": 68,
+            "defense": 44
+          }
+        },
+        {
+          "id": "WHU03",
+          "skipper_name": "Taty Castellanos",
+          "real_ref": "Taty Castellanos",
+          "position": "FW",
+          "nationality": "ARG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 72,
+            "passing": 56,
+            "dribbling": 66,
+            "physical": 72,
+            "defense": 30
+          }
+        },
+        {
+          "id": "WHU04",
+          "skipper_name": "Axel Disasi",
+          "real_ref": "Axel Disasi",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 36,
+            "passing": 66,
+            "dribbling": 48,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "WHU05",
+          "skipper_name": "Lukasz Fabianki",
+          "real_ref": "Lukasz Fabianski",
+          "position": "GK",
+          "nationality": "POL",
+          "loan_status": null,
+          "stats": {
+            "speed": 55,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 80
+          }
+        },
+        {
+          "id": "WHU06",
+          "skipper_name": "Mads Hermansen",
+          "real_ref": "Mads Hermansen",
+          "position": "GK",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 82
+          }
+        },
+        {
+          "id": "WHU07",
+          "skipper_name": "Max Kilman",
+          "real_ref": "Maximilian Kilman",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 40,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "WHU08",
+          "skipper_name": "Keiber Lamadrid",
+          "real_ref": "Keiber Lamadrid",
+          "position": "FW",
+          "nationality": "VEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 64,
+            "passing": 56,
+            "dribbling": 68,
+            "physical": 62,
+            "defense": 30
+          }
+        },
+        {
+          "id": "WHU09",
+          "skipper_name": "Soungoutou Mag.",
+          "real_ref": "Soungoutou Magassa",
+          "position": "DF",
+          "nationality": "MLI",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 36,
+            "passing": 60,
+            "dribbling": 46,
+            "physical": 76,
+            "defense": 74
+          }
+        },
+        {
+          "id": "WHU10",
+          "skipper_name": "Kostas Mavro",
+          "real_ref": "Konstantinos Mavropanos",
+          "position": "DF",
+          "nationality": "GRE",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 40,
+            "passing": 64,
+            "dribbling": 48,
+            "physical": 82,
+            "defense": 82
+          }
+        },
+        {
+          "id": "WHU11",
+          "skipper_name": "Freddie Potts",
+          "real_ref": "Freddie Potts",
+          "position": "MF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 56,
+            "passing": 66,
+            "dribbling": 60,
+            "physical": 64,
+            "defense": 56
+          }
+        },
+        {
+          "id": "WHU12",
+          "skipper_name": "Tomas Souchek",
+          "real_ref": "Tomas Soucek",
+          "position": "MF",
+          "nationality": "CZE",
+          "loan_status": null,
+          "stats": {
+            "speed": 70,
+            "shooting": 68,
+            "passing": 68,
+            "dribbling": 58,
+            "physical": 82,
+            "defense": 70
+          }
+        },
+        {
+          "id": "WHU13",
+          "skipper_name": "Crysencio S.",
+          "real_ref": "Crysencio Summerville",
+          "position": "FW",
+          "nationality": "NED",
+          "loan_status": null,
+          "stats": {
+            "speed": 88,
+            "shooting": 68,
+            "passing": 58,
+            "dribbling": 78,
+            "physical": 58,
+            "defense": 32
+          }
+        },
+        {
+          "id": "WHU14",
+          "skipper_name": "J-C Todibo",
+          "real_ref": "Jean-Clair Todibo",
+          "position": "DF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 38,
+            "passing": 68,
+            "dribbling": 50,
+            "physical": 80,
+            "defense": 82
+          }
+        },
+        {
+          "id": "WHU15",
+          "skipper_name": "Adama Traore",
+          "real_ref": "Adama Traore",
+          "position": "FW",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 94,
+            "shooting": 62,
+            "passing": 60,
+            "dribbling": 82,
+            "physical": 80,
+            "defense": 36
+          }
+        },
+        {
+          "id": "WHU16",
+          "skipper_name": "Kyle W-Peters",
+          "real_ref": "Kyle Walker-Peters",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 42,
+            "passing": 62,
+            "dribbling": 58,
+            "physical": 64,
+            "defense": 68
+          }
+        },
+        {
+          "id": "WHU17",
+          "skipper_name": "Aaron W-Bissaka",
+          "real_ref": "Aaron Wan-Bissaka",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 40,
+            "passing": 62,
+            "dribbling": 58,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "WHU18",
+          "skipper_name": "Callum Wilson",
+          "real_ref": "Callum Wilson",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 80,
+            "passing": 60,
+            "dribbling": 70,
+            "physical": 74,
+            "defense": 32
+          }
+        }
+      ]
+    },
+    {
+      "team_id": "wolves",
+      "team_name": "Wolverhampton Wandres",
+      "pl_finish": 20,
+      "primary_color": "#FDB913",
+      "relegated": true,
+      "players": [
+        {
+          "id": "WOL01",
+          "skipper_name": "Emmanuel Agbadu",
+          "real_ref": "Emmanuel Agbadou",
+          "position": "DF",
+          "nationality": "CMI",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 38,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 80,
+            "defense": 80
+          }
+        },
+        {
+          "id": "WOL02",
+          "skipper_name": "Jhon Arias",
+          "real_ref": "Jhon Arias",
+          "position": "FW",
+          "nationality": "COL",
+          "loan_status": null,
+          "stats": {
+            "speed": 82,
+            "shooting": 66,
+            "passing": 62,
+            "dribbling": 72,
+            "physical": 62,
+            "defense": 34
+          }
+        },
+        {
+          "id": "WOL03",
+          "skipper_name": "Adam Armstrong",
+          "real_ref": "Adam Armstrong",
+          "position": "FW",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 70,
+            "passing": 58,
+            "dribbling": 66,
+            "physical": 66,
+            "defense": 30
+          }
+        },
+        {
+          "id": "WOL04",
+          "skipper_name": "Tolu Arokodare",
+          "real_ref": "Toluwalase Arokodare",
+          "position": "FW",
+          "nationality": "NGA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 66,
+            "passing": 52,
+            "dribbling": 62,
+            "physical": 72,
+            "defense": 28
+          }
+        },
+        {
+          "id": "WOL05",
+          "skipper_name": "Jean Bellegarde",
+          "real_ref": "Jeanricner Bellegarde",
+          "position": "MF",
+          "nationality": "FRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 58,
+            "passing": 66,
+            "dribbling": 62,
+            "physical": 68,
+            "defense": 56
+          }
+        },
+        {
+          "id": "WOL06",
+          "skipper_name": "Dan Bentley",
+          "real_ref": "Daniel Bentley",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 54,
+            "shooting": 12,
+            "passing": 58,
+            "dribbling": 20,
+            "physical": 70,
+            "defense": 74
+          }
+        },
+        {
+          "id": "WOL07",
+          "skipper_name": "Hugo Bueno",
+          "real_ref": "Hugo Bueno",
+          "position": "DF",
+          "nationality": "ESP",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 42,
+            "passing": 64,
+            "dribbling": 58,
+            "physical": 66,
+            "defense": 68
+          }
+        },
+        {
+          "id": "WOL08",
+          "skipper_name": "Matt Doherty",
+          "real_ref": "Matt Doherty",
+          "position": "DF",
+          "nationality": "IRL",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 48,
+            "passing": 68,
+            "dribbling": 62,
+            "physical": 72,
+            "defense": 72
+          }
+        },
+        {
+          "id": "WOL09",
+          "skipper_name": "Joao Gomes",
+          "real_ref": "Joao Gomes",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 60,
+            "passing": 74,
+            "dribbling": 68,
+            "physical": 80,
+            "defense": 76
+          }
+        },
+        {
+          "id": "WOL10",
+          "skipper_name": "Tote Gomes",
+          "real_ref": "Tote Gomes",
+          "position": "DF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 36,
+            "passing": 62,
+            "dribbling": 46,
+            "physical": 74,
+            "defense": 72
+          }
+        },
+        {
+          "id": "WOL11",
+          "skipper_name": "J.V. Gomes",
+          "real_ref": "Joao Victor Gomes",
+          "position": "FW",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 64,
+            "passing": 58,
+            "dribbling": 68,
+            "physical": 60,
+            "defense": 30
+          }
+        },
+        {
+          "id": "WOL12",
+          "skipper_name": "Harvey Griffiths",
+          "real_ref": "Harvey Griffiths",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 52,
+            "shooting": 12,
+            "passing": 54,
+            "dribbling": 18,
+            "physical": 66,
+            "defense": 70
+          }
+        },
+        {
+          "id": "WOL13",
+          "skipper_name": "Hee-Chan Hwang",
+          "real_ref": "Hee-Chan Hwang",
+          "position": "FW",
+          "nationality": "KOR",
+          "loan_status": null,
+          "stats": {
+            "speed": 86,
+            "shooting": 74,
+            "passing": 62,
+            "dribbling": 76,
+            "physical": 68,
+            "defense": 40
+          }
+        },
+        {
+          "id": "WOL14",
+          "skipper_name": "Santiago Bueno",
+          "real_ref": "Santiago Bueno",
+          "position": "DF",
+          "nationality": "URU",
+          "loan_status": null,
+          "stats": {
+            "speed": 74,
+            "shooting": 38,
+            "passing": 64,
+            "dribbling": 48,
+            "physical": 78,
+            "defense": 78
+          }
+        },
+        {
+          "id": "WOL15",
+          "skipper_name": "Sam Johnstone",
+          "real_ref": "Sam Johnstone",
+          "position": "GK",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 56,
+            "shooting": 14,
+            "passing": 62,
+            "dribbling": 22,
+            "physical": 72,
+            "defense": 80
+          }
+        },
+        {
+          "id": "WOL16",
+          "skipper_name": "Ladislav Krejci",
+          "real_ref": "Ladislav Krejci",
+          "position": "DF",
+          "nationality": "CZE",
+          "loan_status": null,
+          "stats": {
+            "speed": 72,
+            "shooting": 36,
+            "passing": 62,
+            "dribbling": 44,
+            "physical": 74,
+            "defense": 72
+          }
+        },
+        {
+          "id": "WOL17",
+          "skipper_name": "Dexter Lembikisa",
+          "real_ref": "Dexter Lembikisa",
+          "position": "DF",
+          "nationality": "ENG",
+          "loan_status": null,
+          "stats": {
+            "speed": 80,
+            "shooting": 40,
+            "passing": 60,
+            "dribbling": 54,
+            "physical": 66,
+            "defense": 66
+          }
+        },
+        {
+          "id": "WOL18",
+          "skipper_name": "Jose Sa",
+          "real_ref": "Jose Sa",
+          "position": "GK",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 58,
+            "shooting": 15,
+            "passing": 64,
+            "dribbling": 24,
+            "physical": 74,
+            "defense": 84
+          }
+        },
+        {
+          "id": "WOL19",
+          "skipper_name": "Rodrigo Martins",
+          "real_ref": "Rodrigo Gomes",
+          "position": "MF",
+          "nationality": "POR",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 62,
+            "passing": 70,
+            "dribbling": 68,
+            "physical": 66,
+            "defense": 58
+          }
+        },
+        {
+          "id": "WOL20",
+          "skipper_name": "Yerson Mosquera",
+          "real_ref": "Yerson Mosquera",
+          "position": "DF",
+          "nationality": "COL",
+          "loan_status": null,
+          "stats": {
+            "speed": 76,
+            "shooting": 36,
+            "passing": 64,
+            "dribbling": 48,
+            "physical": 76,
+            "defense": 76
+          }
+        },
+        {
+          "id": "WOL21",
+          "skipper_name": "Jackson Tchatch",
+          "real_ref": "Jackson Tchatchoua",
+          "position": "DF",
+          "nationality": "CMR",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 40,
+            "passing": 62,
+            "dribbling": 54,
+            "physical": 70,
+            "defense": 70
+          }
+        },
+        {
+          "id": "WOL22",
+          "skipper_name": "Andre T.",
+          "real_ref": "Andre",
+          "position": "MF",
+          "nationality": "BRA",
+          "loan_status": null,
+          "stats": {
+            "speed": 78,
+            "shooting": 64,
+            "passing": 78,
+            "dribbling": 74,
+            "physical": 76,
+            "defense": 72
+          }
+        },
+        {
+          "id": "WOL23",
+          "skipper_name": "David Wolfe",
+          "real_ref": "David Wolfe",
+          "position": "DF",
+          "nationality": "DEN",
+          "loan_status": null,
+          "stats": {
+            "speed": 68,
+            "shooting": 34,
+            "passing": 58,
+            "dribbling": 40,
+            "physical": 68,
+            "defense": 64
+          }
+        }
+      ]
+    }
+  ]
+}
