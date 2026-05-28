@@ -136,8 +136,8 @@ function MatchPage() {
 
   // Intro splash auto-dismiss (3.5s total: fade-out starts at 2.9s)
   useEffect(() => {
-    const exitT = setTimeout(() => setIntroExiting(true), 2900)
-    const hideT = setTimeout(() => setShowIntro(false), 3500)
+    const exitT = setTimeout(() => setIntroExiting(true), 4400)
+    const hideT = setTimeout(() => setShowIntro(false), 5000)
     return () => { clearTimeout(exitT); clearTimeout(hideT) }
   }, [])
 

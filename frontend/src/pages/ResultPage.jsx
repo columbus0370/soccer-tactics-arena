@@ -193,14 +193,22 @@ function ResultPage() {
             <div style={{ color: 'var(--text-muted)', fontSize: 13, marginTop: 4 }}>
               最終スコア: {score?.player1 ?? 0} - {score?.player2 ?? 0}
             </div>
-            {/* Card info */}
-            {(yellowCards.length > 0 || redCards.length > 0) && (
-              <div style={{ marginTop: 12, textAlign: 'left' }}>
-                {yellowCards.map((e, i) => (
-                  <span key={i} style={{ marginRight: 8, fontSize: 13 }}>🟨 {e.player} ({e.teamName} {e.minute}')</span>
+            {/* Goals */}
+            {allEvents.filter(e => e.type === 'goal' || e.type === 'pk_goal').length > 0 && (
+              <div style={{ marginTop: 12, textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {allEvents.filter(e => e.type === 'goal' || e.type === 'pk_goal').map((e, i) => (
+                  <span key={i} style={{ fontSize: 13, color: 'var(--text-primary)' }}>
+                    ⚽ {e.scorer}{e.assist ? ` (A: ${e.assist})` : ''} <span style={{ color: 'var(--text-muted)' }}>{e.teamName} {e.minute}'</span>
+                    {e.type === 'pk_goal' && <span style={{ color: 'var(--warning)', marginLeft: 4, fontSize: 11 }}>PK</span>}
+                  </span>
                 ))}
+              </div>
+            )}
+            {/* Red cards only */}
+            {redCards.length > 0 && (
+              <div style={{ marginTop: 8, textAlign: 'left' }}>
                 {redCards.map((e, i) => (
-                  <span key={i} style={{ marginRight: 8, fontSize: 13 }}>🟥 {e.player} ({e.teamName} {e.minute}')</span>
+                  <span key={i} style={{ marginRight: 8, fontSize: 13 }}>🟥 {e.player} <span style={{ color: 'var(--text-muted)' }}>({e.teamName} {e.minute}')</span></span>
                 ))}
               </div>
             )}
@@ -280,49 +288,44 @@ function ResultPage() {
       {activeTab === 'stats' && (
         <div className="card">
           <h3 style={{ marginBottom: 16, color: 'var(--accent)', fontSize: 16, fontWeight: 700 }}>チーム統計比較</h3>
-          <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-            <thead>
-              <tr>
-                <th style={{ color: 'var(--accent)', textAlign: 'left', padding: '8px 0', fontSize: 13 }}>あなた</th>
-                <th style={{ color: 'var(--text-muted)', textAlign: 'center', padding: '8px 0', fontSize: 13 }}>スタッツ</th>
-                <th style={{ color: 'var(--danger)', textAlign: 'right', padding: '8px 0', fontSize: 13 }}>CPU</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                { label: 'シュート', k: 'shots' },
-                { label: '枠内シュート', k: 'shots_on_target' },
-                { label: 'ポゼッション (%)', k: 'possession' },
-                { label: 'パス精度 (%)', k: 'pass_accuracy' },
-                { label: 'タックル', k: 'tackles' },
-              ].map(({ label, k }) => {
-                const v1 = p1Stats[k] ?? 0
-                const v2 = p2Stats[k] ?? 0
-                const max = Math.max(v1, v2, 1)
-                return (
-                  <tr key={k} style={{ borderTop: '1px solid var(--border)' }}>
-                    <td style={{ padding: '12px 0', textAlign: 'left' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                        <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)', minWidth: 28 }}>{v1}</span>
-                        <div style={{ flex: 1, height: 6, background: 'var(--border)', borderRadius: 3, maxWidth: 80, overflow: 'hidden' }}>
-                          <div style={{ width: `${(v1 / max) * 100}%`, height: '100%', background: 'var(--accent)', borderRadius: 3 }} />
-                        </div>
-                      </div>
-                    </td>
-                    <td style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 12, padding: '12px 8px' }}>{label}</td>
-                    <td style={{ padding: '12px 0', textAlign: 'right' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
-                        <div style={{ flex: 1, height: 6, background: 'var(--border)', borderRadius: 3, maxWidth: 80, overflow: 'hidden' }}>
-                          <div style={{ width: `${(v2 / max) * 100}%`, height: '100%', background: 'var(--danger)', borderRadius: 3, marginLeft: 'auto' }} />
-                        </div>
-                        <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)', minWidth: 28, textAlign: 'right' }}>{v2}</span>
-                      </div>
-                    </td>
-                  </tr>
-                )
-              })}
-            </tbody>
-          </table>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 90px 1fr', padding: '6px 0 10px', borderBottom: '1px solid var(--border)' }}>
+              <span style={{ color: 'var(--accent)', fontSize: 13, fontWeight: 700 }}>あなた</span>
+              <span style={{ color: 'var(--text-muted)', fontSize: 13, textAlign: 'center' }}>スタッツ</span>
+              <span style={{ color: 'var(--danger)', fontSize: 13, fontWeight: 700, textAlign: 'right' }}>CPU</span>
+            </div>
+            {[
+              { label: 'シュート', k: 'shots' },
+              { label: '枠内シュート', k: 'shots_on_target' },
+              { label: 'ポゼッション%', k: 'possession' },
+              { label: 'パス精度%', k: 'pass_accuracy' },
+              { label: 'タックル', k: 'tackles' },
+            ].map(({ label, k }) => {
+              const v1 = Math.round(p1Stats[k] ?? 0)
+              const v2 = Math.round(p2Stats[k] ?? 0)
+              const max = Math.max(v1, v2, 1)
+              return (
+                <div key={k} style={{ display: 'grid', gridTemplateColumns: '1fr 90px 1fr', alignItems: 'center', padding: '10px 0', borderBottom: '1px solid var(--border)' }}>
+                  {/* Left: player stat */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                    <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)', minWidth: 26 }}>{v1}</span>
+                    <div style={{ flex: 1, height: 6, background: 'var(--border)', borderRadius: 3, overflow: 'hidden' }}>
+                      <div style={{ width: `${(v1 / max) * 100}%`, height: '100%', background: 'var(--accent)', borderRadius: 3 }} />
+                    </div>
+                  </div>
+                  {/* Center: label */}
+                  <span style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: 12, whiteSpace: 'nowrap', padding: '0 6px' }}>{label}</span>
+                  {/* Right: CPU stat */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'flex-end' }}>
+                    <div style={{ flex: 1, height: 6, background: 'var(--border)', borderRadius: 3, overflow: 'hidden' }}>
+                      <div style={{ width: `${(v2 / max) * 100}%`, height: '100%', background: 'var(--danger)', borderRadius: 3, marginLeft: 'auto' }} />
+                    </div>
+                    <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)', minWidth: 26, textAlign: 'right' }}>{v2}</span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
         </div>
       )}
 
