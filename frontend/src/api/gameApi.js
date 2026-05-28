@@ -10,3 +10,9 @@ export const getTeamPlayers = (teamId) => api.get(`/players/${teamId}`).then(r =
 export const getAllPlayers = () => api.get('/players/all-players').then(r => r.data)
 export const getCPUTeam = (difficulty) => api.get(`/game/cpu-team?difficulty=${difficulty}`).then(r => r.data)
 export const simulateMatch = (player1, player2) => api.post('/game/simulate', { player1, player2 }).then(r => r.data)
+
+export const simulateFirstHalf = (player1, player2) =>
+  api.post('/game/first-half', { player1, player2 }).then(r => r.data)
+
+export const simulateSecondHalf = (player1, player2, halftimeScore, p1ScoreHint) =>
+  api.post('/game/second-half', { player1, player2, halftimeScore, p1ScoreHint }).then(r => r.data)

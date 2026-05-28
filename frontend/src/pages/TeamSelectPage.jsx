@@ -352,7 +352,16 @@ function TeamSelectPage() {
         tactic: tacticLabel,
         players: lineup.filter(Boolean),
       }
-      navigate('/match', { state: { player1, player2, difficulty } })
+      navigate('/match', {
+        state: {
+          player1,
+          player2,
+          difficulty,
+          player1Bench: allPlayersPool
+            .filter(p => !lineup.some(l => l && l.id === p.id))
+            .slice(0, 7),
+        }
+      })
     } catch (e) {
       alert('エラーが発生しました: ' + e.message)
     } finally {
