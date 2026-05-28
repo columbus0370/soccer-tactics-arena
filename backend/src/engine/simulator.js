@@ -130,6 +130,102 @@ function calculateMVP(events, player1, player2) {
   }
 }
 
+export function simulateFirstHalf(player1, player2) {
+  const { formation: f1, tactic: t1 } = player1
+  const { formation: f2, tactic: t2 } = player2
+  const formationScore = getFormationAdvantage(f1, f2)
+  const tacticBonus = getTacticBonus(t1, t2)
+  const randomFactor = randomInt(-20, 20)
+  const p1Strength = calculateTeamStrength(player1.players)
+  const p2Strength = calculateTeamStrength(player2.players)
+  const strengthDiff = clamp((p1Strength - p2Strength) * 0.3, -15, 15)
+  const p1Score = formationScore + tacticBonus + randomFactor + strengthDiff
+
+  // 前半スコア（独立してランダム、p1Scoreで重み付け）
+  let htScore
+  if (p1Score > 60) {
+    htScore = { player1: randomInt(0, 2), player2: randomInt(0, 1) }
+  } else if (p1Score < 40) {
+    htScore = { player1: randomInt(0, 1), player2: randomInt(0, 2) }
+  } else {
+    htScore = { player1: randomInt(0, 1), player2: randomInt(0, 1) }
+  }
+
+  const htResult = htScore.player1 > htScore.player2 ? 'player1_win'
+    : htScore.player2 > htScore.player1 ? 'player2_win' : 'draw'
+
+  const events = generateMatchEvents(player1, player2, htResult, htScore, 1, 45)
+
+  return { events, score: htScore, p1ScoreHint: p1Score }
+}
+
+export function simulateSecondHalf(player1Updated, player2, halftimeScore, p1ScoreHint = 50) {
+  const { formation: f1, tactic: t1 } = player1Updated
+  const { formation: f2, tactic: t2 } = player2
+  const formationScore = getFormationAdvantage(f1, f2)
+  const tacticBonus = getTacticBonus(t1, t2)
+  const randomFactor = randomInt(-15, 15)
+  const p1Strength = calculateTeamStrength(player1Updated.players)
+  const p2Strength = calculateTeamStrength(player2.players)
+  const strengthDiff = clamp((p1Strength - p2Strength) * 0.3, -15, 15)
+  const newP1Score = formationScore + tacticBonus + randomFactor + strengthDiff
+
+  // ユーザーのハーフタイム変更が後半に60%影響
+  const blendedScore = p1ScoreHint * 0.4 + newP1Score * 0.6
+
+  let h2Score
+  if (blendedScore > 60) {
+    h2Score = { player1: randomInt(0, 2), player2: randomInt(0, 1) }
+  } else if (blendedScore < 40) {
+    h2Score = { player1: randomInt(0, 1), player2: randomInt(0, 2) }
+  } else {
+    h2Score = { player1: randomInt(0, 1), player2: randomInt(0, 1) }
+  }
+
+  const finalScore = {
+    player1: halftimeScore.player1 + h2Score.player1,
+    player2: halftimeScore.player2 + h2Score.player2,
+  }
+
+  const result = finalScore.player1 > finalScore.player2 ? 'player1_win'
+    : finalScore.player2 > finalScore.player1 ? 'player2_win' : 'draw'
+
+  const h2Result = h2Score.player1 > h2Score.player2 ? 'player1_win'
+    : h2Score.player2 > h2Score.player1 ? 'player2_win' : 'draw'
+
+  const events = generateMatchEvents(player1Updated, player2, h2Result, h2Score, 46, 90)
+  const mvp = calculateMVP(events, player1Updated, player2)
+
+  return {
+    events,
+    score: finalScore,
+    halftimeScore,
+    secondHalfScore: h2Score,
+    result,
+    mvp,
+    stats: {
+      player1: {
+        shots: randomInt(8, 15),
+        shots_on_target: randomInt(3, 7),
+        possession: Math.min(80, Math.max(20, 50 + (blendedScore - 50))),
+        pass_accuracy: randomInt(55, 85),
+        tackles: randomInt(12, 25),
+      },
+      player2: {
+        shots: randomInt(8, 15),
+        shots_on_target: randomInt(3, 7),
+        possession: 100 - Math.min(80, Math.max(20, 50 + (blendedScore - 50))),
+        pass_accuracy: randomInt(55, 85),
+        tackles: randomInt(12, 25),
+      },
+    },
+    points: {
+      player1: result === 'player1_win' ? 30 : result === 'draw' ? 15 : 5,
+      player2: result === 'player2_win' ? 30 : result === 'draw' ? 15 : 5,
+    },
+  }
+}
+
 export function simulateMatch(player1, player2) {
   const { formation: f1, tactic: t1 } = player1
   const { formation: f2, tactic: t2 } = player2

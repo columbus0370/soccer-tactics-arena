@@ -98,7 +98,7 @@ function simulatePK(attackTeam, defTeam) {
   return { kicker, gk, success }
 }
 
-export function generateMatchEvents(player1, player2, result, score) {
+export function generateMatchEvents(player1, player2, result, score, startMinute = 1, endMinute = 90) {
   // player1 = { teamName, players: [{id, skipper_name, position, stats:{...}}], formation, tactic }
   // result = 'player1_win' | 'player2_win' | 'draw'
   // score = { player1: 2, player2: 1 }
@@ -121,7 +121,7 @@ export function generateMatchEvents(player1, player2, result, score) {
   // ─── ゴール ───────────────────────────────────────
   // player1 のゴール
   for (let i = 0; i < score.player1; i++) {
-    const minute = getUniqMinute(5, 88)
+    const minute = getUniqMinute(Math.max(5, startMinute), Math.min(88, endMinute))
     const scorer = pickScorer(player1.players || [])
     const assist = scorer ? pickAssist(player1.players || [], scorer.id) : null
     addEvent({
@@ -138,7 +138,7 @@ export function generateMatchEvents(player1, player2, result, score) {
 
   // player2 のゴール
   for (let i = 0; i < score.player2; i++) {
-    const minute = getUniqMinute(5, 88)
+    const minute = getUniqMinute(Math.max(5, startMinute), Math.min(88, endMinute))
     const scorer = pickScorer(player2.players || [])
     const assist = scorer ? pickAssist(player2.players || [], scorer.id) : null
     addEvent({
@@ -159,7 +159,7 @@ export function generateMatchEvents(player1, player2, result, score) {
     const pkTeam = Math.random() < 0.5 ? 'player1' : 'player2'
     const attackP = pkTeam === 'player1' ? player1 : player2
     const defendP = pkTeam === 'player1' ? player2 : player1
-    const minute = getUniqMinute(10, 88)
+    const minute = getUniqMinute(Math.max(10, startMinute), Math.min(88, endMinute))
     const foulVictim = pickScorer(attackP.players || [])
     const dfsForFoul = getDFs(defendP.players || [])
     const fouler = dfsForFoul.length > 0
@@ -183,7 +183,7 @@ export function generateMatchEvents(player1, player2, result, score) {
     })
 
     const { kicker, gk, success } = simulatePK(attackP, defendP)
-    const pkMin = Math.min(90, minute + 1)
+    const pkMin = Math.min(endMinute, minute + 1)
     usedMinutes.add(pkMin)
 
     if (success) {
@@ -221,7 +221,7 @@ export function generateMatchEvents(player1, player2, result, score) {
     const count = Math.floor(Math.random() * 3) + 2  // 2〜4
     const fwsMfs = getFWsMFs(p.players || [])
     for (let i = 0; i < count; i++) {
-      const minute = getUniqMinute(3, 90)
+      const minute = getUniqMinute(Math.max(3, startMinute), Math.min(90, endMinute))
       const shooter = fwsMfs.length > 0
         ? fwsMfs[Math.floor(Math.random() * fwsMfs.length)]
         : (p.players || [])[0]
@@ -248,7 +248,7 @@ export function generateMatchEvents(player1, player2, result, score) {
     const fwsMfs = getFWsMFs(p.players || [])
     const dfs = getDFs(opp.players || [])
     for (let i = 0; i < count; i++) {
-      const minute = getUniqMinute(3, 90)
+      const minute = getUniqMinute(Math.max(3, startMinute), Math.min(90, endMinute))
       const shooter = fwsMfs.length > 0
         ? fwsMfs[Math.floor(Math.random() * fwsMfs.length)]
         : (p.players || [])[0]
@@ -274,7 +274,7 @@ export function generateMatchEvents(player1, player2, result, score) {
   // ─── スーパーセーブ ──────────────────────────────────
   for (const [team, p] of [['player1', player1], ['player2', player2]]) {
     if (Math.random() < 0.5) {  // 50%で発生
-      const minute = getUniqMinute(3, 90)
+      const minute = getUniqMinute(Math.max(3, startMinute), Math.min(90, endMinute))
       const gk = getGK(p.players || [])
       const tmpl = DESCRIPTIONS.super_save[Math.floor(Math.random() * DESCRIPTIONS.super_save.length)]
       addEvent({
@@ -294,7 +294,7 @@ export function generateMatchEvents(player1, player2, result, score) {
     const count = Math.floor(Math.random() * 4)  // 0〜3
     let redGiven = false
     for (let i = 0; i < count; i++) {
-      const minute = getUniqMinute(10, 88)
+      const minute = getUniqMinute(Math.max(10, startMinute), Math.min(88, endMinute))
       const candidates = (p.players || []).filter(x => x.position !== 'GK')
       if (candidates.length === 0) continue
       const player = candidates[Math.floor(Math.random() * candidates.length)]
@@ -337,7 +337,7 @@ export function generateMatchEvents(player1, player2, result, score) {
     const nearMissCount = Math.floor(Math.random() * 3)  // 0〜2
     const fwsMfs = getFWsMFs(p.players || [])
     for (let i = 0; i < nearMissCount; i++) {
-      const minute = getUniqMinute(3, 90)
+      const minute = getUniqMinute(Math.max(3, startMinute), Math.min(90, endMinute))
       const shooter = fwsMfs.length > 0
         ? fwsMfs[Math.floor(Math.random() * fwsMfs.length)]
         : (p.players || [])[0]

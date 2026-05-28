@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import Anthropic from '@anthropic-ai/sdk'
-import { simulateMatch } from '../engine/simulator.js'
+import { simulateMatch, simulateFirstHalf, simulateSecondHalf } from '../engine/simulator.js'
 import { generateCPUTeam } from '../engine/cpuGenerator.js'
 
 const router = Router()
@@ -98,6 +98,37 @@ router.post('/commentary', async (req, res) => {
   } catch (err) {
     console.error('commentary error:', err.message)
     res.status(500).json({ error: '解説の生成に失敗しました' })
+  }
+})
+
+// POST /api/game/first-half
+router.post('/first-half', (req, res) => {
+  const { player1, player2 } = req.body
+  if (!player1 || !player2) return res.status(400).json({ error: 'player1 と player2 が必要です' })
+  if (!Array.isArray(player1.players) || player1.players.length === 0)
+    return res.status(400).json({ error: 'player1.players が必要です' })
+  if (!Array.isArray(player2.players) || player2.players.length === 0)
+    return res.status(400).json({ error: 'player2.players が必要です' })
+  try {
+    res.json(simulateFirstHalf(player1, player2))
+  } catch (err) {
+    console.error('simulateFirstHalf error:', err)
+    res.status(500).json({ error: '前半シミュレーション中にエラーが発生しました' })
+  }
+})
+
+// POST /api/game/second-half
+router.post('/second-half', (req, res) => {
+  const { player1, player2, halftimeScore, p1ScoreHint } = req.body
+  if (!player1 || !player2 || !halftimeScore)
+    return res.status(400).json({ error: 'player1 / player2 / halftimeScore が必要です' })
+  if (!Array.isArray(player1.players) || player1.players.length === 0)
+    return res.status(400).json({ error: 'player1.players が必要です' })
+  try {
+    res.json(simulateSecondHalf(player1, player2, halftimeScore, p1ScoreHint ?? 50))
+  } catch (err) {
+    console.error('simulateSecondHalf error:', err)
+    res.status(500).json({ error: '後半シミュレーション中にエラーが発生しました' })
   }
 })
 
