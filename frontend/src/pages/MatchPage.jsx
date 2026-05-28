@@ -88,10 +88,25 @@ const EVENT_FILTERS = [
 
 const importantTypes = new Set(['goal', 'pk_goal', 'pk_miss', 'pk_awarded', 'red_card', 'super_save', 'yellow_card'])
 
+// OVR平均を計算（フロント用）
+function calcOVR(players) {
+  if (!players || players.length === 0) return 0
+  const total = players.reduce((sum, p) => {
+    const s = p.stats || {}
+    const vals = Object.values(s)
+    return sum + (vals.length ? Math.round(vals.reduce((a, v) => a + v, 0) / vals.length) : 0)
+  }, 0)
+  return Math.round(total / players.length)
+}
+
 function MatchPage() {
   const navigate = useNavigate()
   const location = useLocation()
   const { player1, player2, player1Bench = [] } = location.state || {}
+
+  // Intro splash state
+  const [showIntro, setShowIntro] = useState(true)
+  const [introExiting, setIntroExiting] = useState(false)
 
   const [matchResult, setMatchResult] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -118,6 +133,13 @@ function MatchPage() {
   const resultRef = useRef(null)
   const phaseRef = useRef('loading')
   const eventIndexRef = useRef(0)
+
+  // Intro splash auto-dismiss (3.5s total: fade-out starts at 2.9s)
+  useEffect(() => {
+    const exitT = setTimeout(() => setIntroExiting(true), 2900)
+    const hideT = setTimeout(() => setShowIntro(false), 3500)
+    return () => { clearTimeout(exitT); clearTimeout(hideT) }
+  }, [])
 
   // Keep phaseRef in sync with phase state
   useEffect(() => {
@@ -303,7 +325,129 @@ function MatchPage() {
     )
   }
 
+  const p1OVR = calcOVR(player1?.players)
+  const p2OVR = calcOVR(player2?.players)
+
   return (
+    <>
+    {/* ── Match Intro Splash ────────────────────────────── */}
+    {showIntro && (
+      <div
+        onClick={() => { setIntroExiting(false); setShowIntro(false) }}
+        style={{
+          position: 'fixed', inset: 0, zIndex: 300,
+          background: '#04070f',
+          display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+          overflow: 'hidden', cursor: 'pointer',
+          animation: introExiting ? 'introFadeOut 0.6s ease forwards' : 'none',
+        }}
+      >
+        {/* Radial glow backdrop */}
+        <div style={{
+          position: 'absolute', inset: 0,
+          background: 'radial-gradient(ellipse 70% 50% at 50% 50%, rgba(0,212,170,0.07) 0%, transparent 70%)',
+          pointerEvents: 'none',
+        }} />
+
+        {/* Header label */}
+        <div style={{
+          fontSize: 11, letterSpacing: 5, color: 'rgba(0,212,170,0.55)',
+          fontWeight: 700, textTransform: 'uppercase', marginBottom: 44,
+          animation: 'fadeInUp 0.5s ease 0.2s both',
+        }}>
+          MATCH START
+        </div>
+
+        {/* Horizontal dividing line */}
+        <div style={{
+          position: 'absolute', top: '50%', left: 0, right: 0, height: 1,
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)',
+          transformOrigin: 'center',
+          animation: 'lineExpand 0.6s ease 0.7s both',
+        }} />
+
+        {/* Teams row */}
+        <div style={{ display: 'flex', alignItems: 'center', width: '100%', maxWidth: 420, padding: '0 16px' }}>
+
+          {/* Player team (left) */}
+          <div style={{
+            flex: 1, textAlign: 'right', paddingRight: 18,
+            animation: 'introSlideLeft 0.65s cubic-bezier(0.16,1,0.3,1) 0.45s both',
+          }}>
+            <div style={{ fontSize: 10, color: 'var(--accent)', fontWeight: 700, letterSpacing: 3, marginBottom: 6, textTransform: 'uppercase' }}>
+              YOUR TEAM
+            </div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: 6, wordBreak: 'break-word' }}>
+              {player1?.teamName || 'YOUR TEAM'}
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 2 }}>{player1?.formation}</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{player1?.tactic}</div>
+            <div style={{
+              marginTop: 14, fontSize: 38, fontWeight: 900, color: 'var(--accent)',
+              lineHeight: 1, animation: 'fadeInUp 0.4s ease 1.1s both',
+            }}>
+              {p1OVR}
+            </div>
+            <div style={{ fontSize: 10, color: 'var(--text-muted)', letterSpacing: 3, marginTop: 2 }}>OVR</div>
+          </div>
+
+          {/* VS badge */}
+          <div style={{
+            width: 60, textAlign: 'center', flexShrink: 0,
+            animation: 'vsAppear 0.55s cubic-bezier(0.34,1.56,0.64,1) 0.75s both',
+          }}>
+            <div style={{
+              fontSize: 22, fontWeight: 900, color: '#fff',
+              textShadow: '0 0 24px rgba(0,212,170,0.9), 0 0 8px rgba(0,212,170,0.5)',
+              letterSpacing: 1,
+            }}>
+              VS
+            </div>
+          </div>
+
+          {/* CPU team (right) */}
+          <div style={{
+            flex: 1, textAlign: 'left', paddingLeft: 18,
+            animation: 'introSlideRight 0.65s cubic-bezier(0.16,1,0.3,1) 0.45s both',
+          }}>
+            <div style={{ fontSize: 10, color: '#ff4757', fontWeight: 700, letterSpacing: 3, marginBottom: 6, textTransform: 'uppercase' }}>
+              CPU TEAM
+            </div>
+            <div style={{ fontSize: 22, fontWeight: 900, color: '#fff', lineHeight: 1.15, marginBottom: 6, wordBreak: 'break-word' }}>
+              {player2?.teamName || 'CPU TEAM'}
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 2 }}>{player2?.formation}</div>
+            <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{player2?.tactic}</div>
+            <div style={{
+              marginTop: 14, fontSize: 38, fontWeight: 900, color: '#ff4757',
+              lineHeight: 1, animation: 'fadeInUp 0.4s ease 1.1s both',
+            }}>
+              {p2OVR}
+            </div>
+            <div style={{ fontSize: 10, color: 'var(--text-muted)', letterSpacing: 3, marginTop: 2 }}>OVR</div>
+          </div>
+        </div>
+
+        {/* Kick off pulse */}
+        <div style={{
+          marginTop: 56, fontSize: 15, fontWeight: 700,
+          color: 'rgba(255,255,255,0.35)', letterSpacing: 4, textTransform: 'uppercase',
+          animation: 'pulse 1.4s ease 1.6s infinite, fadeInUp 0.4s ease 1.6s both',
+        }}>
+          ⚽ KICK OFF
+        </div>
+
+        {/* Skip hint */}
+        <div style={{
+          position: 'absolute', bottom: 28,
+          fontSize: 12, color: 'rgba(255,255,255,0.18)',
+          animation: 'fadeInUp 0.4s ease 2s both',
+        }}>
+          タップでスキップ
+        </div>
+      </div>
+    )}
+
     <div
       className="page"
       style={{
@@ -585,6 +729,7 @@ function MatchPage() {
         </button>
       )}
     </div>
+    </>
   )
 }
 
