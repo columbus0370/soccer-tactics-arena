@@ -32,9 +32,9 @@ const FINISH_RANGES = {
 
 // 難易度別ステータス範囲（フォールバック用）
 const DIFFICULTY_RANGES = {
-  easy:   { min: 38, max: 62 },
-  normal: { min: 55, max: 75 },
-  hard:   { min: 72, max: 92 },
+  easy:   { min: 38, max: 64 },
+  normal: { min: 56, max: 78 },
+  hard:   { min: 74, max: 94 },
 }
 
 const CPU_NAMES = [

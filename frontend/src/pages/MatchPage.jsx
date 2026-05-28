@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { simulateFirstHalf, simulateSecondHalf } from '../api/gameApi'
 import GoalCutscene from '../components/GoalCutscene'
+import { calcTeamOVR } from '../utils/ovr'
 
 const EVENT_CONFIG = {
   goal:           { icon: '⚽', color: '#2ed573', label: 'GOAL!' },
@@ -89,16 +90,6 @@ const EVENT_FILTERS = [
 
 const importantTypes = new Set(['goal', 'pk_goal', 'pk_miss', 'pk_awarded', 'red_card', 'super_save', 'yellow_card'])
 
-// OVR平均を計算（フロント用）
-function calcOVR(players) {
-  if (!players || players.length === 0) return 0
-  const total = players.reduce((sum, p) => {
-    const s = p.stats || {}
-    const vals = Object.values(s)
-    return sum + (vals.length ? Math.round(vals.reduce((a, v) => a + v, 0) / vals.length) : 0)
-  }, 0)
-  return Math.round(total / players.length)
-}
 
 function MatchPage() {
   const navigate = useNavigate()
@@ -326,8 +317,8 @@ function MatchPage() {
     )
   }
 
-  const p1OVR = calcOVR(player1?.players)
-  const p2OVR = calcOVR(player2?.players)
+  const p1OVR = calcTeamOVR(player1?.players)
+  const p2OVR = calcTeamOVR(player2?.players)
 
   return (
     <>

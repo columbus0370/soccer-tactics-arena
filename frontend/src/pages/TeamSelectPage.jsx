@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import PitchView from '../components/PitchView'
 import PlayerCard from '../components/PlayerCard'
 import { getTeams, getTeamPlayers, getCPUTeam, getAllPlayers } from '../api/gameApi'
+import { calcPlayerOVR } from '../utils/ovr'
 
 const FORMATIONS = ['4-3-3', '4-2-4', '5-3-2', '3-5-2', '4-4-2']
 const CPU_TACTICS_LIST = ['パス主導型', 'ロングボール型', 'サイド攻撃型']
@@ -32,9 +33,7 @@ const ORIGINAL_TEAM = {
 const MAGIC_TEAM = { isMagic: true, team_name: '✨ Magic Team', team_id: 'magic' }
 
 function calcOverallStatic(p) {
-  return p?.stats
-    ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
-    : 0
+  return calcPlayerOVR(p)
 }
 
 function assignDefaultPlayers(formation, allPlayers, isMagic = false) {
@@ -249,10 +248,7 @@ function TeamSelectPage() {
     })
   }
 
-  const calcOverall = (p) =>
-    p?.stats
-      ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
-      : 0
+  const calcOverall = (p) => calcPlayerOVR(p)
 
   const handleSelectOppPlayerForSlot = (player) => {
     if (oppChangingSlot === null) return
