@@ -661,16 +661,22 @@ function TeamSelectPage() {
             const { slotIndex, player } = swapOverlay
             const slotPos = FORMATION_SLOTS[formation]?.[slotIndex]
             const overallCurrent = calcOverall(player)
-            // Same-position candidates not in lineup — shuffle to spread across all teams
+            // Stable OVR-descending candidates; Magic Team: no position/duplicate restriction
             const candidates = allPlayersPool
-              .filter(p => p.position === slotPos && !lineup.some(l => l && l.id === p.id))
-              .sort(() => Math.random() - 0.5)
-              .slice(0, 60)
+              .filter(p => {
+                const posOk = selectedTeam?.isMagic || p.position === slotPos
+                const notUsed = selectedTeam?.isMagic || !lineup.some(l => l && l.id === p.id)
+                return posOk && notUsed
+              })
+              .sort((a, b) => calcOverall(b) - calcOverall(a))
+            const visibleCandidates = overlaySearch.trim()
+              ? candidates.filter(c => c.skipper_name.toLowerCase().includes(overlaySearch.toLowerCase()))
+              : candidates
             return (
               <>
                 {/* Backdrop */}
                 <div
-                  onClick={() => { setSwapOverlay(null); setChangingSlot(null) }}
+                  onClick={() => { setSwapOverlay(null); setChangingSlot(null); setOverlaySearch('') }}
                   style={{
                     position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 100,
                   }}
@@ -721,7 +727,7 @@ function TeamSelectPage() {
                       </div>
                     </div>
                     <button
-                      onClick={() => { setSwapOverlay(null); setChangingSlot(null) }}
+                      onClick={() => { setSwapOverlay(null); setChangingSlot(null); setOverlaySearch('') }}
                       style={{
                         background: 'none', border: 'none', color: 'var(--text-muted)',
                         fontSize: 22, cursor: 'pointer', padding: '4px 8px', lineHeight: 1,
@@ -733,17 +739,33 @@ function TeamSelectPage() {
 
                   {/* Sub-header */}
                   <div style={{ padding: '8px 20px 4px', fontSize: 12, color: 'var(--text-secondary)', fontWeight: 700 }}>
-                    交代候補（{slotPos}）
+                    {selectedTeam?.isMagic ? '交代候補（全ポジション）' : `交代候補（${slotPos}）`}
+                  </div>
+
+                  {/* Search input */}
+                  <div style={{ padding: '0 12px' }}>
+                    <input
+                      placeholder="選手名で検索..."
+                      value={overlaySearch}
+                      onChange={e => setOverlaySearch(e.target.value)}
+                      style={{
+                        width: '100%', boxSizing: 'border-box',
+                        margin: '8px 0', padding: '8px 12px',
+                        background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+                        borderRadius: 8, color: 'var(--text-primary)', fontSize: 14,
+                        fontFamily: 'inherit',
+                      }}
+                    />
                   </div>
 
                   {/* Candidate list */}
                   <div style={{ overflowY: 'auto', flex: 1, padding: '0 12px 16px' }}>
-                    {candidates.length === 0 && (
+                    {visibleCandidates.length === 0 && (
                       <div style={{ padding: 20, color: 'var(--text-muted)', textAlign: 'center', fontSize: 13 }}>
                         交代候補がいません
                       </div>
                     )}
-                    {candidates.map(c => {
+                    {visibleCandidates.map(c => {
                       const ov = calcOverall(c)
                       return (
                         <div
@@ -755,7 +777,7 @@ function TeamSelectPage() {
                         >
                           <span style={posTag(c.position)}>{c.position}</span>
                           <span style={styles.playerName}>{c.skipper_name}</span>
-                          {selectedTeam?.isOriginal && (
+                          {(selectedTeam?.isOriginal || selectedTeam?.isMagic) && (
                             <span style={styles.teamTag}>{c.team_name}</span>
                           )}
                           <span style={styles.overallScore}>{ov}</span>
