@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { simulateMatch } from '../api/gameApi'
+import { simulateFirstHalf, simulateSecondHalf } from '../api/gameApi'
 
 const EVENT_CONFIG = {
   goal:           { icon: '⚽', color: '#2ed573', label: 'GOAL!' },
@@ -91,17 +91,24 @@ const importantTypes = new Set(['goal', 'pk_goal', 'pk_miss', 'pk_awarded', 'red
 function MatchPage() {
   const navigate = useNavigate()
   const location = useLocation()
-  const { player1, player2 } = location.state || {}
+  const { player1, player2, player1Bench = [] } = location.state || {}
 
   const [matchResult, setMatchResult] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
+  const [phase, setPhase] = useState('loading') // 'loading'|'first_half'|'halftime'|'second_half'|'finished'
+  const [firstHalfData, setFirstHalfData] = useState(null)
+  const [currentPlayer1, setCurrentPlayer1] = useState(null)
+  const [htFormation, setHtFormation] = useState(null)
+  const [htTactic, setHtTactic] = useState(null)
+  const [htSubs, setHtSubs] = useState([]) // [{outIdx, inPlayer}] max 3
+  const [subPickingFor, setSubPickingFor] = useState(null) // slot index | null
+
   const [gameMinute, setGameMinute] = useState(0)
   const [displayScore, setDisplayScore] = useState({ player1: 0, player2: 0 })
   const [visibleEvents, setVisibleEvents] = useState([])
   const [scoreAnimate, setScoreAnimate] = useState({ player1: false, player2: false })
-  const [interventionsLeft, setInterventionsLeft] = useState(2)
   const [finished, setFinished] = useState(false)
   const [eventFilter, setEventFilter] = useState('all')
 
@@ -109,31 +116,37 @@ function MatchPage() {
   const minuteRef = useRef(0)
   const eventsRef = useRef([])
   const resultRef = useRef(null)
+  const phaseRef = useRef('loading')
+  const eventIndexRef = useRef(0)
+
+  // Keep phaseRef in sync with phase state
+  useEffect(() => {
+    phaseRef.current = phase
+  }, [phase])
 
   useEffect(() => {
     if (!player1 || !player2) {
       navigate('/')
       return
     }
-    simulateMatch(player1, player2)
+    simulateFirstHalf(player1, player2)
       .then(result => {
+        setFirstHalfData(result)
         setMatchResult(result)
         resultRef.current = result
+        setCurrentPlayer1(player1)
+        setHtFormation(player1.formation)
+        setHtTactic(player1.tactic)
       })
       .catch(e => setError(e.message))
-      .finally(() => setLoading(false))
+      .finally(() => { setLoading(false); setPhase('first_half') })
   }, [])
-
-  const eventIndexRef = useRef(0)
 
   useEffect(() => {
     if (!matchResult) return
     eventsRef.current = matchResult.events || []
     eventIndexRef.current = 0
 
-    // Show one event per tick so each log is readable (~1.5s per event).
-    // Game minute advances to match the current event's minute; after the last
-    // event it runs to 90 to signal the end of the match.
     const INTERVAL_MS = 1500
     const allEvents = eventsRef.current
 
@@ -141,7 +154,6 @@ function MatchPage() {
       const idx = eventIndexRef.current
 
       if (idx < allEvents.length) {
-        // Reveal the next event and jump the minute clock to that event's minute
         const ev = allEvents[idx]
         minuteRef.current = ev.minute
         setGameMinute(ev.minute)
@@ -159,22 +171,29 @@ function MatchPage() {
 
         eventIndexRef.current = idx + 1
       } else {
-        // All events shown — run the clock to 90 and finish
-        minuteRef.current = 90
-        setGameMinute(90)
         clearInterval(timerRef.current)
-        setFinished(true)
-        setTimeout(() => {
-          const enriched = {
-            ...resultRef.current,
-            player1TeamId: player1?.teamId,
-            player1TeamName: player1?.teamName,
-            cpuTeamName: player2?.teamName,
-            player1Players: player1?.players || [],
-            player2Players: player2?.players || [],
-          }
-          navigate('/result', { state: enriched })
-        }, 2000)
+        if (phaseRef.current === 'first_half') {
+          minuteRef.current = 45
+          setGameMinute(45)
+          setPhase('halftime')
+        } else {
+          // second_half finished
+          minuteRef.current = 90
+          setGameMinute(90)
+          setFinished(true)
+          setTimeout(() => {
+            const base = resultRef.current || matchResult
+            const enriched = {
+              ...base,
+              player1TeamId: player1?.teamId,
+              player1TeamName: (phaseRef.current === 'second_half' ? base.player1TeamName : null) || currentPlayer1?.teamName || player1?.teamName,
+              cpuTeamName: player2?.teamName,
+              player1Players: currentPlayer1?.players || player1?.players || [],
+              player2Players: player2?.players || [],
+            }
+            navigate('/result', { state: enriched })
+          }, 2000)
+        }
       }
     }, INTERVAL_MS)
 
@@ -183,44 +202,78 @@ function MatchPage() {
 
   const handleSkip = () => {
     clearInterval(timerRef.current)
-    minuteRef.current = 90
-    setGameMinute(90)
-    if (matchResult) {
-      const allEvents = matchResult.events || []
-      setVisibleEvents(allEvents)
-      const s = { player1: 0, player2: 0 }
-      allEvents.forEach(ev => {
-        if (ev.type === 'goal' || ev.type === 'pk_goal') {
-          const side = ev.team === player1?.teamId || ev.teamName === player1?.teamName ? 'player1' : 'player2'
-          s[side]++
-        }
-      })
-      setDisplayScore(s)
-    }
-    setFinished(true)
-    setTimeout(() => {
-      const base = resultRef.current || matchResult
-      const enriched = {
-        ...base,
-        player1TeamId: player1?.teamId,
-        player1TeamName: player1?.teamName,
-        cpuTeamName: player2?.teamName,
-        player1Players: player1?.players || [],
-        player2Players: player2?.players || [],
+    const allEvents = matchResult?.events || []
+    setVisibleEvents(allEvents)
+    // Recalculate score
+    const s = { player1: 0, player2: 0 }
+    allEvents.forEach(ev => {
+      if (ev.type === 'goal' || ev.type === 'pk_goal') {
+        const side = ev.team === player1?.teamId || ev.teamName === player1?.teamName ? 'player1' : 'player2'
+        s[side]++
       }
-      navigate('/result', { state: enriched })
-    }, 1500)
+    })
+    setDisplayScore(s)
+
+    if (phase === 'first_half') {
+      setGameMinute(45)
+      setPhase('halftime')
+    } else {
+      setGameMinute(90)
+      setFinished(true)
+      setTimeout(() => {
+        const base = resultRef.current || matchResult
+        const enriched = {
+          ...base,
+          player1TeamId: player1?.teamId,
+          player1TeamName: currentPlayer1?.teamName || player1?.teamName,
+          cpuTeamName: player2?.teamName,
+          player1Players: currentPlayer1?.players || player1?.players || [],
+          player2Players: player2?.players || [],
+        }
+        navigate('/result', { state: enriched })
+      }, 1500)
+    }
   }
 
-  const handleIntervention = (type) => {
-    if (interventionsLeft <= 0) return
-    setInterventionsLeft(prev => prev - 1)
-    if (type === 'attack') {
-      setScoreAnimate({ player1: true, player2: false })
-      setTimeout(() => setScoreAnimate({ player1: false, player2: false }), 400)
-    } else {
-      setScoreAnimate({ player1: false, player2: true })
-      setTimeout(() => setScoreAnimate({ player1: false, player2: false }), 400)
+  const handleStartSecondHalf = async () => {
+    // Apply halftime changes
+    const updatedLineup = [...(currentPlayer1.players)]
+    htSubs.forEach(({ outIdx, inPlayer }) => {
+      updatedLineup[outIdx] = inPlayer
+    })
+    const updatedPlayer1 = {
+      ...currentPlayer1,
+      formation: htFormation,
+      tactic: htTactic,
+      players: updatedLineup,
+    }
+    setCurrentPlayer1(updatedPlayer1)
+    setPhase('loading')
+    setLoading(true)
+
+    try {
+      const result = await simulateSecondHalf(
+        updatedPlayer1,
+        player2,
+        firstHalfData.score,
+        firstHalfData.p1ScoreHint
+      )
+      // Merge first and second half events for final result
+      const allEvents = [...(firstHalfData.events || []), ...(result.events || [])]
+      const combined = { ...result, events: allEvents }
+
+      // Only stream second-half events; first-half feed resets
+      const h2Only = { ...result }
+      setMatchResult(h2Only)
+      resultRef.current = combined // navigate will use this (combined events)
+      setGameMinute(45)
+      setVisibleEvents([]) // reset event feed for second half
+      eventIndexRef.current = 0
+      setPhase('second_half')
+    } catch (e) {
+      setError(e.message)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -234,7 +287,9 @@ function MatchPage() {
     return (
       <div className="page" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '100vh' }}>
         <div className="spinner" style={{ marginBottom: 16 }} />
-        <p style={{ color: 'var(--text-secondary)' }}>試合をシミュレート中...</p>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          {phase === 'loading' && !firstHalfData ? '試合をシミュレート中...' : '後半をシミュレート中...'}
+        </p>
       </div>
     )
   }
@@ -259,6 +314,144 @@ function MatchPage() {
         gap: 20,
       }}
     >
+      {/* Halftime overlay */}
+      {phase === 'halftime' && (
+        <div style={{
+          position: 'fixed', inset: 0, background: 'rgba(10,14,26,0.97)',
+          zIndex: 100, overflowY: 'auto', padding: '24px 16px',
+          display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 480, margin: '0 auto',
+        }}>
+          {/* Header */}
+          <div style={{ textAlign: 'center', padding: '8px 0 4px' }}>
+            <div style={{ fontSize: 28, fontWeight: 900, color: 'var(--warning)' }}>⏸ ハーフタイム</div>
+            <div style={{ fontSize: 20, fontWeight: 700, marginTop: 8, color: 'var(--text-primary)' }}>
+              前半スコア: {displayScore.player1} - {displayScore.player2}
+            </div>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>
+              {player1?.teamName} vs {player2?.teamName}
+            </div>
+          </div>
+
+          {/* Formation change */}
+          <div className="card">
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
+              フォーメーション変更
+            </div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              {['4-3-3', '4-2-4', '5-3-2', '3-5-2', '4-4-2'].map(f => (
+                <button key={f} onClick={() => setHtFormation(f)} style={{
+                  padding: '8px 14px', borderRadius: 8, border: 'none', cursor: 'pointer',
+                  fontFamily: 'inherit', fontSize: 14, fontWeight: 700,
+                  background: htFormation === f ? 'var(--accent)' : 'var(--bg-secondary)',
+                  color: htFormation === f ? '#0a0e1a' : 'var(--text-secondary)',
+                  transition: 'all 0.15s',
+                }}>{f}</button>
+              ))}
+            </div>
+          </div>
+
+          {/* Tactic change */}
+          <div className="card">
+            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
+              戦術変更
+            </div>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+              {['パス主導型', 'ロングボール型', 'サイド攻撃型'].map(t => (
+                <button key={t} onClick={() => setHtTactic(t)} style={{
+                  padding: '8px 14px', borderRadius: 8, cursor: 'pointer',
+                  fontFamily: 'inherit', fontSize: 13, fontWeight: 600,
+                  background: htTactic === t ? 'rgba(0,212,170,0.1)' : 'var(--bg-secondary)',
+                  color: htTactic === t ? 'var(--accent)' : 'var(--text-secondary)',
+                  border: htTactic === t ? '2px solid var(--accent)' : '1px solid var(--border)',
+                  transition: 'all 0.15s',
+                }}>{t}</button>
+              ))}
+            </div>
+          </div>
+
+          {/* Substitutions */}
+          <div className="card">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: 1 }}>
+                選手交代
+              </div>
+              <div style={{ fontSize: 12, color: 'var(--warning)' }}>{htSubs.length}/3</div>
+            </div>
+
+            {subPickingFor !== null ? (
+              <div>
+                <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 8 }}>
+                  交代選手を選択してください
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 200, overflowY: 'auto' }}>
+                  {player1Bench
+                    .filter(p => !htSubs.some(s => s.inPlayer.id === p.id))
+                    .map(p => (
+                      <div key={p.id} onClick={() => {
+                        setHtSubs(prev => [...prev, { outIdx: subPickingFor, inPlayer: p }])
+                        setSubPickingFor(null)
+                      }} style={{
+                        padding: '8px 12px', borderRadius: 8, cursor: 'pointer',
+                        background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                      }}>
+                        <span style={{ fontWeight: 600, fontSize: 14 }}>{p.skipper_name}</span>
+                        <span style={{ fontSize: 11, padding: '2px 6px', borderRadius: 4,
+                          background: p.position === 'GK' ? '#f59e0b' : p.position === 'DF' ? '#3b82f6' : p.position === 'MF' ? '#10b981' : '#ef4444',
+                          color: '#fff', fontWeight: 700 }}>{p.position}</span>
+                      </div>
+                    ))}
+                </div>
+                <button onClick={() => setSubPickingFor(null)} style={{
+                  marginTop: 8, padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
+                  background: 'transparent', color: 'var(--text-secondary)', cursor: 'pointer', fontFamily: 'inherit', fontSize: 13,
+                }}>キャンセル</button>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {(() => {
+                  const lineup = [...(currentPlayer1?.players || [])]
+                  htSubs.forEach(({ outIdx, inPlayer }) => { lineup[outIdx] = inPlayer })
+                  return lineup.map((player, idx) => {
+                    const isSubbed = htSubs.some(s => s.outIdx === idx)
+                    return (
+                      <div key={idx} style={{
+                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+                        padding: '7px 10px', borderRadius: 8,
+                        background: isSubbed ? 'rgba(0,212,170,0.08)' : 'var(--bg-secondary)',
+                        border: isSubbed ? '1px solid var(--accent)' : '1px solid transparent',
+                      }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                          <span style={{ fontSize: 11, padding: '2px 5px', borderRadius: 4, fontWeight: 700, color: '#fff',
+                            background: player?.position === 'GK' ? '#f59e0b' : player?.position === 'DF' ? '#3b82f6' : player?.position === 'MF' ? '#10b981' : '#ef4444',
+                          }}>{player?.position}</span>
+                          <span style={{ fontSize: 14, fontWeight: isSubbed ? 700 : 400, color: isSubbed ? 'var(--accent)' : 'var(--text-primary)' }}>
+                            {player?.skipper_name}
+                          </span>
+                          {isSubbed && <span style={{ fontSize: 11, color: 'var(--accent)' }}>🔄 交代済</span>}
+                        </div>
+                        {!isSubbed && htSubs.length < 3 && player1Bench.length > 0 && (
+                          <button onClick={() => setSubPickingFor(idx)} style={{
+                            padding: '4px 10px', borderRadius: 6, border: '1px solid var(--border)',
+                            background: 'var(--bg-card)', color: 'var(--text-secondary)',
+                            cursor: 'pointer', fontFamily: 'inherit', fontSize: 12,
+                          }}>交代</button>
+                        )}
+                      </div>
+                    )
+                  })
+                })()}
+              </div>
+            )}
+          </div>
+
+          {/* Start second half button */}
+          <button className="btn btn-primary" onClick={handleStartSecondHalf} style={{ justifyContent: 'center', fontSize: 17, padding: '14px', marginTop: 4 }}>
+            ⚽ 後半キックオフ！
+          </button>
+        </div>
+      )}
+
       {/* Score board */}
       <div className="card" style={{ textAlign: 'center' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: 12 }}>
@@ -309,6 +502,12 @@ function MatchPage() {
             <div style={{ color: 'var(--success)', fontWeight: 700, fontSize: 14, marginTop: 4 }}>
               試合終了！
             </div>
+          )}
+          {phase === 'first_half' && gameMinute < 45 && (
+            <div style={{ color: 'var(--accent)', fontSize: 12, fontWeight: 700, marginTop: 4 }}>前半</div>
+          )}
+          {phase === 'second_half' && (
+            <div style={{ color: 'var(--warning)', fontSize: 12, fontWeight: 700, marginTop: 4 }}>後半</div>
           )}
         </div>
       </div>
@@ -379,38 +578,8 @@ function MatchPage() {
         </div>
       </div>
 
-      {/* Interventions */}
-      <div className="card">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
-          <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 700 }}>介入ボタン</span>
-          <span style={{ fontSize: 12, color: 'var(--warning)' }}>残り {interventionsLeft} 回</span>
-        </div>
-        <div style={{ display: 'flex', gap: 10 }}>
-          <button
-            className="btn btn-primary"
-            disabled={interventionsLeft <= 0 || finished}
-            onClick={() => handleIntervention('attack')}
-            style={{ flex: 1, justifyContent: 'center', background: 'var(--accent-secondary)' }}
-          >
-            ⚔ 攻撃強化
-          </button>
-          <button
-            className="btn"
-            disabled={interventionsLeft <= 0 || finished}
-            onClick={() => handleIntervention('defense')}
-            style={{
-              flex: 1, justifyContent: 'center',
-              background: interventionsLeft > 0 && !finished ? 'var(--bg-secondary)' : 'var(--bg-card)',
-              color: 'var(--text-primary)', border: '1px solid var(--border)',
-            }}
-          >
-            🛡 守備固め
-          </button>
-        </div>
-      </div>
-
       {/* Skip button */}
-      {!finished && (
+      {!finished && phase !== 'halftime' && (
         <button className="btn btn-secondary" onClick={handleSkip} style={{ justifyContent: 'center' }}>
           ⏩ スキップ
         </button>
