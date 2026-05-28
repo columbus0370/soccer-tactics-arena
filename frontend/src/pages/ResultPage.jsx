@@ -53,10 +53,13 @@ function randomRating() {
 
 function getRatingColor(r) {
   const val = parseFloat(r)
-  if (val >= 8.5) return '#f59e0b'
-  if (val >= 7.5) return '#2ed573'
-  if (val >= 6.5) return 'var(--accent)'
-  return 'var(--text-secondary)'
+  if (val >= 9.0) return '#00bcd4'
+  if (val >= 8.0) return '#2e7d32'
+  if (val >= 7.0) return '#66bb6a'
+  if (val >= 6.0) return '#ffeb3b'
+  if (val >= 5.0) return '#ff9800'
+  if (val >= 4.0) return '#f44336'
+  return '#7f0000'
 }
 
 function ResultPage() {
@@ -109,7 +112,7 @@ function ResultPage() {
   const redCards = allEvents.filter(e => e.type === 'red_card')
 
   return (
-    <div className="page" style={{ maxWidth: 720, margin: '0 auto' }}>
+    <div className="page" style={{ width: '100%', boxSizing: 'border-box', paddingLeft: 8, paddingRight: 8 }}>
       {/* Header */}
       <div style={{ textAlign: 'center', marginBottom: 24 }}>
         <div style={{ fontSize: 36, fontWeight: 900, color: resultColor, marginBottom: 4 }}>
