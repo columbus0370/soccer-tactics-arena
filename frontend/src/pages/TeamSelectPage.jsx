@@ -233,6 +233,22 @@ function TeamSelectPage() {
     setTeamFilter('ALL')
   }
 
+  const handleSwapLineupSlots = (fromIdx, toIdx) => {
+    setLineup(prev => {
+      const next = [...prev]
+      ;[next[fromIdx], next[toIdx]] = [next[toIdx], next[fromIdx]]
+      return next
+    })
+  }
+
+  const handleSwapOppLineupSlots = (fromIdx, toIdx) => {
+    setOppLineup(prev => {
+      const next = [...prev]
+      ;[next[fromIdx], next[toIdx]] = [next[toIdx], next[fromIdx]]
+      return next
+    })
+  }
+
   const calcOverall = (p) =>
     p?.stats
       ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
@@ -647,6 +663,7 @@ function TeamSelectPage() {
                     setPosFilter('ALL')
                     setTeamFilter('ALL')
                   }}
+                  onSwapPlayers={handleSwapLineupSlots}
                   selectedPlayerId={changingSlot !== null && lineup[changingSlot] ? lineup[changingSlot].id : null}
                 />
                 {changingSlot !== null && swapOverlay === null && (
@@ -1131,6 +1148,7 @@ function TeamSelectPage() {
                     setOppChangingSlot(slotIndex)
                     setOppPosFilter('ALL')
                   }}
+                  onSwapPlayers={handleSwapOppLineupSlots}
                   selectedPlayerId={oppChangingSlot !== null && oppLineup[oppChangingSlot] ? oppLineup[oppChangingSlot].id : null}
                 />
                 {oppChangingSlot !== null && oppSwapOverlay === null && (
