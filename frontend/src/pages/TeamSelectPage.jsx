@@ -543,11 +543,11 @@ function TeamSelectPage() {
                     <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>
                       {team.team_name}
                     </div>
-                    {team.pl_finish && (
-                      <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
-                        順位: {team.pl_finish}位
-                      </div>
-                    )}
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
+                      {team.pl_finish
+                        ? `PL ${team.pl_finish}位`
+                        : team.league || 'Europe'}
+                    </div>
                   </div>
                 ))}
               </div>
