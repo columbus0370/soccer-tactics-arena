@@ -54,17 +54,28 @@ export default function LobbyPage() {
           </div>
         </div>
 
-        {/* スタートボタン */}
-        <button
-          style={styles.startBtn}
-          onClick={() => navigate('/team-select', { state: { difficulty: selectedDifficulty } })}
-          onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.04)'; e.currentTarget.style.boxShadow = '0 0 40px #00d4aa88' }}
-          onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 0 24px #00d4aa44' }}
-        >
-          <span style={{ fontSize: 22, marginRight: 10 }}>⚽</span>
-          試合を始める
-          <span style={{ fontSize: 18, marginLeft: 10 }}>→</span>
-        </button>
+        {/* スタートボタン群 */}
+        <div style={{ display: 'flex', gap: 12, width: '100%', maxWidth: 380 }}>
+          <button
+            style={{ ...styles.startBtn, flex: 1 }}
+            onClick={() => navigate('/team-select', { state: { difficulty: selectedDifficulty } })}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; e.currentTarget.style.boxShadow = '0 0 40px #00d4aa88' }}
+            onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 0 24px #00d4aa44' }}
+          >
+            <span style={{ fontSize: 20 }}>⚽</span>
+            試合を始める
+          </button>
+
+          <button
+            style={styles.presetBtn}
+            onClick={() => navigate('/preset')}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,140,255,0.2)'; e.currentTarget.style.borderColor = '#4f8cff88' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(79,140,255,0.12)'; e.currentTarget.style.borderColor = '#4f8cff44' }}
+          >
+            <span style={{ fontSize: 18 }}>📋</span>
+            チーム編成
+          </button>
+        </div>
 
         {/* フッター統計（ダミー） */}
         <div style={styles.footer}>
@@ -238,20 +249,37 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
-    maxWidth: 380,
     padding: '18px 32px',
     background: 'linear-gradient(135deg, #00d4aa, #00b894)',
     color: '#050810',
     border: 'none',
     borderRadius: 50,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 800,
     fontFamily: 'inherit',
     cursor: 'pointer',
     letterSpacing: '0.05em',
     boxShadow: '0 0 24px #00d4aa44',
     transition: 'all 0.2s ease',
+    gap: 8,
+  },
+  presetBtn: {
+    flex: 0.7,
+    padding: '16px 16px',
+    background: 'rgba(79,140,255,0.12)',
+    color: '#4f8cff',
+    border: '2px solid rgba(79,140,255,0.3)',
+    borderRadius: 50,
+    fontSize: 14,
+    fontWeight: 800,
+    fontFamily: 'inherit',
+    cursor: 'pointer',
+    letterSpacing: '0.05em',
+    transition: 'all 0.2s ease',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
   },
   footer: {
     display: 'flex',

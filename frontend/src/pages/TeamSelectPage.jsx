@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import PitchView from '../components/PitchView'
 import PlayerCard from '../components/PlayerCard'
 import { getTeams, getTeamPlayers, getCPUTeam, getAllPlayers } from '../api/gameApi'
-import { calcPlayerOVR } from '../utils/ovr'
+import { savePreset, loadPreset, hasPreset, resolveLineup } from '../utils/presets'
 
 const FORMATIONS = ['4-3-3', '4-2-4', '5-3-2', '3-5-2', '4-4-2']
 const CPU_TACTICS_LIST = ['パス主導型', 'ロングボール型', 'サイド攻撃型']
@@ -33,7 +33,9 @@ const ORIGINAL_TEAM = {
 const MAGIC_TEAM = { isMagic: true, team_name: '✨ Magic Team', team_id: 'magic' }
 
 function calcOverallStatic(p) {
-  return calcPlayerOVR(p)
+  return p?.stats
+    ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
+    : 0
 }
 
 function assignDefaultPlayers(formation, allPlayers, isMagic = false) {
@@ -131,6 +133,9 @@ function TeamSelectPage() {
   const [submitting, setSubmitting] = useState(false)
   const [opponentMode, setOpponentMode] = useState('random')
 
+  const [preloadedLineup, setPreloadedLineup] = useState(null)
+  const [presetWarning, setPresetWarning] = useState(null)
+
   // Swap overlay (mobile tap-to-swap panel)
   const [swapOverlay, setSwapOverlay] = useState(null) // { slotIndex, player }
   const [overlaySearch, setOverlaySearch] = useState('')
@@ -158,13 +163,25 @@ function TeamSelectPage() {
   useEffect(() => {
     if (step === 3 && selectedTeam) {
       setPlayersLoading(true)
+      const applyLineup = (players) => {
+        if (preloadedLineup) {
+          const { resolved, missing } = resolveLineup(preloadedLineup, players)
+          if (missing > 0) setPresetWarning(`プリセット内 ${missing} 人の選手データが更新されました`)
+          else setPresetWarning(null)
+          setLineup(resolved)
+          setPreloadedLineup(null)
+        } else {
+          setPresetWarning(null)
+          setLineup(assignDefaultPlayers(formation, players, !!selectedTeam?.isMagic))
+        }
+      }
       if (selectedTeam.isOriginal || selectedTeam.isMagic) {
         getAllPlayers()
           .then(data => {
             const players = data.players || []
             setAllPlayersPool(players)
             setAllPlayers(players)
-            setLineup(assignDefaultPlayers(formation, players, !!selectedTeam.isMagic))
+            applyLineup(players)
           })
           .catch(() => {})
           .finally(() => setPlayersLoading(false))
@@ -174,7 +191,7 @@ function TeamSelectPage() {
             const players = data.players || []
             setAllPlayersPool(players)
             setAllPlayers(players)
-            setLineup(assignDefaultPlayers(formation, players, false))
+            applyLineup(players)
           })
           .catch(() => {})
           .finally(() => setPlayersLoading(false))
@@ -248,7 +265,10 @@ function TeamSelectPage() {
     })
   }
 
-  const calcOverall = (p) => calcPlayerOVR(p)
+  const calcOverall = (p) =>
+    p?.stats
+      ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
+      : 0
 
   const handleSelectOppPlayerForSlot = (player) => {
     if (oppChangingSlot === null) return
@@ -348,16 +368,23 @@ function TeamSelectPage() {
         tactic: tacticLabel,
         players: lineup.filter(Boolean),
       }
-      navigate('/match', {
-        state: {
-          player1,
-          player2,
-          difficulty,
-          player1Bench: allPlayersPool
-            .filter(p => !lineup.some(l => l && l.id === p.id))
-            .slice(0, 7),
-        }
-      })
+
+      // Auto-save preset before navigating to match
+      const presetPayload = {
+        teamId: player1.teamId,
+        teamName: player1.teamName,
+        teamType: selectedTeam?.isOriginal ? 'original' : selectedTeam?.isMagic ? 'magic' : 'club',
+        formation,
+        tactic: tacticLabel,
+        lineup: lineup.filter(Boolean).map(p => ({
+          id: p.id, skipper_name: p.skipper_name, position: p.position,
+          team_id: p.team_id, team_name: p.team_name, stats: p.stats,
+        })),
+        matchCount: (loadPreset(player1.teamId)?.matchCount || 0) + 1,
+      }
+      savePreset(player1.teamId, presetPayload)
+
+      navigate('/match', { state: { player1, player2, difficulty } })
     } catch (e) {
       alert('エラーが発生しました: ' + e.message)
     } finally {
@@ -436,9 +463,21 @@ function TeamSelectPage() {
                 {/* ORIGINAL special card */}
                 <div
                   key={ORIGINAL_TEAM.team_id}
-                  onClick={() => setSelectedTeam(ORIGINAL_TEAM)}
+                  onClick={() => {
+                    setSelectedTeam(ORIGINAL_TEAM)
+                    const preset = loadPreset(ORIGINAL_TEAM.team_id)
+                    if (preset) {
+                      setFormation(preset.formation)
+                      const tacticKey = TACTICS.find(t => t.label === preset.tactic)?.key || 'passing'
+                      setTactic(tacticKey)
+                      setPreloadedLineup(preset.lineup)
+                    } else {
+                      setPreloadedLineup(null)
+                    }
+                  }}
                   className="card"
                   style={{
+                    position: 'relative',
                     cursor: 'pointer',
                     padding: '14px 16px',
                     transition: 'all 0.2s',
@@ -462,6 +501,14 @@ function TeamSelectPage() {
                     background: 'linear-gradient(135deg, #ffd700, #ff6b6b, #4f8cff, #00d4aa)',
                     marginBottom: 10,
                   }} />
+                  {hasPreset('original') && (
+                    <div style={{
+                      position: 'absolute', top: 6, right: 6,
+                      background: 'rgba(46,213,115,0.15)', border: '1px solid rgba(46,213,115,0.5)',
+                      borderRadius: 10, padding: '2px 6px', fontSize: 9, fontWeight: 700, color: '#2ed573',
+                      letterSpacing: '0.05em',
+                    }}>保存済</div>
+                  )}
                   <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>
                     {ORIGINAL_TEAM.team_name}
                   </div>
@@ -473,9 +520,21 @@ function TeamSelectPage() {
                 {/* MAGIC TEAM special card */}
                 <div
                   key={MAGIC_TEAM.team_id}
-                  onClick={() => setSelectedTeam(MAGIC_TEAM)}
+                  onClick={() => {
+                    setSelectedTeam(MAGIC_TEAM)
+                    const preset = loadPreset(MAGIC_TEAM.team_id)
+                    if (preset) {
+                      setFormation(preset.formation)
+                      const tacticKey = TACTICS.find(t => t.label === preset.tactic)?.key || 'passing'
+                      setTactic(tacticKey)
+                      setPreloadedLineup(preset.lineup)
+                    } else {
+                      setPreloadedLineup(null)
+                    }
+                  }}
                   className="card"
                   style={{
+                    position: 'relative',
                     cursor: 'pointer',
                     padding: '14px 16px',
                     transition: 'all 0.2s',
@@ -499,6 +558,14 @@ function TeamSelectPage() {
                     background: 'linear-gradient(135deg, #a78bfa, #f472b6, #fb923c)',
                     marginBottom: 10,
                   }} />
+                  {hasPreset('magic') && (
+                    <div style={{
+                      position: 'absolute', top: 6, right: 6,
+                      background: 'rgba(46,213,115,0.15)', border: '1px solid rgba(46,213,115,0.5)',
+                      borderRadius: 10, padding: '2px 6px', fontSize: 9, fontWeight: 700, color: '#2ed573',
+                      letterSpacing: '0.05em',
+                    }}>保存済</div>
+                  )}
                   <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>
                     {MAGIC_TEAM.team_name}
                   </div>
@@ -510,9 +577,21 @@ function TeamSelectPage() {
                 {teams.map(team => (
                   <div
                     key={team.team_id}
-                    onClick={() => setSelectedTeam(team)}
+                    onClick={() => {
+                      setSelectedTeam(team)
+                      const preset = loadPreset(team.team_id)
+                      if (preset) {
+                        setFormation(preset.formation)
+                        const tacticKey = TACTICS.find(t => t.label === preset.tactic)?.key || 'passing'
+                        setTactic(tacticKey)
+                        setPreloadedLineup(preset.lineup)
+                      } else {
+                        setPreloadedLineup(null)
+                      }
+                    }}
                     className="card"
                     style={{
+                      position: 'relative',
                       cursor: 'pointer',
                       border: selectedTeam?.team_id === team.team_id
                         ? '2px solid var(--accent)'
@@ -536,14 +615,22 @@ function TeamSelectPage() {
                       background: team.primary_color || 'var(--accent)',
                       marginBottom: 10,
                     }} />
+                    {hasPreset(team.team_id) && (
+                      <div style={{
+                        position: 'absolute', top: 6, right: 6,
+                        background: 'rgba(46,213,115,0.15)', border: '1px solid rgba(46,213,115,0.5)',
+                        borderRadius: 10, padding: '2px 6px', fontSize: 9, fontWeight: 700, color: '#2ed573',
+                        letterSpacing: '0.05em',
+                      }}>保存済</div>
+                    )}
                     <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>
                       {team.team_name}
                     </div>
-                    <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
-                      {team.pl_finish
-                        ? `PL ${team.pl_finish}位`
-                        : team.league || 'Europe'}
-                    </div>
+                    {team.pl_finish && (
+                      <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
+                        順位: {team.pl_finish}位
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -650,6 +737,15 @@ function TeamSelectPage() {
             }
           `}</style>
           <h2 style={{ marginBottom: 20, fontSize: 20 }}>スターティングラインナップ</h2>
+          {presetWarning && (
+            <div style={{
+              background: 'rgba(255,165,0,0.1)', border: '1px solid var(--warning)',
+              borderRadius: 8, padding: '8px 12px', marginBottom: 8,
+              fontSize: 12, color: 'var(--warning)',
+            }}>
+              ⚠️ {presetWarning}
+            </div>
+          )}
           {playersLoading && <div className="spinner" />}
           {!playersLoading && (
             <div

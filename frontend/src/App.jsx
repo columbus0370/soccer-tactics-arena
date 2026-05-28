@@ -3,6 +3,7 @@ import LobbyPage from './pages/LobbyPage'
 import TeamSelectPage from './pages/TeamSelectPage'
 import MatchPage from './pages/MatchPage'
 import ResultPage from './pages/ResultPage'
+import PresetPage from './pages/PresetPage'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/team-select" element={<TeamSelectPage />} />
         <Route path="/match" element={<MatchPage />} />
         <Route path="/result" element={<ResultPage />} />
+        <Route path="/preset" element={<PresetPage />} />
       </Routes>
     </BrowserRouter>
   )
