@@ -59,7 +59,7 @@ function PitchView({ formation = '4-3-3', players = [], onPlayerClick, selectedP
   return (
     <svg
       viewBox={`0 0 ${W} ${H}`}
-      style={{ width: '100%', maxWidth: 320, display: 'block', borderRadius: 8 }}
+      style={{ width: '100%', display: 'block', borderRadius: 8 }}
     >
       {/* Pitch background */}
       <rect width={W} height={H} fill="#1a3d1a" rx="8" />

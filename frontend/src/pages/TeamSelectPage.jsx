@@ -117,6 +117,9 @@ function TeamSelectPage() {
   const [teamFilter, setTeamFilter] = useState('ALL')
   const [submitting, setSubmitting] = useState(false)
 
+  // Swap overlay (mobile tap-to-swap panel)
+  const [swapOverlay, setSwapOverlay] = useState(null) // { slotIndex, player }
+
   useEffect(() => {
     setTeamsLoading(true)
     getTeams()
@@ -173,6 +176,24 @@ function TeamSelectPage() {
     setChangingSlot(null)
     setPosFilter('ALL')
     setTeamFilter('ALL')
+  }
+
+  const calcOverall = (p) =>
+    p?.stats
+      ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
+      : 0
+
+  const handleOverlaySwap = (candidate) => {
+    if (swapOverlay === null) return
+    const { slotIndex } = swapOverlay
+    const existingSlot = lineup.findIndex(p => p && p.id === candidate.id)
+    const newLineup = [...lineup]
+    if (existingSlot !== -1) {
+      newLineup[existingSlot] = newLineup[slotIndex]
+    }
+    newLineup[slotIndex] = candidate
+    setLineup(newLineup)
+    setSwapOverlay(null)
   }
 
   const handleConfirm = async () => {
@@ -429,24 +450,36 @@ function TeamSelectPage() {
 
       {/* Step 3: Lineup */}
       {step === 3 && (
-        <div>
+        <div style={{ position: 'relative' }}>
+          <style>{`
+            @media (max-width: 600px) {
+              .lineup-layout { flex-direction: column !important; }
+              .lineup-pitch-col { width: 100% !important; }
+              .lineup-panel-col { width: 100% !important; }
+            }
+          `}</style>
           <h2 style={{ marginBottom: 20, fontSize: 20 }}>スターティングラインナップ</h2>
           {playersLoading && <div className="spinner" />}
           {!playersLoading && (
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+            <div
+              className="lineup-layout"
+              style={{ display: 'flex', flexDirection: 'row', gap: 24, alignItems: 'flex-start' }}
+            >
               {/* Pitch */}
-              <div>
+              <div className="lineup-pitch-col" style={{ flex: '0 0 auto', width: '50%' }}>
                 <PitchView
                   formation={formation}
                   players={lineup}
                   onPlayerClick={(player, slotIndex) => {
+                    // Open overlay on mobile-friendly tap; also update right-panel slot
+                    setSwapOverlay({ slotIndex, player })
                     setChangingSlot(slotIndex)
                     setPosFilter('ALL')
                     setTeamFilter('ALL')
                   }}
                   selectedPlayerId={changingSlot !== null && lineup[changingSlot] ? lineup[changingSlot].id : null}
                 />
-                {changingSlot !== null && (
+                {changingSlot !== null && swapOverlay === null && (
                   <p style={{ color: 'var(--accent)', fontSize: 12, marginTop: 8, textAlign: 'center' }}>
                     右のリストから選手を選んでください
                   </p>
@@ -454,7 +487,7 @@ function TeamSelectPage() {
               </div>
 
               {/* Player selection panel */}
-              <div>
+              <div className="lineup-panel-col" style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ color: 'var(--text-secondary)', fontSize: 12, fontWeight: 700, marginBottom: 10, textTransform: 'uppercase' }}>
                   {changingSlot !== null
                     ? `スロット ${changingSlot + 1} (${FORMATION_SLOTS[formation]?.[changingSlot]}) の選手を選択`
@@ -496,10 +529,7 @@ function TeamSelectPage() {
                     {/* Filtered player list */}
                     <div style={styles.playerListScroll}>
                       {filteredPlayers.map(p => {
-                        const overall = Math.round(
-                          Object.values(p.stats || {}).reduce((s, v) => s + v, 0) /
-                          Math.max(Object.keys(p.stats || {}).length, 1)
-                        )
+                        const overall = calcOverall(p)
                         return (
                           <div
                             key={p.id}
@@ -527,7 +557,7 @@ function TeamSelectPage() {
                     <button
                       className="btn btn-secondary"
                       style={{ marginTop: 10, fontSize: 12, padding: '6px 12px' }}
-                      onClick={() => setChangingSlot(null)}
+                      onClick={() => { setChangingSlot(null); setSwapOverlay(null) }}
                     >
                       キャンセル
                     </button>
@@ -563,6 +593,117 @@ function TeamSelectPage() {
             <button className="btn btn-secondary" onClick={() => setStep(2)}>← 戻る</button>
             <button className="btn btn-primary" disabled={!canNextStep3} onClick={() => setStep(4)}>次へ →</button>
           </div>
+
+          {/* ── Swap Overlay (slide-up panel for mobile tap-to-swap) ── */}
+          {swapOverlay !== null && (() => {
+            const { slotIndex, player } = swapOverlay
+            const slotPos = FORMATION_SLOTS[formation]?.[slotIndex]
+            const overallCurrent = calcOverall(player)
+            // Same-position candidates not in lineup
+            const candidates = allPlayersPool
+              .filter(p => p.position === slotPos && !lineup.some(l => l && l.id === p.id))
+              .slice(0, 30)
+            return (
+              <>
+                {/* Backdrop */}
+                <div
+                  onClick={() => { setSwapOverlay(null); setChangingSlot(null) }}
+                  style={{
+                    position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 100,
+                  }}
+                />
+                {/* Slide-up panel */}
+                <div
+                  style={{
+                    position: 'fixed', left: 0, right: 0, bottom: 0,
+                    background: 'var(--bg-card)',
+                    borderRadius: '16px 16px 0 0',
+                    boxShadow: '0 -4px 32px rgba(0,0,0,0.5)',
+                    zIndex: 101,
+                    maxHeight: '70vh',
+                    display: 'flex', flexDirection: 'column',
+                    animation: 'slideUp 0.25s ease-out',
+                  }}
+                >
+                  <style>{`
+                    @keyframes slideUp {
+                      from { transform: translateY(100%); }
+                      to   { transform: translateY(0); }
+                    }
+                  `}</style>
+
+                  {/* Handle bar */}
+                  <div style={{ display: 'flex', justifyContent: 'center', padding: '10px 0 4px' }}>
+                    <div style={{ width: 40, height: 4, borderRadius: 2, background: 'var(--border)' }} />
+                  </div>
+
+                  {/* Header: current player info */}
+                  <div style={{
+                    padding: '8px 20px 12px',
+                    borderBottom: '1px solid var(--border)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>
+                        交代対象 — スロット {slotIndex + 1}
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={posTag(player.position)}>{player.position}</span>
+                        <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)' }}>
+                          {player.skipper_name}
+                        </span>
+                        <span style={{ fontSize: 13, color: 'var(--accent)', fontWeight: 700 }}>
+                          {overallCurrent}
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => { setSwapOverlay(null); setChangingSlot(null) }}
+                      style={{
+                        background: 'none', border: 'none', color: 'var(--text-muted)',
+                        fontSize: 22, cursor: 'pointer', padding: '4px 8px', lineHeight: 1,
+                      }}
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {/* Sub-header */}
+                  <div style={{ padding: '8px 20px 4px', fontSize: 12, color: 'var(--text-secondary)', fontWeight: 700 }}>
+                    交代候補（{slotPos}）
+                  </div>
+
+                  {/* Candidate list */}
+                  <div style={{ overflowY: 'auto', flex: 1, padding: '0 12px 16px' }}>
+                    {candidates.length === 0 && (
+                      <div style={{ padding: 20, color: 'var(--text-muted)', textAlign: 'center', fontSize: 13 }}>
+                        交代候補がいません
+                      </div>
+                    )}
+                    {candidates.map(c => {
+                      const ov = calcOverall(c)
+                      return (
+                        <div
+                          key={c.id}
+                          style={{ ...styles.playerListItem, marginBottom: 4 }}
+                          onClick={() => handleOverlaySwap(c)}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-card-hover)' }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card)' }}
+                        >
+                          <span style={posTag(c.position)}>{c.position}</span>
+                          <span style={styles.playerName}>{c.skipper_name}</span>
+                          {selectedTeam?.isOriginal && (
+                            <span style={styles.teamTag}>{c.team_name}</span>
+                          )}
+                          <span style={styles.overallScore}>{ov}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </>
+            )
+          })()}
         </div>
       )}
 
