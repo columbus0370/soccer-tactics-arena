@@ -4,9 +4,15 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const playersData = JSON.parse(
-  readFileSync(join(__dirname, '../../data/players.json'), 'utf-8')
-)
+let playersData
+try {
+  playersData = JSON.parse(
+    readFileSync(join(__dirname, '../../data/players.json'), 'utf-8')
+  )
+} catch (err) {
+  console.error('players.json の読み込みに失敗:', err)
+  process.exit(1)
+}
 
 const router = Router()
 
