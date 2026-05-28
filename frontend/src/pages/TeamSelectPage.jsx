@@ -5,6 +5,7 @@ import PlayerCard from '../components/PlayerCard'
 import { getTeams, getTeamPlayers, getCPUTeam, getAllPlayers } from '../api/gameApi'
 
 const FORMATIONS = ['4-3-3', '4-2-4', '5-3-2', '3-5-2', '4-4-2']
+const CPU_TACTICS_LIST = ['パス主導型', 'ロングボール型', 'サイド攻撃型']
 
 const TACTICS = [
   { key: 'passing', label: 'パス主導型', desc: 'パス精度UP、ポゼッションUP', icon: '🎯' },
@@ -129,6 +130,7 @@ function TeamSelectPage() {
   const [posFilter, setPosFilter] = useState('ALL')
   const [teamFilter, setTeamFilter] = useState('ALL')
   const [submitting, setSubmitting] = useState(false)
+  const [opponentMode, setOpponentMode] = useState('random')
 
   // Swap overlay (mobile tap-to-swap panel)
   const [swapOverlay, setSwapOverlay] = useState(null) // { slotIndex, player }
@@ -224,7 +226,39 @@ function TeamSelectPage() {
   const handleConfirm = async () => {
     setSubmitting(true)
     try {
-      const cpuTeam = await getCPUTeam(difficulty)
+      let player2
+
+      if (opponentMode === 'random') {
+        player2 = await getCPUTeam(difficulty)
+      } else {
+        const oppFormation = FORMATIONS[Math.floor(Math.random() * FORMATIONS.length)]
+        const oppTactic = CPU_TACTICS_LIST[Math.floor(Math.random() * CPU_TACTICS_LIST.length)]
+        const oppIsMagic = opponentMode === 'magic'
+        let oppPlayers = []
+        let oppTeamName = ''
+
+        if (opponentMode === 'original' || opponentMode === 'magic') {
+          const data = await getAllPlayers()
+          oppPlayers = data.players || []
+          oppTeamName = opponentMode === 'magic' ? '✨ Magic Team' : '⭐ ORIGINAL'
+        } else {
+          const data = await getTeamPlayers(opponentMode)
+          oppPlayers = data.players || []
+          oppTeamName = teams.find(t => t.team_id === opponentMode)?.team_name || opponentMode
+        }
+
+        const oppLineup = assignDefaultPlayers(oppFormation, oppPlayers, oppIsMagic)
+        player2 = {
+          teamId: opponentMode,
+          teamName: oppTeamName,
+          formation: oppFormation,
+          tactic: oppTactic,
+          players: oppLineup.filter(Boolean),
+          isCPU: true,
+          difficulty,
+        }
+      }
+
       const tacticLabel = TACTICS.find(t => t.key === tactic)?.label || tactic
       const player1 = {
         teamName: selectedTeam.isOriginal ? 'My Original Team' : selectedTeam.isMagic ? '✨ Magic Team' : selectedTeam.team_name,
@@ -233,9 +267,9 @@ function TeamSelectPage() {
         tactic: tacticLabel,
         players: lineup.filter(Boolean),
       }
-      navigate('/match', { state: { player1, player2: cpuTeam, difficulty } })
+      navigate('/match', { state: { player1, player2, difficulty } })
     } catch (e) {
-      alert('CPUチームの取得に失敗しました: ' + e.message)
+      alert('エラーが発生しました: ' + e.message)
     } finally {
       setSubmitting(false)
     }
@@ -833,6 +867,69 @@ function TeamSelectPage() {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+
+          {/* 対戦相手選択 */}
+          <div className="card" style={{ marginBottom: 20 }}>
+            <h3 style={{ marginBottom: 12, color: 'var(--accent)', fontSize: 16 }}>⚔️ 対戦相手</h3>
+
+            {/* クイック選択 */}
+            <div style={{ display: 'flex', gap: 8, marginBottom: 12, flexWrap: 'wrap' }}>
+              {[
+                { id: 'random', label: '🎲 ランダム' },
+                { id: 'original', label: '⭐ ORIGINAL' },
+                { id: 'magic', label: '✨ Magic' },
+              ].map(opt => (
+                <button
+                  key={opt.id}
+                  onClick={() => setOpponentMode(opt.id)}
+                  style={{
+                    padding: '8px 16px', borderRadius: 20,
+                    border: `2px solid ${opponentMode === opt.id ? 'var(--accent)' : 'var(--border)'}`,
+                    background: opponentMode === opt.id ? 'rgba(0,212,170,0.15)' : 'transparent',
+                    color: opponentMode === opt.id ? 'var(--accent)' : 'var(--text-secondary)',
+                    cursor: 'pointer', fontFamily: 'inherit', fontSize: 13, fontWeight: 700,
+                    transition: 'all 0.15s',
+                  }}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+
+            {/* チーム一覧グリッド */}
+            <div style={{
+              maxHeight: 180, overflowY: 'auto',
+              display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))', gap: 6,
+              marginBottom: 10,
+            }}>
+              {teams.map(team => (
+                <button
+                  key={team.team_id}
+                  onClick={() => setOpponentMode(team.team_id)}
+                  style={{
+                    padding: '7px 10px', borderRadius: 8, textAlign: 'left',
+                    border: `1px solid ${opponentMode === team.team_id ? 'var(--accent)' : 'var(--border)'}`,
+                    background: opponentMode === team.team_id ? 'rgba(0,212,170,0.1)' : 'var(--bg-secondary)',
+                    color: opponentMode === team.team_id ? 'var(--accent)' : 'var(--text-secondary)',
+                    cursor: 'pointer', fontFamily: 'inherit', fontSize: 11, fontWeight: 600,
+                    transition: 'all 0.15s', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
+                  }}
+                >
+                  {team.team_name}
+                </button>
+              ))}
+            </div>
+
+            {/* 選択中表示 */}
+            <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+              選択中：{
+                opponentMode === 'random' ? '🎲 ランダム（難易度に応じたチーム）' :
+                opponentMode === 'original' ? '⭐ ORIGINAL（全クラブ最強11人）' :
+                opponentMode === 'magic' ? '✨ Magic（総合値トップ11）' :
+                (teams.find(t => t.team_id === opponentMode)?.team_name || opponentMode)
+              }
             </div>
           </div>
 
