@@ -599,10 +599,11 @@ function TeamSelectPage() {
             const { slotIndex, player } = swapOverlay
             const slotPos = FORMATION_SLOTS[formation]?.[slotIndex]
             const overallCurrent = calcOverall(player)
-            // Same-position candidates not in lineup
+            // Same-position candidates not in lineup — shuffle to spread across all teams
             const candidates = allPlayersPool
               .filter(p => p.position === slotPos && !lineup.some(l => l && l.id === p.id))
-              .slice(0, 30)
+              .sort(() => Math.random() - 0.5)
+              .slice(0, 60)
             return (
               <>
                 {/* Backdrop */}
@@ -710,29 +711,27 @@ function TeamSelectPage() {
       {/* Step 4: Confirmation */}
       {step === 4 && (
         <div>
+          <style>{`
+            @media (max-width: 600px) {
+              .confirm-grid { grid-template-columns: 1fr !important; }
+            }
+          `}</style>
           <h2 style={{ marginBottom: 20, fontSize: 20 }}>確認 & 試合開始</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20, marginBottom: 24 }}>
+          <div className="confirm-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
             <div className="card">
               <h3 style={{ marginBottom: 12, color: 'var(--accent)', fontSize: 16 }}>チーム情報</h3>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>チーム</span>
-                  <span style={{ fontWeight: 700, fontSize: 13 }}>
-                    {selectedTeam?.isOriginal ? 'My Original Team' : selectedTeam?.team_name}
-                  </span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>フォーメーション</span>
-                  <span style={{ fontWeight: 700, fontSize: 13 }}>{formation}</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>戦術</span>
-                  <span style={{ fontWeight: 700, fontSize: 13 }}>{TACTICS.find(t => t.key === tactic)?.label}</span>
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ color: 'var(--text-muted)', fontSize: 13 }}>難易度</span>
-                  <span style={{ fontWeight: 700, fontSize: 13, color: 'var(--warning)' }}>{difficulty.toUpperCase()}</span>
-                </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+                {[
+                  { label: 'チーム', value: selectedTeam?.isOriginal ? 'My Original Team' : selectedTeam?.team_name },
+                  { label: 'フォーメーション', value: formation },
+                  { label: '戦術', value: TACTICS.find(t => t.key === tactic)?.label },
+                  { label: '難易度', value: difficulty.toUpperCase(), color: 'var(--warning)' },
+                ].map(({ label, value, color }) => (
+                  <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    <span style={{ color: 'var(--text-muted)', fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
+                    <span style={{ fontWeight: 700, fontSize: 14, color: color || 'var(--text-primary)' }}>{value}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
