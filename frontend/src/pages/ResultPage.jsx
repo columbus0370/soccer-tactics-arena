@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 
 const TABS = [
@@ -68,6 +68,27 @@ function ResultPage() {
   const matchResult = location.state
 
   const [activeTab, setActiveTab] = useState('summary')
+  const [commentary, setCommentary] = useState(null) // null=loading, ''=unavailable, string=text
+
+  // Fetch AI commentary once after mount
+  useEffect(() => {
+    if (!matchResult) return
+    const API = import.meta.env.VITE_API_URL || ''
+    fetch(`${API}/api/game/commentary`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        home: matchResult.player1TeamName || 'あなたのチーム',
+        away: matchResult.cpuTeamName || matchResult.player2TeamName || 'CPUチーム',
+        score: matchResult.score,
+        result: matchResult.result,
+        events: matchResult.events || [],
+      }),
+    })
+      .then(r => r.ok ? r.json() : null)
+      .then(data => setCommentary(data?.commentary || ''))
+      .catch(() => setCommentary(''))
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Stable ratings computed once per match result (avoids re-randomizing on tab switch)
   const playerRatings = useMemo(() => {
@@ -184,6 +205,21 @@ function ResultPage() {
               </div>
             )}
           </div>
+
+          {/* AI Commentary */}
+          {commentary !== '' && (
+            <div className="card" style={{ background: 'rgba(0,212,170,0.06)', border: '1px solid rgba(0,212,170,0.2)', padding: '14px 16px' }}>
+              <div style={{ fontSize: 11, color: 'var(--accent)', fontWeight: 700, letterSpacing: 1, marginBottom: 8 }}>🎙 AI実況解説</div>
+              {commentary === null ? (
+                <div style={{ color: 'var(--text-muted)', fontSize: 13, display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span className="spinner" style={{ width: 12, height: 12, borderWidth: 2 }} />
+                  解説を生成中...
+                </div>
+              ) : (
+                <p style={{ color: 'var(--text-primary)', fontSize: 14, lineHeight: 1.7, margin: 0 }}>{commentary}</p>
+              )}
+            </div>
+          )}
 
           {/* MVP */}
           {mvp && (

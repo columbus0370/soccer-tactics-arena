@@ -1,8 +1,13 @@
 import { Router } from 'express'
+import Anthropic from '@anthropic-ai/sdk'
 import { simulateMatch } from '../engine/simulator.js'
 import { generateCPUTeam } from '../engine/cpuGenerator.js'
 
 const router = Router()
+
+const anthropic = process.env.ANTHROPIC_API_KEY
+  ? new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY })
+  : null
 
 // GET /api/game/cpu-team?difficulty=normal
 router.get('/cpu-team', (req, res) => {
@@ -46,6 +51,53 @@ router.post('/simulate', (req, res) => {
   } catch (err) {
     console.error('simulateMatch error:', err)
     res.status(500).json({ error: '試合シミュレーション中にエラーが発生しました' })
+  }
+})
+
+// POST /api/game/commentary
+// Body: { home, away, score, result, events }
+// Sends only key events (goals/red_card/pk_goal) to Claude to minimize tokens
+router.post('/commentary', async (req, res) => {
+  if (!anthropic) {
+    return res.status(503).json({ error: 'ANTHROPIC_API_KEY が設定されていません' })
+  }
+
+  const { home, away, score, result, events = [] } = req.body
+  if (!home || !away || !score) {
+    return res.status(400).json({ error: 'home / away / score が必要です' })
+  }
+
+  // ── 重要イベントだけ抽出してトークンを節約 ──────────────
+  const KEY_TYPES = new Set(['goal', 'pk_goal', 'red_card'])
+  const keyEvents = events
+    .filter(e => KEY_TYPES.has(e.type))
+    .sort((a, b) => a.minute - b.minute)
+    .map(e => {
+      if (e.type === 'goal' || e.type === 'pk_goal') {
+        const label = e.type === 'pk_goal' ? 'PK' : 'ゴール'
+        return `${e.minute}' ${label} ${e.scorer}(${e.teamName})`
+      }
+      return `${e.minute}' 退場 ${e.player}(${e.teamName})`
+    })
+    .join(', ')
+
+  const resultLabel =
+    result === 'player1_win' ? `${home}の勝利` :
+    result === 'player2_win' ? `${away}の勝利` : '引き分け'
+
+  const userMsg = `${home} ${score.player1}-${score.player2} ${away} (${resultLabel})${keyEvents ? `\n${keyEvents}` : ''}`
+
+  try {
+    const msg = await anthropic.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 180,
+      system: 'あなたはサッカーの試合実況アナウンサーです。試合結果を3文程度、臨場感ある日本語で要約してください。',
+      messages: [{ role: 'user', content: userMsg }],
+    })
+    res.json({ commentary: msg.content[0]?.text ?? '' })
+  } catch (err) {
+    console.error('commentary error:', err.message)
+    res.status(500).json({ error: '解説の生成に失敗しました' })
   }
 })
 
