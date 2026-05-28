@@ -90,8 +90,8 @@ router.post('/commentary', async (req, res) => {
   try {
     const msg = await anthropic.messages.create({
       model: 'claude-haiku-4-5-20251001',
-      max_tokens: 180,
-      system: 'あなたはサッカーの試合実況アナウンサーです。試合結果を3文程度、臨場感ある日本語で要約してください。',
+      max_tokens: 380,
+      system: 'あなたはサッカーの試合実況アナウンサーです。試合結果を6〜7文で、試合の流れ・ターニングポイント・印象的な場面・両チームの評価を含めて臨場感ある日本語で詳しく解説してください。',
       messages: [{ role: 'user', content: userMsg }],
     })
     res.json({ commentary: msg.content[0]?.text ?? '' })
