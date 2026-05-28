@@ -124,36 +124,44 @@ function MatchPage() {
       .finally(() => setLoading(false))
   }, [])
 
+  const eventIndexRef = useRef(0)
+
   useEffect(() => {
     if (!matchResult) return
     eventsRef.current = matchResult.events || []
+    eventIndexRef.current = 0
+
+    // Show one event per tick so each log is readable (~1.5s per event).
+    // Game minute advances to match the current event's minute; after the last
+    // event it runs to 90 to signal the end of the match.
+    const INTERVAL_MS = 1500
+    const allEvents = eventsRef.current
 
     timerRef.current = setInterval(() => {
-      minuteRef.current = Math.min(minuteRef.current + 3, 90)
-      setGameMinute(minuteRef.current)
+      const idx = eventIndexRef.current
 
-      // Check all events up to current minute
-      const newEvents = eventsRef.current.filter(
-        ev => ev.minute <= minuteRef.current
-      )
-      setVisibleEvents(prev => {
-        const prevCount = prev.length
-        if (newEvents.length > prevCount) {
-          const added = newEvents.slice(prevCount)
-          added.forEach(ev => {
-            if (ev.type === 'goal' || ev.type === 'pk_goal') {
-              const side = ev.team === player1?.teamId || ev.teamName === player1?.teamName ? 'player1' : 'player2'
-              setDisplayScore(s => ({ ...s, [side]: s[side] + 1 }))
-              setScoreAnimate(prev2 => ({ ...prev2, [side]: true }))
-              setTimeout(() => setScoreAnimate(prev2 => ({ ...prev2, [side]: false })), 500)
-            }
-          })
-          return newEvents
-        }
-        return prev
-      })
+      if (idx < allEvents.length) {
+        // Reveal the next event and jump the minute clock to that event's minute
+        const ev = allEvents[idx]
+        minuteRef.current = ev.minute
+        setGameMinute(ev.minute)
 
-      if (minuteRef.current >= 90) {
+        setVisibleEvents(prev => {
+          const next = [...prev, ev]
+          if (ev.type === 'goal' || ev.type === 'pk_goal') {
+            const side = ev.team === player1?.teamId || ev.teamName === player1?.teamName ? 'player1' : 'player2'
+            setDisplayScore(s => ({ ...s, [side]: s[side] + 1 }))
+            setScoreAnimate(p => ({ ...p, [side]: true }))
+            setTimeout(() => setScoreAnimate(p => ({ ...p, [side]: false })), 500)
+          }
+          return next
+        })
+
+        eventIndexRef.current = idx + 1
+      } else {
+        // All events shown — run the clock to 90 and finish
+        minuteRef.current = 90
+        setGameMinute(90)
         clearInterval(timerRef.current)
         setFinished(true)
         setTimeout(() => {
@@ -168,7 +176,7 @@ function MatchPage() {
           navigate('/result', { state: enriched })
         }, 2000)
       }
-    }, 1000)
+    }, INTERVAL_MS)
 
     return () => clearInterval(timerRef.current)
   }, [matchResult])
