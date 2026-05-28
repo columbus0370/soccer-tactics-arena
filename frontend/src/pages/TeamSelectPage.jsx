@@ -136,6 +136,17 @@ function TeamSelectPage() {
   const [swapOverlay, setSwapOverlay] = useState(null) // { slotIndex, player }
   const [overlaySearch, setOverlaySearch] = useState('')
 
+  // Opponent team builder state (Steps 5 & 6)
+  const [oppFormation, setOppFormation] = useState('4-3-3')
+  const [oppTactic, setOppTactic] = useState('passing')
+  const [oppLineup, setOppLineup] = useState([])
+  const [oppPlayersPool, setOppPlayersPool] = useState([])
+  const [oppPlayersLoading, setOppPlayersLoading] = useState(false)
+  const [oppChangingSlot, setOppChangingSlot] = useState(null)
+  const [oppPosFilter, setOppPosFilter] = useState('ALL')
+  const [oppSwapOverlay, setOppSwapOverlay] = useState(null)
+  const [oppOverlaySearch, setOppOverlaySearch] = useState('')
+
   useEffect(() => {
     setTeamsLoading(true)
     getTeams()
@@ -180,6 +191,29 @@ function TeamSelectPage() {
     }
   }, [formation])
 
+  // Load all players when entering Step 5 (opponent builder)
+  useEffect(() => {
+    if (step === 5 && (opponentMode === 'original' || opponentMode === 'magic')) {
+      setOppPlayersLoading(true)
+      getAllPlayers()
+        .then(data => {
+          const players = data.players || []
+          setOppPlayersPool(players)
+          setOppLineup(assignDefaultPlayers(oppFormation, players, opponentMode === 'magic'))
+        })
+        .catch(() => {})
+        .finally(() => setOppPlayersLoading(false))
+    }
+  }, [step, opponentMode])
+
+  // Re-assign opponent lineup when oppFormation changes
+  useEffect(() => {
+    if (oppPlayersPool.length > 0) {
+      setOppLineup(assignDefaultPlayers(oppFormation, oppPlayersPool, opponentMode === 'magic'))
+      setOppChangingSlot(null)
+    }
+  }, [oppFormation])
+
   const handleSelectPlayerForSlot = (player) => {
     if (changingSlot === null) return
     const newLineup = [...lineup]
@@ -203,6 +237,37 @@ function TeamSelectPage() {
     p?.stats
       ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
       : 0
+
+  const handleSelectOppPlayerForSlot = (player) => {
+    if (oppChangingSlot === null) return
+    const newLineup = [...oppLineup]
+    if (opponentMode === 'magic') {
+      newLineup[oppChangingSlot] = player
+    } else {
+      const existingSlot = oppLineup.findIndex(p => p && p.id === player.id)
+      if (existingSlot !== -1) newLineup[existingSlot] = newLineup[oppChangingSlot]
+      newLineup[oppChangingSlot] = player
+    }
+    setOppLineup(newLineup)
+    setOppChangingSlot(null)
+    setOppPosFilter('ALL')
+  }
+
+  const handleOppOverlaySwap = (candidate) => {
+    if (oppSwapOverlay === null) return
+    const { slotIndex } = oppSwapOverlay
+    const newLineup = [...oppLineup]
+    if (opponentMode === 'magic') {
+      newLineup[slotIndex] = candidate
+    } else {
+      const existingSlot = oppLineup.findIndex(p => p && p.id === candidate.id)
+      if (existingSlot !== -1) newLineup[existingSlot] = newLineup[slotIndex]
+      newLineup[slotIndex] = candidate
+    }
+    setOppLineup(newLineup)
+    setOppSwapOverlay(null)
+    setOppOverlaySearch('')
+  }
 
   const handleOverlaySwap = (candidate) => {
     if (swapOverlay === null) return
@@ -230,30 +295,34 @@ function TeamSelectPage() {
 
       if (opponentMode === 'random') {
         player2 = await getCPUTeam(difficulty)
+      } else if (opponentMode === 'original' || opponentMode === 'magic') {
+        const oppTacticLabel = CPU_TACTICS_LIST[Math.floor(Math.random() * CPU_TACTICS_LIST.length)]
+        player2 = {
+          teamId: opponentMode,
+          teamName: opponentMode === 'magic' ? '✨ Magic Team' : '⭐ ORIGINAL',
+          formation: oppFormation,
+          tactic: oppTacticLabel,
+          players: oppLineup.filter(Boolean),
+          isCPU: true,
+          difficulty,
+        }
       } else {
-        const oppFormation = FORMATIONS[Math.floor(Math.random() * FORMATIONS.length)]
-        const oppTactic = CPU_TACTICS_LIST[Math.floor(Math.random() * CPU_TACTICS_LIST.length)]
-        const oppIsMagic = opponentMode === 'magic'
+        const randFormation = FORMATIONS[Math.floor(Math.random() * FORMATIONS.length)]
+        const randTactic = CPU_TACTICS_LIST[Math.floor(Math.random() * CPU_TACTICS_LIST.length)]
         let oppPlayers = []
         let oppTeamName = ''
 
-        if (opponentMode === 'original' || opponentMode === 'magic') {
-          const data = await getAllPlayers()
-          oppPlayers = data.players || []
-          oppTeamName = opponentMode === 'magic' ? '✨ Magic Team' : '⭐ ORIGINAL'
-        } else {
-          const data = await getTeamPlayers(opponentMode)
-          oppPlayers = data.players || []
-          oppTeamName = teams.find(t => t.team_id === opponentMode)?.team_name || opponentMode
-        }
+        const data = await getTeamPlayers(opponentMode)
+        oppPlayers = data.players || []
+        oppTeamName = teams.find(t => t.team_id === opponentMode)?.team_name || opponentMode
 
-        const oppLineup = assignDefaultPlayers(oppFormation, oppPlayers, oppIsMagic)
+        const builtLineup = assignDefaultPlayers(randFormation, oppPlayers, false)
         player2 = {
           teamId: opponentMode,
           teamName: oppTeamName,
-          formation: oppFormation,
-          tactic: oppTactic,
-          players: oppLineup.filter(Boolean),
+          formation: randFormation,
+          tactic: randTactic,
+          players: builtLineup.filter(Boolean),
           isCPU: true,
           difficulty,
         }
@@ -278,6 +347,7 @@ function TeamSelectPage() {
   const canNextStep1 = !!selectedTeam
   const canNextStep2 = !!formation && !!tactic
   const canNextStep3 = lineup.filter(Boolean).length === 11
+  const canNextStep6 = oppLineup.filter(Boolean).length === 11
 
   // Filtered players for the swap modal
   const filteredPlayers = allPlayersPool.filter(p => {
@@ -295,11 +365,15 @@ function TeamSelectPage() {
     return acc
   }, [])
 
+  const totalSteps = (opponentMode === 'original' || opponentMode === 'magic') ? 6 : 4
+  const stepLabels = ['', 'チーム選択', 'フォーメーション', 'ラインナップ', '確認',
+    '相手フォーメーション', '相手ラインナップ']
+
   return (
     <div className="page" style={{ maxWidth: 900, margin: '0 auto' }}>
       {/* Step indicator */}
       <div style={{ display: 'flex', gap: 8, marginBottom: 28, alignItems: 'center' }}>
-        {[1, 2, 3, 4].map(s => (
+        {Array.from({ length: totalSteps }, (_, i) => i + 1).map(s => (
           <div key={s} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{
               width: 32, height: 32,
@@ -316,11 +390,11 @@ function TeamSelectPage() {
             >
               {step > s ? '✓' : s}
             </div>
-            {s < 4 && <div style={{ width: 32, height: 2, background: step > s ? 'var(--success)' : 'var(--border)', borderRadius: 1 }} />}
+            {s < totalSteps && <div style={{ width: 32, height: 2, background: step > s ? 'var(--success)' : 'var(--border)', borderRadius: 1 }} />}
           </div>
         ))}
         <div style={{ marginLeft: 8, color: 'var(--text-secondary)', fontSize: 14 }}>
-          {['', 'チーム選択', 'フォーメーション', 'ラインナップ', '確認'][step]}
+          {stepLabels[step] || ''}
         </div>
       </div>
 
@@ -935,15 +1009,363 @@ function TeamSelectPage() {
 
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
             <button className="btn btn-secondary" onClick={() => setStep(3)}>← 戻る</button>
+            {(opponentMode === 'original' || opponentMode === 'magic') ? (
+              <button className="btn btn-primary" onClick={() => setStep(5)} style={{ fontSize: 16, padding: '14px 32px' }}>
+                次へ（相手編成）→
+              </button>
+            ) : (
+              <button
+                className="btn btn-primary"
+                disabled={submitting}
+                onClick={handleConfirm}
+                style={{ fontSize: 16, padding: '14px 32px' }}
+              >
+                {submitting ? '準備中...' : '⚽ 試合開始！'}
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+      {/* Step 5: Opponent Formation & Tactic */}
+      {step === 5 && (
+        <div>
+          <h2 style={{ marginBottom: 20, fontSize: 20 }}>対戦相手 — フォーメーション &amp; 戦術</h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+            {/* Pitch preview */}
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <PitchView formation={oppFormation} players={[]} />
+            </div>
+
+            {/* Selection panels */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+              {/* Formation buttons */}
+              <div>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                  フォーメーション
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                  {FORMATIONS.map(f => (
+                    <button
+                      key={f}
+                      onClick={() => setOppFormation(f)}
+                      className="btn"
+                      style={{
+                        background: oppFormation === f ? 'var(--accent)' : 'var(--bg-secondary)',
+                        color: oppFormation === f ? '#0a0e1a' : 'var(--text-secondary)',
+                        border: oppFormation === f ? 'none' : '1px solid var(--border)',
+                        padding: '8px 16px',
+                        fontSize: 14,
+                        fontWeight: 700,
+                      }}
+                    >
+                      {f}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tactic buttons */}
+              <div>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 12, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: 10 }}>
+                  戦術スタイル
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  {TACTICS.map(t => (
+                    <button
+                      key={t.key}
+                      onClick={() => setOppTactic(t.key)}
+                      style={{
+                        background: oppTactic === t.key ? 'rgba(0,212,170,0.1)' : 'var(--bg-secondary)',
+                        color: oppTactic === t.key ? 'var(--accent)' : 'var(--text-primary)',
+                        border: oppTactic === t.key ? '2px solid var(--accent)' : '1px solid var(--border)',
+                        borderRadius: 8,
+                        padding: '12px 16px',
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        fontFamily: 'inherit',
+                        transition: 'all 0.2s',
+                      }}
+                    >
+                      <div style={{ fontWeight: 700, fontSize: 14, marginBottom: 2 }}>
+                        {t.icon} {t.label}
+                      </div>
+                      <div style={{ fontSize: 12, opacity: 0.7 }}>{t.desc}</div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 24 }}>
+            <button className="btn btn-secondary" onClick={() => setStep(4)}>← 戻る</button>
+            <button className="btn btn-primary" disabled={!(!!oppFormation && !!oppTactic)} onClick={() => setStep(6)}>次へ →</button>
+          </div>
+        </div>
+      )}
+
+      {/* Step 6: Opponent Lineup */}
+      {step === 6 && (
+        <div style={{ position: 'relative' }}>
+          <style>{`
+            @media (max-width: 600px) {
+              .opp-lineup-layout { flex-direction: column !important; }
+              .opp-lineup-pitch-col { width: 100% !important; }
+              .opp-lineup-panel-col { width: 100% !important; }
+            }
+          `}</style>
+          <h2 style={{ marginBottom: 20, fontSize: 20 }}>対戦相手 — スターティングラインナップ</h2>
+          {oppPlayersLoading && <div className="spinner" />}
+          {!oppPlayersLoading && (
+            <div
+              className="opp-lineup-layout"
+              style={{ display: 'flex', flexDirection: 'row', gap: 24, alignItems: 'flex-start' }}
+            >
+              {/* Pitch */}
+              <div className="opp-lineup-pitch-col" style={{ flex: '0 0 auto', width: '50%' }}>
+                <PitchView
+                  formation={oppFormation}
+                  players={oppLineup}
+                  onPlayerClick={(player, slotIndex) => {
+                    setOppSwapOverlay({ slotIndex, player })
+                    setOppChangingSlot(slotIndex)
+                    setOppPosFilter('ALL')
+                  }}
+                  selectedPlayerId={oppChangingSlot !== null && oppLineup[oppChangingSlot] ? oppLineup[oppChangingSlot].id : null}
+                />
+                {oppChangingSlot !== null && oppSwapOverlay === null && (
+                  <p style={{ color: 'var(--accent)', fontSize: 12, marginTop: 8, textAlign: 'center' }}>
+                    右のリストから選手を選んでください
+                  </p>
+                )}
+              </div>
+
+              {/* Player selection panel */}
+              <div className="opp-lineup-panel-col" style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 12, fontWeight: 700, marginBottom: 10, textTransform: 'uppercase' }}>
+                  {oppChangingSlot !== null
+                    ? `スロット ${oppChangingSlot + 1} (${FORMATION_SLOTS[oppFormation]?.[oppChangingSlot]}) の選手を選択`
+                    : '選手一覧（クリックして交代）'}
+                </p>
+
+                {oppChangingSlot !== null ? (
+                  <>
+                    {/* Position filter tabs */}
+                    <div style={styles.filterTabs}>
+                      {['ALL', 'GK', 'DF', 'MF', 'FW'].map(pos => (
+                        <button
+                          key={pos}
+                          style={{
+                            ...styles.filterTab,
+                            ...(oppPosFilter === pos ? styles.filterTabActive : {}),
+                          }}
+                          onClick={() => setOppPosFilter(pos)}
+                        >
+                          {pos}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Filtered player list */}
+                    <div style={styles.playerListScroll}>
+                      {oppPlayersPool
+                        .filter(p => {
+                          const posOk = oppPosFilter === 'ALL' || p.position === oppPosFilter
+                          const notUsed = opponentMode === 'magic' || !oppLineup.some(l => l && l.id === p.id)
+                          return posOk && notUsed
+                        })
+                        .map(p => {
+                          const overall = calcOverall(p)
+                          return (
+                            <div
+                              key={p.id}
+                              style={styles.playerListItem}
+                              onClick={() => handleSelectOppPlayerForSlot(p)}
+                              onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-card-hover)' }}
+                              onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card)' }}
+                            >
+                              <span style={posTag(p.position)}>{p.position}</span>
+                              <span style={styles.playerName}>{p.skipper_name}</span>
+                              <span style={styles.teamTag}>{p.team_name}</span>
+                              <span style={styles.overallScore}>{overall}</span>
+                            </div>
+                          )
+                        })}
+                    </div>
+
+                    <button
+                      className="btn btn-secondary"
+                      style={{ marginTop: 10, fontSize: 12, padding: '6px 12px' }}
+                      onClick={() => { setOppChangingSlot(null); setOppSwapOverlay(null) }}
+                    >
+                      キャンセル
+                    </button>
+                  </>
+                ) : (
+                  /* Default view: show all current lineup players */
+                  <div style={{ maxHeight: 440, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    {oppLineup.map((player, idx) => {
+                      if (!player) return null
+                      const overall = calcOverall(player)
+                      return (
+                        <div
+                          key={`${player.id}-${idx}`}
+                          style={{ ...styles.playerListItem, cursor: 'pointer' }}
+                          onClick={() => {
+                            setOppChangingSlot(idx)
+                            setOppPosFilter('ALL')
+                          }}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-card-hover)' }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card)' }}
+                        >
+                          <span style={{ color: 'var(--text-muted)', width: 20, fontSize: 12 }}>{idx + 1}</span>
+                          <span style={posTag(player.position)}>{player.position}</span>
+                          <span style={styles.playerName}>{player.skipper_name}</span>
+                          <span style={styles.overallScore}>{overall}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 24 }}>
+            <button className="btn btn-secondary" onClick={() => setStep(5)}>← 戻る</button>
             <button
               className="btn btn-primary"
-              disabled={submitting}
+              disabled={!canNextStep6 || submitting}
               onClick={handleConfirm}
               style={{ fontSize: 16, padding: '14px 32px' }}
             >
               {submitting ? '準備中...' : '⚽ 試合開始！'}
             </button>
           </div>
+
+          {/* ── Opp Swap Overlay ── */}
+          {oppSwapOverlay !== null && (() => {
+            const { slotIndex, player } = oppSwapOverlay
+            const slotPos = FORMATION_SLOTS[oppFormation]?.[slotIndex]
+            const overallCurrent = calcOverall(player)
+            const oppCandidates = oppPlayersPool
+              .filter(p => {
+                if (opponentMode === 'magic') return true
+                return p.position === slotPos
+              })
+              .filter(p => opponentMode === 'magic' || !oppLineup.some(l => l && l.id === p.id))
+              .sort((a, b) => calcOverall(b) - calcOverall(a))
+            const oppVisible = oppOverlaySearch.trim()
+              ? oppCandidates.filter(c => c.skipper_name.toLowerCase().includes(oppOverlaySearch.toLowerCase()))
+              : oppCandidates
+            return (
+              <>
+                {/* Backdrop */}
+                <div
+                  onClick={() => { setOppSwapOverlay(null); setOppChangingSlot(null); setOppOverlaySearch('') }}
+                  style={{
+                    position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.55)', zIndex: 100,
+                  }}
+                />
+                {/* Slide-up panel */}
+                <div
+                  style={{
+                    position: 'fixed', left: 0, right: 0, bottom: 0,
+                    background: 'var(--bg-card)',
+                    borderRadius: '16px 16px 0 0',
+                    boxShadow: '0 -4px 32px rgba(0,0,0,0.5)',
+                    zIndex: 101,
+                    maxHeight: '70vh',
+                    display: 'flex', flexDirection: 'column',
+                    animation: 'slideUp 0.25s ease-out',
+                  }}
+                >
+                  {/* Handle bar */}
+                  <div style={{ display: 'flex', justifyContent: 'center', padding: '10px 0 4px' }}>
+                    <div style={{ width: 40, height: 4, borderRadius: 2, background: 'var(--border)' }} />
+                  </div>
+
+                  {/* Header: current player info */}
+                  <div style={{
+                    padding: '8px 20px 12px',
+                    borderBottom: '1px solid var(--border)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                  }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>
+                        交代対象 — スロット {slotIndex + 1}
+                      </div>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                        <span style={posTag(player.position)}>{player.position}</span>
+                        <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-primary)' }}>
+                          {player.skipper_name}
+                        </span>
+                        <span style={{ fontSize: 13, color: 'var(--accent)', fontWeight: 700 }}>
+                          {overallCurrent}
+                        </span>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => { setOppSwapOverlay(null); setOppChangingSlot(null); setOppOverlaySearch('') }}
+                      style={{
+                        background: 'none', border: 'none', color: 'var(--text-muted)',
+                        fontSize: 22, cursor: 'pointer', padding: '4px 8px', lineHeight: 1,
+                      }}
+                    >
+                      ✕
+                    </button>
+                  </div>
+
+                  {/* Sub-header */}
+                  <div style={{ padding: '8px 20px 4px', fontSize: 12, color: 'var(--text-secondary)', fontWeight: 700 }}>
+                    {opponentMode === 'magic' ? '交代候補（全ポジション）' : `交代候補（${slotPos}）`}
+                  </div>
+
+                  {/* Search input */}
+                  <div style={{ padding: '0 12px' }}>
+                    <input
+                      placeholder="選手名で検索..."
+                      value={oppOverlaySearch}
+                      onChange={e => setOppOverlaySearch(e.target.value)}
+                      style={{
+                        width: '100%', boxSizing: 'border-box',
+                        margin: '8px 0', padding: '8px 12px',
+                        background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+                        borderRadius: 8, color: 'var(--text-primary)', fontSize: 14,
+                        fontFamily: 'inherit',
+                      }}
+                    />
+                  </div>
+
+                  {/* Candidate list */}
+                  <div style={{ overflowY: 'auto', flex: 1, padding: '0 12px 16px' }}>
+                    {oppVisible.length === 0 && (
+                      <div style={{ padding: 20, color: 'var(--text-muted)', textAlign: 'center', fontSize: 13 }}>
+                        交代候補がいません
+                      </div>
+                    )}
+                    {oppVisible.map(c => {
+                      const ov = calcOverall(c)
+                      return (
+                        <div
+                          key={c.id}
+                          style={{ ...styles.playerListItem, marginBottom: 4 }}
+                          onClick={() => handleOppOverlaySwap(c)}
+                          onMouseEnter={e => { e.currentTarget.style.background = 'var(--bg-card-hover)' }}
+                          onMouseLeave={e => { e.currentTarget.style.background = 'var(--bg-card)' }}
+                        >
+                          <span style={posTag(c.position)}>{c.position}</span>
+                          <span style={styles.playerName}>{c.skipper_name}</span>
+                          <span style={styles.teamTag}>{c.team_name}</span>
+                          <span style={styles.overallScore}>{ov}</span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </>
+            )
+          })()}
         </div>
       )}
     </div>
