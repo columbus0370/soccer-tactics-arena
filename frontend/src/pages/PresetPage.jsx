@@ -175,7 +175,10 @@ export default function PresetPage() {
       setToast('プリセットを保存しました！')
       setTimeout(() => setToast(null), 2500)
     } else {
-      setToast('保存に失敗しました: ' + result.error)
+      const msg = result.error?.includes('QuotaExceeded')
+        ? 'ストレージが満杯です。他のプリセットを削除してください'
+        : '保存に失敗しました: ' + result.error
+      setToast(msg)
       setTimeout(() => setToast(null), 3000)
     }
   }
@@ -205,9 +208,10 @@ export default function PresetPage() {
           to   { opacity: 1; transform: translateX(-50%) translateY(0); }
         }
         @media (max-width: 600px) {
-          .preset-lineup-layout { flex-direction: column !important; }
-          .preset-lineup-pitch  { width: 100% !important; }
-          .preset-lineup-panel  { width: 100% !important; }
+          .preset-formation-grid { grid-template-columns: 1fr !important; }
+          .preset-lineup-layout  { flex-direction: column !important; }
+          .preset-lineup-pitch   { width: 100% !important; }
+          .preset-lineup-panel   { width: 100% !important; }
         }
       `}</style>
 
@@ -366,7 +370,7 @@ export default function PresetPage() {
         {step === 2 && (
           <div>
             <h2 style={{ marginBottom: 20, fontSize: 20 }}>フォーメーション &amp; 戦術</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+            <div className="preset-formation-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
               {/* Pitch preview */}
               <div style={{ display: 'flex', justifyContent: 'center' }}>
                 <PitchView formation={formation} players={[]} />
