@@ -28,8 +28,21 @@ const ORIGINAL_TEAM = {
   isOriginal: true,
 }
 
-function assignDefaultPlayers(formation, allPlayers) {
+const MAGIC_TEAM = { isMagic: true, team_name: '✨ Magic Team', team_id: 'magic' }
+
+function calcOverallStatic(p) {
+  return p?.stats
+    ? Math.round(Object.values(p.stats).reduce((s, v) => s + v, 0) / Math.max(Object.keys(p.stats).length, 1))
+    : 0
+}
+
+function assignDefaultPlayers(formation, allPlayers, isMagic = false) {
   const slots = FORMATION_SLOTS[formation] || FORMATION_SLOTS['4-3-3']
+  if (isMagic) {
+    // Top 11 by OVR descending, duplicates allowed
+    const sorted = [...allPlayers].sort((a, b) => calcOverallStatic(b) - calcOverallStatic(a))
+    return slots.map((_, i) => sorted[i] || null)
+  }
   const grouped = { GK: [], DF: [], MF: [], FW: [] }
   allPlayers.forEach(p => {
     if (grouped[p.position]) grouped[p.position].push(p)
@@ -119,6 +132,7 @@ function TeamSelectPage() {
 
   // Swap overlay (mobile tap-to-swap panel)
   const [swapOverlay, setSwapOverlay] = useState(null) // { slotIndex, player }
+  const [overlaySearch, setOverlaySearch] = useState('')
 
   useEffect(() => {
     setTeamsLoading(true)
@@ -132,13 +146,13 @@ function TeamSelectPage() {
   useEffect(() => {
     if (step === 3 && selectedTeam) {
       setPlayersLoading(true)
-      if (selectedTeam.isOriginal) {
+      if (selectedTeam.isOriginal || selectedTeam.isMagic) {
         getAllPlayers()
           .then(data => {
             const players = data.players || []
             setAllPlayersPool(players)
             setAllPlayers(players)
-            setLineup(assignDefaultPlayers(formation, players))
+            setLineup(assignDefaultPlayers(formation, players, !!selectedTeam.isMagic))
           })
           .catch(() => {})
           .finally(() => setPlayersLoading(false))
@@ -148,7 +162,7 @@ function TeamSelectPage() {
             const players = data.players || []
             setAllPlayersPool(players)
             setAllPlayers(players)
-            setLineup(assignDefaultPlayers(formation, players))
+            setLineup(assignDefaultPlayers(formation, players, false))
           })
           .catch(() => {})
           .finally(() => setPlayersLoading(false))
@@ -159,19 +173,24 @@ function TeamSelectPage() {
   // Re-assign when formation changes in step 3
   useEffect(() => {
     if (allPlayersPool.length > 0) {
-      setLineup(assignDefaultPlayers(formation, allPlayersPool))
+      setLineup(assignDefaultPlayers(formation, allPlayersPool, !!selectedTeam?.isMagic))
       setChangingSlot(null)
     }
   }, [formation])
 
   const handleSelectPlayerForSlot = (player) => {
     if (changingSlot === null) return
-    const existingSlot = lineup.findIndex(p => p && p.id === player.id)
     const newLineup = [...lineup]
-    if (existingSlot !== -1) {
-      newLineup[existingSlot] = newLineup[changingSlot]
+    if (selectedTeam?.isMagic) {
+      // Magic Team: just overwrite the slot, allow duplicates
+      newLineup[changingSlot] = player
+    } else {
+      const existingSlot = lineup.findIndex(p => p && p.id === player.id)
+      if (existingSlot !== -1) {
+        newLineup[existingSlot] = newLineup[changingSlot]
+      }
+      newLineup[changingSlot] = player
     }
-    newLineup[changingSlot] = player
     setLineup(newLineup)
     setChangingSlot(null)
     setPosFilter('ALL')
@@ -186,14 +205,20 @@ function TeamSelectPage() {
   const handleOverlaySwap = (candidate) => {
     if (swapOverlay === null) return
     const { slotIndex } = swapOverlay
-    const existingSlot = lineup.findIndex(p => p && p.id === candidate.id)
     const newLineup = [...lineup]
-    if (existingSlot !== -1) {
-      newLineup[existingSlot] = newLineup[slotIndex]
+    if (selectedTeam?.isMagic) {
+      // Magic Team: just overwrite, allow duplicates
+      newLineup[slotIndex] = candidate
+    } else {
+      const existingSlot = lineup.findIndex(p => p && p.id === candidate.id)
+      if (existingSlot !== -1) {
+        newLineup[existingSlot] = newLineup[slotIndex]
+      }
+      newLineup[slotIndex] = candidate
     }
-    newLineup[slotIndex] = candidate
     setLineup(newLineup)
     setSwapOverlay(null)
+    setOverlaySearch('')
   }
 
   const handleConfirm = async () => {
@@ -202,8 +227,8 @@ function TeamSelectPage() {
       const cpuTeam = await getCPUTeam(difficulty)
       const tacticLabel = TACTICS.find(t => t.key === tactic)?.label || tactic
       const player1 = {
-        teamName: selectedTeam.isOriginal ? 'My Original Team' : selectedTeam.team_name,
-        teamId: selectedTeam.isOriginal ? 'original' : selectedTeam.team_id,
+        teamName: selectedTeam.isOriginal ? 'My Original Team' : selectedTeam.isMagic ? '✨ Magic Team' : selectedTeam.team_name,
+        teamId: selectedTeam.isOriginal ? 'original' : selectedTeam.isMagic ? 'magic' : selectedTeam.team_id,
         formation,
         tactic: tacticLabel,
         players: lineup.filter(Boolean),
@@ -224,7 +249,7 @@ function TeamSelectPage() {
   const filteredPlayers = allPlayersPool.filter(p => {
     const posOk = posFilter === 'ALL' || p.position === posFilter
     const teamOk = teamFilter === 'ALL' || p.team_id === teamFilter
-    const notUsed = !lineup.some(l => l && l.id === p.id)
+    const notUsed = selectedTeam?.isMagic || !lineup.some(l => l && l.id === p.id)
     return posOk && teamOk && notUsed
   })
 
@@ -313,6 +338,43 @@ function TeamSelectPage() {
                   </div>
                   <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
                     {ORIGINAL_TEAM.sub}
+                  </div>
+                </div>
+
+                {/* MAGIC TEAM special card */}
+                <div
+                  key={MAGIC_TEAM.team_id}
+                  onClick={() => setSelectedTeam(MAGIC_TEAM)}
+                  className="card"
+                  style={{
+                    cursor: 'pointer',
+                    padding: '14px 16px',
+                    transition: 'all 0.2s',
+                    border: '2px solid transparent',
+                    background: selectedTeam?.team_id === 'magic'
+                      ? 'linear-gradient(rgba(167,139,250,0.15),rgba(167,139,250,0.15)) padding-box, linear-gradient(135deg, #a78bfa, #f472b6, #fb923c) border-box'
+                      : 'linear-gradient(var(--bg-card),var(--bg-card)) padding-box, linear-gradient(135deg, #a78bfa, #f472b6, #fb923c) border-box',
+                  }}
+                  onMouseEnter={e => {
+                    if (selectedTeam?.team_id !== 'magic')
+                      e.currentTarget.style.background = 'linear-gradient(var(--bg-card-hover),var(--bg-card-hover)) padding-box, linear-gradient(135deg, #a78bfa, #f472b6, #fb923c) border-box'
+                  }}
+                  onMouseLeave={e => {
+                    if (selectedTeam?.team_id !== 'magic')
+                      e.currentTarget.style.background = 'linear-gradient(var(--bg-card),var(--bg-card)) padding-box, linear-gradient(135deg, #a78bfa, #f472b6, #fb923c) border-box'
+                  }}
+                >
+                  <div style={{
+                    height: 4,
+                    borderRadius: 2,
+                    background: 'linear-gradient(135deg, #a78bfa, #f472b6, #fb923c)',
+                    marginBottom: 10,
+                  }} />
+                  <div style={{ fontWeight: 700, fontSize: 13, color: 'var(--text-primary)' }}>
+                    {MAGIC_TEAM.team_name}
+                  </div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4 }}>
+                    ポジション不問・重複あり
                   </div>
                 </div>
 
@@ -722,7 +784,7 @@ function TeamSelectPage() {
               <h3 style={{ marginBottom: 12, color: 'var(--accent)', fontSize: 16 }}>チーム情報</h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
                 {[
-                  { label: 'チーム', value: selectedTeam?.isOriginal ? 'My Original Team' : selectedTeam?.team_name },
+                  { label: 'チーム', value: selectedTeam?.isOriginal ? 'My Original Team' : selectedTeam?.isMagic ? '✨ Magic Team' : selectedTeam?.team_name },
                   { label: 'フォーメーション', value: formation },
                   { label: '戦術', value: TACTICS.find(t => t.key === tactic)?.label },
                   { label: '難易度', value: difficulty.toUpperCase(), color: 'var(--warning)' },
