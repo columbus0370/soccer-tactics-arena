@@ -384,7 +384,10 @@ function TeamSelectPage() {
       }
       savePreset(player1.teamId, presetPayload)
 
-      navigate('/match', { state: { player1, player2, difficulty } })
+      const player1Bench = allPlayersPool.filter(p =>
+        lineup.filter(Boolean).every(l => l.id !== p.id)
+      )
+      navigate('/match', { state: { player1, player2, difficulty, player1Bench } })
     } catch (e) {
       alert('エラーが発生しました: ' + e.message)
     } finally {

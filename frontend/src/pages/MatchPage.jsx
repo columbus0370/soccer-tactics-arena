@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { simulateFirstHalf, simulateSecondHalf } from '../api/gameApi'
 import GoalCutscene from '../components/GoalCutscene'
+import PitchView from '../components/PitchView'
 import { calcTeamOVR } from '../utils/ovr'
 
 const EVENT_CONFIG = {
@@ -111,6 +112,7 @@ function MatchPage() {
   const [htTactic, setHtTactic] = useState(null)
   const [htSubs, setHtSubs] = useState([]) // [{outIdx, inPlayer}] max 3
   const [subPickingFor, setSubPickingFor] = useState(null) // slot index | null
+  const [subPosFilter, setSubPosFilter] = useState('ALL')
 
   const [gameMinute, setGameMinute] = useState(0)
   const [displayScore, setDisplayScore] = useState({ player1: 0, player2: 0 })
@@ -456,142 +458,232 @@ function MatchPage() {
       }}
     >
       {/* Halftime overlay */}
-      {phase === 'halftime' && (
-        <div style={{
-          position: 'fixed', inset: 0, background: 'rgba(10,14,26,0.97)',
-          zIndex: 100, overflowY: 'auto', padding: '24px 16px',
-          display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 480, margin: '0 auto',
-        }}>
-          {/* Header */}
-          <div style={{ textAlign: 'center', padding: '8px 0 4px' }}>
-            <div style={{ fontSize: 28, fontWeight: 900, color: 'var(--warning)' }}>⏸ ハーフタイム</div>
-            <div style={{ fontSize: 20, fontWeight: 700, marginTop: 8, color: 'var(--text-primary)' }}>
-              前半スコア: {displayScore.player1} - {displayScore.player2}
-            </div>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 4 }}>
-              {player1?.teamName} vs {player2?.teamName}
-            </div>
-          </div>
+      {phase === 'halftime' && (() => {
+        const htLineup = (() => {
+          const ln = [...(currentPlayer1?.players || [])]
+          htSubs.forEach(({ outIdx, inPlayer }) => { ln[outIdx] = inPlayer })
+          return ln
+        })()
+        const availableBench = player1Bench.filter(p => !htSubs.some(s => s.inPlayer.id === p.id))
+        const filteredBench = subPosFilter === 'ALL'
+          ? availableBench
+          : availableBench.filter(p => p.position === subPosFilter)
+        const posColors = { GK: '#f59e0b', DF: '#3b82f6', MF: '#10b981', FW: '#ef4444' }
 
-          {/* Formation change */}
-          <div className="card">
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
-              フォーメーション変更
-            </div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              {['4-3-3', '4-2-4', '5-3-2', '3-5-2', '4-4-2'].map(f => (
-                <button key={f} onClick={() => setHtFormation(f)} style={{
-                  padding: '8px 14px', borderRadius: 8, border: 'none', cursor: 'pointer',
-                  fontFamily: 'inherit', fontSize: 14, fontWeight: 700,
-                  background: htFormation === f ? 'var(--accent)' : 'var(--bg-secondary)',
-                  color: htFormation === f ? '#0a0e1a' : 'var(--text-secondary)',
-                  transition: 'all 0.15s',
-                }}>{f}</button>
-              ))}
-            </div>
-          </div>
+        const handleHtPlayerClick = (player, slotIndex) => {
+          const existingSub = htSubs.find(s => s.outIdx === slotIndex)
+          if (existingSub) {
+            setHtSubs(prev => prev.filter(s => s.outIdx !== slotIndex))
+            if (subPickingFor === slotIndex) setSubPickingFor(null)
+          } else if (htSubs.length < 3 && player1Bench.length > 0) {
+            setSubPickingFor(slotIndex)
+            setSubPosFilter('ALL')
+          }
+        }
 
-          {/* Tactic change */}
-          <div className="card">
-            <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: 1 }}>
-              戦術変更
-            </div>
-            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-              {['パス主導型', 'ロングボール型', 'サイド攻撃型'].map(t => (
-                <button key={t} onClick={() => setHtTactic(t)} style={{
-                  padding: '8px 14px', borderRadius: 8, cursor: 'pointer',
-                  fontFamily: 'inherit', fontSize: 13, fontWeight: 600,
-                  background: htTactic === t ? 'rgba(0,212,170,0.1)' : 'var(--bg-secondary)',
-                  color: htTactic === t ? 'var(--accent)' : 'var(--text-secondary)',
-                  border: htTactic === t ? '2px solid var(--accent)' : '1px solid var(--border)',
-                  transition: 'all 0.15s',
-                }}>{t}</button>
-              ))}
-            </div>
-          </div>
+        return (
+          <div style={{
+            position: 'fixed', inset: 0, background: 'rgba(10,14,26,0.97)',
+            zIndex: 100, overflowY: 'auto', padding: '20px 16px',
+            display: 'flex', flexDirection: 'column', gap: 14,
+            maxWidth: 560, margin: '0 auto',
+          }}>
+            <style>{`
+              @media (max-width: 480px) {
+                .ht-sub-layout { flex-direction: column !important; }
+                .ht-pitch-wrap  { width: 100% !important; }
+                .ht-bench-panel { width: 100% !important; }
+              }
+            `}</style>
 
-          {/* Substitutions */}
-          <div className="card">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: 1 }}>
-                選手交代
+            {/* Header */}
+            <div style={{ textAlign: 'center', padding: '4px 0' }}>
+              <div style={{ fontSize: 26, fontWeight: 900, color: 'var(--warning)' }}>⏸ ハーフタイム</div>
+              <div style={{ fontSize: 18, fontWeight: 700, marginTop: 6, color: 'var(--text-primary)' }}>
+                前半スコア: {displayScore.player1} - {displayScore.player2}
               </div>
-              <div style={{ fontSize: 12, color: 'var(--warning)' }}>{htSubs.length}/3</div>
+              <div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>
+                {player1?.teamName} vs {player2?.teamName}
+              </div>
             </div>
 
-            {subPickingFor !== null ? (
-              <div>
-                <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginBottom: 8 }}>
-                  交代選手を選択してください
+            {/* Formation + Tactic row */}
+            <div style={{ display: 'flex', gap: 12 }}>
+              <div className="card" style={{ flex: 1, padding: '12px 14px' }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  フォーメーション
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, maxHeight: 200, overflowY: 'auto' }}>
-                  {player1Bench
-                    .filter(p => !htSubs.some(s => s.inPlayer.id === p.id))
-                    .map(p => (
-                      <div key={p.id} onClick={() => {
-                        setHtSubs(prev => [...prev, { outIdx: subPickingFor, inPlayer: p }])
-                        setSubPickingFor(null)
-                      }} style={{
-                        padding: '8px 12px', borderRadius: 8, cursor: 'pointer',
-                        background: 'var(--bg-secondary)', border: '1px solid var(--border)',
-                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                      }}>
-                        <span style={{ fontWeight: 600, fontSize: 14 }}>{p.skipper_name}</span>
-                        <span style={{ fontSize: 11, padding: '2px 6px', borderRadius: 4,
-                          background: p.position === 'GK' ? '#f59e0b' : p.position === 'DF' ? '#3b82f6' : p.position === 'MF' ? '#10b981' : '#ef4444',
-                          color: '#fff', fontWeight: 700 }}>{p.position}</span>
+                <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+                  {['4-3-3', '4-2-4', '5-3-2', '3-5-2', '4-4-2'].map(f => (
+                    <button key={f} onClick={() => setHtFormation(f)} style={{
+                      padding: '6px 10px', borderRadius: 8, border: 'none', cursor: 'pointer',
+                      fontFamily: 'inherit', fontSize: 12, fontWeight: 700,
+                      background: htFormation === f ? 'var(--accent)' : 'var(--bg-secondary)',
+                      color: htFormation === f ? '#0a0e1a' : 'var(--text-secondary)',
+                      transition: 'all 0.15s',
+                    }}>{f}</button>
+                  ))}
+                </div>
+              </div>
+              <div className="card" style={{ flex: 1, padding: '12px 14px' }}>
+                <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--accent)', marginBottom: 8, textTransform: 'uppercase', letterSpacing: 1 }}>
+                  戦術
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                  {['パス主導型', 'ロングボール型', 'サイド攻撃型'].map(t => (
+                    <button key={t} onClick={() => setHtTactic(t)} style={{
+                      padding: '6px 10px', borderRadius: 6, cursor: 'pointer',
+                      fontFamily: 'inherit', fontSize: 12, fontWeight: 600,
+                      background: htTactic === t ? 'rgba(0,212,170,0.1)' : 'transparent',
+                      color: htTactic === t ? 'var(--accent)' : 'var(--text-secondary)',
+                      border: htTactic === t ? '1px solid var(--accent)' : '1px solid var(--border)',
+                      transition: 'all 0.15s', textAlign: 'left',
+                    }}>{t}</button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Substitutions — PitchView style */}
+            <div className="card" style={{ padding: '14px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                <div style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', textTransform: 'uppercase', letterSpacing: 1 }}>
+                  選手交代
+                </div>
+                <div style={{
+                  fontSize: 12, fontWeight: 700,
+                  color: htSubs.length >= 3 ? 'var(--danger)' : 'var(--warning)',
+                  background: htSubs.length >= 3 ? 'rgba(255,71,87,0.12)' : 'rgba(255,165,2,0.12)',
+                  padding: '2px 10px', borderRadius: 20,
+                }}>
+                  {htSubs.length}/3
+                </div>
+              </div>
+
+              <div className="ht-sub-layout" style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                {/* Pitch */}
+                <div className="ht-pitch-wrap" style={{ flex: '0 0 auto', width: '48%' }}>
+                  <PitchView
+                    formation={htFormation || player1?.formation || '4-3-3'}
+                    players={htLineup}
+                    onPlayerClick={handleHtPlayerClick}
+                    selectedPlayerId={subPickingFor !== null ? htLineup[subPickingFor]?.id : null}
+                  />
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', textAlign: 'center', marginTop: 6 }}>
+                    {player1Bench.length > 0
+                      ? htSubs.length < 3 ? '選手をタップして交代' : '交代枠上限 (3/3)'
+                      : 'ベンチ選手なし'}
+                  </div>
+                </div>
+
+                {/* Right panel */}
+                <div className="ht-bench-panel" style={{ flex: 1, minWidth: 0 }}>
+                  {subPickingFor !== null ? (
+                    <>
+                      <p style={{ fontSize: 12, color: 'var(--text-secondary)', marginBottom: 8, fontWeight: 700 }}>
+                        スロット{subPickingFor + 1}
+                        <span style={{ color: 'var(--text-muted)', fontWeight: 400 }}> の交代選手を選択</span>
+                      </p>
+                      {/* Position filter */}
+                      <div style={{ display: 'flex', gap: 4, marginBottom: 8, flexWrap: 'wrap' }}>
+                        {['ALL', 'GK', 'DF', 'MF', 'FW'].map(pos => (
+                          <button key={pos} onClick={() => setSubPosFilter(pos)} style={{
+                            padding: '4px 8px', borderRadius: 12, border: '1px solid var(--border)',
+                            background: subPosFilter === pos ? 'var(--accent)' : 'transparent',
+                            color: subPosFilter === pos ? '#050810' : 'var(--text-secondary)',
+                            cursor: 'pointer', fontSize: 11, fontFamily: 'inherit',
+                            fontWeight: subPosFilter === pos ? 700 : 400,
+                          }}>{pos}</button>
+                        ))}
                       </div>
-                    ))}
-                </div>
-                <button onClick={() => setSubPickingFor(null)} style={{
-                  marginTop: 8, padding: '6px 16px', borderRadius: 6, border: '1px solid var(--border)',
-                  background: 'transparent', color: 'var(--text-secondary)', cursor: 'pointer', fontFamily: 'inherit', fontSize: 13,
-                }}>キャンセル</button>
-              </div>
-            ) : (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-                {(() => {
-                  const lineup = [...(currentPlayer1?.players || [])]
-                  htSubs.forEach(({ outIdx, inPlayer }) => { lineup[outIdx] = inPlayer })
-                  return lineup.map((player, idx) => {
-                    const isSubbed = htSubs.some(s => s.outIdx === idx)
-                    return (
-                      <div key={idx} style={{
-                        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-                        padding: '7px 10px', borderRadius: 8,
-                        background: isSubbed ? 'rgba(0,212,170,0.08)' : 'var(--bg-secondary)',
-                        border: isSubbed ? '1px solid var(--accent)' : '1px solid transparent',
-                      }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                          <span style={{ fontSize: 11, padding: '2px 5px', borderRadius: 4, fontWeight: 700, color: '#fff',
-                            background: player?.position === 'GK' ? '#f59e0b' : player?.position === 'DF' ? '#3b82f6' : player?.position === 'MF' ? '#10b981' : '#ef4444',
-                          }}>{player?.position}</span>
-                          <span style={{ fontSize: 14, fontWeight: isSubbed ? 700 : 400, color: isSubbed ? 'var(--accent)' : 'var(--text-primary)' }}>
-                            {player?.skipper_name}
-                          </span>
-                          {isSubbed && <span style={{ fontSize: 11, color: 'var(--accent)' }}>🔄 交代済</span>}
-                        </div>
-                        {!isSubbed && htSubs.length < 3 && player1Bench.length > 0 && (
-                          <button onClick={() => setSubPickingFor(idx)} style={{
-                            padding: '4px 10px', borderRadius: 6, border: '1px solid var(--border)',
-                            background: 'var(--bg-card)', color: 'var(--text-secondary)',
-                            cursor: 'pointer', fontFamily: 'inherit', fontSize: 12,
-                          }}>交代</button>
+                      {/* Bench list */}
+                      <div style={{ maxHeight: 220, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        {filteredBench.map(p => (
+                          <div key={p.id}
+                            onClick={() => {
+                              setHtSubs(prev => [...prev, { outIdx: subPickingFor, inPlayer: p }])
+                              setSubPickingFor(null)
+                              setSubPosFilter('ALL')
+                            }}
+                            style={{
+                              padding: '8px 10px', borderRadius: 8, cursor: 'pointer',
+                              background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+                              display: 'flex', alignItems: 'center', gap: 8, transition: 'background 0.12s',
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.background = 'var(--bg-card-hover)'}
+                            onMouseLeave={e => e.currentTarget.style.background = 'var(--bg-secondary)'}
+                          >
+                            <span style={{
+                              fontSize: 10, padding: '2px 5px', borderRadius: 3, fontWeight: 700, color: '#fff', flexShrink: 0,
+                              background: posColors[p.position] || '#888',
+                            }}>{p.position}</span>
+                            <span style={{ flex: 1, fontSize: 13, fontWeight: 500 }}>{p.skipper_name}</span>
+                          </div>
+                        ))}
+                        {filteredBench.length === 0 && (
+                          <div style={{ padding: '16px 0', color: 'var(--text-muted)', textAlign: 'center', fontSize: 12 }}>
+                            {availableBench.length === 0 ? 'ベンチ選手なし' : '該当選手なし'}
+                          </div>
                         )}
                       </div>
-                    )
-                  })
-                })()}
+                      <button onClick={() => setSubPickingFor(null)} style={{
+                        marginTop: 8, padding: '5px 14px', borderRadius: 6,
+                        border: '1px solid var(--border)', background: 'transparent',
+                        color: 'var(--text-secondary)', cursor: 'pointer', fontFamily: 'inherit', fontSize: 12,
+                      }}>キャンセル</button>
+                    </>
+                  ) : (
+                    <div>
+                      <p style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 10 }}>
+                        確定済み交代
+                      </p>
+                      {htSubs.length === 0 ? (
+                        <div style={{ fontSize: 12, color: 'var(--text-muted)', padding: '12px 0' }}>
+                          なし
+                        </div>
+                      ) : (
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+                          {htSubs.map(({ outIdx, inPlayer }) => {
+                            const outPlayer = currentPlayer1?.players[outIdx]
+                            return (
+                              <div key={outIdx} style={{
+                                padding: '8px 10px', borderRadius: 8,
+                                background: 'rgba(0,212,170,0.08)', border: '1px solid var(--accent)',
+                                display: 'flex', alignItems: 'center', gap: 6, fontSize: 12,
+                              }}>
+                                <span style={{ color: 'var(--text-muted)', flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                  {outPlayer?.skipper_name}
+                                </span>
+                                <span style={{ color: 'var(--accent)', flexShrink: 0 }}>→</span>
+                                <span style={{ color: 'var(--accent)', fontWeight: 700, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                                  {inPlayer.skipper_name}
+                                </span>
+                                <button
+                                  onClick={() => setHtSubs(prev => prev.filter(s => s.outIdx !== outIdx))}
+                                  style={{
+                                    marginLeft: 4, fontSize: 11, padding: '2px 7px', borderRadius: 4,
+                                    border: '1px solid var(--border)', background: 'transparent',
+                                    color: 'var(--danger)', cursor: 'pointer', fontFamily: 'inherit', flexShrink: 0,
+                                  }}
+                                >取消</button>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
-          </div>
+            </div>
 
-          {/* Start second half button */}
-          <button className="btn btn-primary" onClick={handleStartSecondHalf} style={{ justifyContent: 'center', fontSize: 17, padding: '14px', marginTop: 4 }}>
-            ⚽ 後半キックオフ！
-          </button>
-        </div>
-      )}
+            {/* Start second half button */}
+            <button className="btn btn-primary" onClick={handleStartSecondHalf} style={{ justifyContent: 'center', fontSize: 17, padding: '14px' }}>
+              ⚽ 後半キックオフ！
+            </button>
+          </div>
+        )
+      })()}
 
       {/* Score board */}
       <div className="card" style={{ textAlign: 'center' }}>

@@ -54,12 +54,12 @@ export default function LobbyPage() {
           </div>
         </div>
 
-        {/* スタートボタン群 */}
-        <div style={{ display: 'flex', gap: 12, width: '100%', maxWidth: 380 }}>
+        {/* ボタン群 - 縦スタック */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, width: '100%', maxWidth: 340 }}>
           <button
-            style={{ ...styles.startBtn, flex: 1 }}
+            style={styles.startBtn}
             onClick={() => navigate('/team-select', { state: { difficulty: selectedDifficulty } })}
-            onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.03)'; e.currentTarget.style.boxShadow = '0 0 40px #00d4aa88' }}
+            onMouseEnter={e => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.boxShadow = '0 0 40px #00d4aa88' }}
             onMouseLeave={e => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 0 24px #00d4aa44' }}
           >
             <span style={{ fontSize: 20 }}>⚽</span>
@@ -69,11 +69,11 @@ export default function LobbyPage() {
           <button
             style={styles.presetBtn}
             onClick={() => navigate('/preset')}
-            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,140,255,0.2)'; e.currentTarget.style.borderColor = '#4f8cff88' }}
-            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(79,140,255,0.12)'; e.currentTarget.style.borderColor = '#4f8cff44' }}
+            onMouseEnter={e => { e.currentTarget.style.background = 'rgba(79,140,255,0.15)'; e.currentTarget.style.borderColor = 'rgba(79,140,255,0.5)' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'rgba(79,140,255,0.08)'; e.currentTarget.style.borderColor = 'rgba(79,140,255,0.25)' }}
           >
-            <span style={{ fontSize: 18 }}>📋</span>
-            チーム編成
+            <span style={{ fontSize: 16 }}>📋</span>
+            チーム編成 / プリセット
           </button>
         </div>
 
@@ -249,6 +249,7 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
     padding: '18px 32px',
     background: 'linear-gradient(135deg, #00d4aa, #00b894)',
     color: '#050810',
@@ -264,22 +265,22 @@ const styles = {
     gap: 8,
   },
   presetBtn: {
-    flex: 0.7,
-    padding: '16px 16px',
-    background: 'rgba(79,140,255,0.12)',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    padding: '14px 24px',
+    background: 'rgba(79,140,255,0.08)',
     color: '#4f8cff',
-    border: '2px solid rgba(79,140,255,0.3)',
+    border: '1px solid rgba(79,140,255,0.25)',
     borderRadius: 50,
     fontSize: 14,
-    fontWeight: 800,
+    fontWeight: 700,
     fontFamily: 'inherit',
     cursor: 'pointer',
     letterSpacing: '0.05em',
     transition: 'all 0.2s ease',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
+    gap: 8,
   },
   footer: {
     display: 'flex',
