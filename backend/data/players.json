@@ -7295,12 +7295,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 62,
-            "shooting": 16,
-            "passing": 74,
-            "dribbling": 32,
-            "physical": 83,
-            "defense": 91
+            "speed": 66,
+            "shooting": 20,
+            "passing": 78,
+            "dribbling": 36,
+            "physical": 87,
+            "defense": 95
           }
         },
         {
@@ -7311,12 +7311,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 59,
-            "shooting": 13,
-            "passing": 68,
-            "dribbling": 27,
-            "physical": 78,
-            "defense": 82
+            "speed": 63,
+            "shooting": 17,
+            "passing": 72,
+            "dribbling": 31,
+            "physical": 82,
+            "defense": 86
           }
         },
         {
@@ -7327,12 +7327,12 @@
           "nationality": "KOR",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 55,
-            "passing": 78,
-            "dribbling": 67,
-            "physical": 91,
-            "defense": 91
+            "speed": 88,
+            "shooting": 59,
+            "passing": 82,
+            "dribbling": 71,
+            "physical": 95,
+            "defense": 95
           }
         },
         {
@@ -7343,12 +7343,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 86,
-            "shooting": 50,
-            "passing": 79,
-            "dribbling": 68,
-            "physical": 90,
-            "defense": 89
+            "speed": 90,
+            "shooting": 54,
+            "passing": 83,
+            "dribbling": 72,
+            "physical": 94,
+            "defense": 93
           }
         },
         {
@@ -7359,12 +7359,12 @@
           "nationality": "CAN",
           "loan_status": null,
           "stats": {
-            "speed": 93,
-            "shooting": 65,
-            "passing": 80,
-            "dribbling": 91,
-            "physical": 85,
-            "defense": 84
+            "speed": 96,
+            "shooting": 69,
+            "passing": 84,
+            "dribbling": 95,
+            "physical": 89,
+            "defense": 88
           }
         },
         {
@@ -7375,12 +7375,12 @@
           "nationality": "MAR",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 62,
-            "passing": 78,
-            "dribbling": 78,
-            "physical": 83,
-            "defense": 82
+            "speed": 88,
+            "shooting": 66,
+            "passing": 82,
+            "dribbling": 82,
+            "physical": 87,
+            "defense": 86
           }
         },
         {
@@ -7391,12 +7391,12 @@
           "nationality": "POR",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 69,
-            "passing": 85,
-            "dribbling": 81,
-            "physical": 79,
-            "defense": 79
+            "speed": 86,
+            "shooting": 73,
+            "passing": 89,
+            "dribbling": 85,
+            "physical": 83,
+            "defense": 83
           }
         },
         {
@@ -7407,12 +7407,12 @@
           "nationality": "ENG",
           "loan_status": null,
           "stats": {
-            "speed": 71,
-            "shooting": 47,
-            "passing": 75,
-            "dribbling": 61,
-            "physical": 86,
-            "defense": 83
+            "speed": 75,
+            "shooting": 51,
+            "passing": 79,
+            "dribbling": 65,
+            "physical": 90,
+            "defense": 87
           }
         },
         {
@@ -7423,12 +7423,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 57,
-            "passing": 73,
-            "dribbling": 73,
-            "physical": 80,
-            "defense": 78
+            "speed": 88,
+            "shooting": 61,
+            "passing": 77,
+            "dribbling": 77,
+            "physical": 84,
+            "defense": 82
           }
         },
         {
@@ -7439,12 +7439,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 77,
-            "shooting": 44,
-            "passing": 71,
-            "dribbling": 60,
-            "physical": 84,
-            "defense": 80
+            "speed": 81,
+            "shooting": 48,
+            "passing": 75,
+            "dribbling": 64,
+            "physical": 88,
+            "defense": 84
           }
         },
         {
@@ -7455,12 +7455,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 76,
-            "passing": 91,
-            "dribbling": 84,
-            "physical": 87,
-            "defense": 86
+            "speed": 86,
+            "shooting": 80,
+            "passing": 95,
+            "dribbling": 88,
+            "physical": 91,
+            "defense": 90
           }
         },
         {
@@ -7471,12 +7471,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 88,
-            "shooting": 83,
-            "passing": 92,
-            "dribbling": 93,
-            "physical": 79,
-            "defense": 68
+            "speed": 92,
+            "shooting": 87,
+            "passing": 96,
+            "dribbling": 96,
+            "physical": 83,
+            "defense": 72
           }
         },
         {
@@ -7487,12 +7487,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 79,
-            "shooting": 79,
-            "passing": 83,
-            "dribbling": 78,
-            "physical": 91,
-            "defense": 82
+            "speed": 83,
+            "shooting": 83,
+            "passing": 87,
+            "dribbling": 82,
+            "physical": 95,
+            "defense": 86
           }
         },
         {
@@ -7503,12 +7503,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 73,
-            "shooting": 77,
-            "passing": 87,
-            "dribbling": 77,
-            "physical": 77,
-            "defense": 68
+            "speed": 77,
+            "shooting": 81,
+            "passing": 91,
+            "dribbling": 81,
+            "physical": 81,
+            "defense": 72
           }
         },
         {
@@ -7519,12 +7519,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 68,
-            "passing": 80,
-            "dribbling": 76,
-            "physical": 83,
-            "defense": 78
+            "speed": 84,
+            "shooting": 72,
+            "passing": 84,
+            "dribbling": 80,
+            "physical": 87,
+            "defense": 82
           }
         },
         {
@@ -7535,12 +7535,12 @@
           "nationality": "AUT",
           "loan_status": null,
           "stats": {
-            "speed": 87,
-            "shooting": 70,
-            "passing": 78,
-            "dribbling": 76,
-            "physical": 88,
-            "defense": 83
+            "speed": 91,
+            "shooting": 74,
+            "passing": 82,
+            "dribbling": 80,
+            "physical": 92,
+            "defense": 87
           }
         },
         {
@@ -7551,12 +7551,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 88,
-            "shooting": 83,
-            "passing": 82,
-            "dribbling": 87,
-            "physical": 76,
-            "defense": 62
+            "speed": 92,
+            "shooting": 87,
+            "passing": 86,
+            "dribbling": 91,
+            "physical": 80,
+            "defense": 66
           }
         },
         {
@@ -7567,12 +7567,12 @@
           "nationality": "ENG",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 93,
-            "passing": 84,
-            "dribbling": 79,
-            "physical": 92,
-            "defense": 57
+            "speed": 82,
+            "shooting": 96,
+            "passing": 88,
+            "dribbling": 83,
+            "physical": 96,
+            "defense": 61
           }
         },
         {
@@ -7583,12 +7583,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 91,
-            "shooting": 82,
-            "passing": 78,
-            "dribbling": 89,
-            "physical": 75,
-            "defense": 60
+            "speed": 95,
+            "shooting": 86,
+            "passing": 82,
+            "dribbling": 93,
+            "physical": 79,
+            "defense": 64
           }
         },
         {
@@ -7599,12 +7599,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 86,
-            "shooting": 80,
-            "passing": 76,
-            "dribbling": 83,
-            "physical": 75,
-            "defense": 62
+            "speed": 90,
+            "shooting": 84,
+            "passing": 80,
+            "dribbling": 87,
+            "physical": 79,
+            "defense": 66
           }
         },
         {
@@ -7615,12 +7615,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 88,
-            "shooting": 78,
-            "passing": 71,
-            "dribbling": 82,
-            "physical": 73,
-            "defense": 57
+            "speed": 92,
+            "shooting": 82,
+            "passing": 75,
+            "dribbling": 86,
+            "physical": 77,
+            "defense": 61
           }
         },
         {
@@ -7631,12 +7631,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 89,
-            "shooting": 76,
-            "passing": 73,
-            "dribbling": 86,
-            "physical": 74,
-            "defense": 60
+            "speed": 93,
+            "shooting": 80,
+            "passing": 77,
+            "dribbling": 90,
+            "physical": 78,
+            "defense": 64
           }
         },
         {
@@ -7647,12 +7647,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 90,
-            "shooting": 75,
-            "passing": 72,
-            "dribbling": 84,
-            "physical": 71,
-            "defense": 58
+            "speed": 94,
+            "shooting": 79,
+            "passing": 76,
+            "dribbling": 88,
+            "physical": 75,
+            "defense": 62
           }
         },
         {
@@ -7663,12 +7663,12 @@
           "nationality": "CRO",
           "loan_status": null,
           "stats": {
-            "speed": 83,
-            "shooting": 58,
-            "passing": 73,
-            "dribbling": 72,
-            "physical": 81,
-            "defense": 79
+            "speed": 87,
+            "shooting": 62,
+            "passing": 77,
+            "dribbling": 76,
+            "physical": 85,
+            "defense": 83
           }
         },
         {
@@ -7679,12 +7679,12 @@
           "nationality": "USA",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 74,
-            "passing": 76,
-            "dribbling": 78,
-            "physical": 73,
-            "defense": 62
+            "speed": 86,
+            "shooting": 78,
+            "passing": 80,
+            "dribbling": 82,
+            "physical": 77,
+            "defense": 66
           }
         }
       ]
@@ -7704,12 +7704,12 @@
           "nationality": "ITA",
           "loan_status": null,
           "stats": {
-            "speed": 63,
-            "shooting": 14,
-            "passing": 76,
-            "dribbling": 34,
-            "physical": 85,
-            "defense": 91
+            "speed": 67,
+            "shooting": 18,
+            "passing": 80,
+            "dribbling": 38,
+            "physical": 89,
+            "defense": 95
           }
         },
         {
@@ -7720,12 +7720,12 @@
           "nationality": "RUS",
           "loan_status": null,
           "stats": {
-            "speed": 60,
-            "shooting": 13,
-            "passing": 70,
-            "dribbling": 28,
-            "physical": 80,
-            "defense": 83
+            "speed": 64,
+            "shooting": 17,
+            "passing": 74,
+            "dribbling": 32,
+            "physical": 84,
+            "defense": 87
           }
         },
         {
@@ -7736,12 +7736,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 56,
-            "passing": 83,
-            "dribbling": 72,
-            "physical": 88,
-            "defense": 91
+            "speed": 86,
+            "shooting": 60,
+            "passing": 87,
+            "dribbling": 76,
+            "physical": 92,
+            "defense": 95
           }
         },
         {
@@ -7752,12 +7752,12 @@
           "nationality": "MAR",
           "loan_status": null,
           "stats": {
-            "speed": 91,
-            "shooting": 71,
-            "passing": 80,
-            "dribbling": 84,
-            "physical": 83,
-            "defense": 82
+            "speed": 95,
+            "shooting": 75,
+            "passing": 84,
+            "dribbling": 88,
+            "physical": 87,
+            "defense": 86
           }
         },
         {
@@ -7768,12 +7768,12 @@
           "nationality": "POR",
           "loan_status": null,
           "stats": {
-            "speed": 89,
-            "shooting": 63,
-            "passing": 79,
-            "dribbling": 82,
-            "physical": 82,
-            "defense": 83
+            "speed": 93,
+            "shooting": 67,
+            "passing": 83,
+            "dribbling": 86,
+            "physical": 86,
+            "defense": 87
           }
         },
         {
@@ -7784,12 +7784,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 48,
-            "passing": 76,
-            "dribbling": 66,
-            "physical": 87,
-            "defense": 86
+            "speed": 82,
+            "shooting": 52,
+            "passing": 80,
+            "dribbling": 70,
+            "physical": 91,
+            "defense": 90
           }
         },
         {
@@ -7800,12 +7800,12 @@
           "nationality": "ECU",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 47,
-            "passing": 74,
-            "dribbling": 64,
-            "physical": 86,
-            "defense": 84
+            "speed": 84,
+            "shooting": 51,
+            "passing": 78,
+            "dribbling": 68,
+            "physical": 90,
+            "defense": 88
           }
         },
         {
@@ -7816,12 +7816,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 44,
-            "passing": 72,
-            "dribbling": 62,
-            "physical": 83,
-            "defense": 81
+            "speed": 82,
+            "shooting": 48,
+            "passing": 76,
+            "dribbling": 66,
+            "physical": 87,
+            "defense": 85
           }
         },
         {
@@ -7832,12 +7832,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 50,
-            "passing": 74,
-            "dribbling": 66,
-            "physical": 86,
-            "defense": 84
+            "speed": 84,
+            "shooting": 54,
+            "passing": 78,
+            "dribbling": 70,
+            "physical": 90,
+            "defense": 88
           }
         },
         {
@@ -7848,12 +7848,12 @@
           "nationality": "POR",
           "loan_status": null,
           "stats": {
-            "speed": 83,
-            "shooting": 72,
-            "passing": 88,
-            "dribbling": 85,
-            "physical": 79,
-            "defense": 76
+            "speed": 87,
+            "shooting": 76,
+            "passing": 92,
+            "dribbling": 89,
+            "physical": 83,
+            "defense": 80
           }
         },
         {
@@ -7864,12 +7864,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 76,
-            "passing": 88,
-            "dribbling": 82,
-            "physical": 81,
-            "defense": 78
+            "speed": 82,
+            "shooting": 80,
+            "passing": 92,
+            "dribbling": 86,
+            "physical": 85,
+            "defense": 82
           }
         },
         {
@@ -7880,12 +7880,12 @@
           "nationality": "POR",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 72,
-            "passing": 86,
-            "dribbling": 82,
-            "physical": 82,
-            "defense": 80
+            "speed": 86,
+            "shooting": 76,
+            "passing": 90,
+            "dribbling": 86,
+            "physical": 86,
+            "defense": 84
           }
         },
         {
@@ -7896,12 +7896,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 74,
-            "passing": 83,
-            "dribbling": 82,
-            "physical": 80,
-            "defense": 76
+            "speed": 88,
+            "shooting": 78,
+            "passing": 87,
+            "dribbling": 86,
+            "physical": 84,
+            "defense": 80
           }
         },
         {
@@ -7912,12 +7912,12 @@
           "nationality": "ITA",
           "loan_status": null,
           "stats": {
-            "speed": 74,
-            "shooting": 67,
-            "passing": 89,
-            "dribbling": 86,
-            "physical": 73,
-            "defense": 74
+            "speed": 78,
+            "shooting": 71,
+            "passing": 93,
+            "dribbling": 90,
+            "physical": 77,
+            "defense": 78
           }
         },
         {
@@ -7928,12 +7928,12 @@
           "nationality": "KOR",
           "loan_status": null,
           "stats": {
-            "speed": 83,
-            "shooting": 78,
-            "passing": 83,
-            "dribbling": 86,
-            "physical": 73,
-            "defense": 63
+            "speed": 87,
+            "shooting": 82,
+            "passing": 87,
+            "dribbling": 90,
+            "physical": 77,
+            "defense": 67
           }
         },
         {
@@ -7944,12 +7944,12 @@
           "nationality": "GEO",
           "loan_status": null,
           "stats": {
-            "speed": 92,
-            "shooting": 83,
-            "passing": 80,
-            "dribbling": 93,
-            "physical": 77,
-            "defense": 62
+            "speed": 96,
+            "shooting": 87,
+            "passing": 84,
+            "dribbling": 96,
+            "physical": 81,
+            "defense": 66
           }
         },
         {
@@ -7960,12 +7960,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 93,
-            "shooting": 82,
-            "passing": 76,
-            "dribbling": 91,
-            "physical": 75,
-            "defense": 60
+            "speed": 96,
+            "shooting": 86,
+            "passing": 80,
+            "dribbling": 95,
+            "physical": 79,
+            "defense": 64
           }
         },
         {
@@ -7976,12 +7976,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 91,
-            "shooting": 79,
-            "passing": 74,
-            "dribbling": 87,
-            "physical": 74,
-            "defense": 60
+            "speed": 95,
+            "shooting": 83,
+            "passing": 78,
+            "dribbling": 91,
+            "physical": 78,
+            "defense": 64
           }
         },
         {
@@ -7992,12 +7992,12 @@
           "nationality": "POR",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 85,
-            "passing": 75,
-            "dribbling": 78,
-            "physical": 83,
-            "defense": 55
+            "speed": 84,
+            "shooting": 89,
+            "passing": 79,
+            "dribbling": 82,
+            "physical": 87,
+            "defense": 59
           }
         },
         {
@@ -8008,12 +8008,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 87,
-            "shooting": 80,
-            "passing": 73,
-            "dribbling": 79,
-            "physical": 82,
-            "defense": 57
+            "speed": 91,
+            "shooting": 84,
+            "passing": 77,
+            "dribbling": 83,
+            "physical": 86,
+            "defense": 61
           }
         },
         {
@@ -8024,12 +8024,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 80,
-            "passing": 79,
-            "dribbling": 83,
-            "physical": 72,
-            "defense": 60
+            "speed": 84,
+            "shooting": 84,
+            "passing": 83,
+            "dribbling": 87,
+            "physical": 76,
+            "defense": 64
           }
         },
         {
@@ -8040,12 +8040,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 86,
-            "shooting": 57,
-            "passing": 73,
-            "dribbling": 74,
-            "physical": 82,
-            "defense": 80
+            "speed": 90,
+            "shooting": 61,
+            "passing": 77,
+            "dribbling": 78,
+            "physical": 86,
+            "defense": 84
           }
         },
         {
@@ -8056,12 +8056,12 @@
           "nationality": "URU",
           "loan_status": null,
           "stats": {
-            "speed": 81,
-            "shooting": 65,
-            "passing": 80,
-            "dribbling": 76,
-            "physical": 86,
-            "defense": 83
+            "speed": 85,
+            "shooting": 69,
+            "passing": 84,
+            "dribbling": 80,
+            "physical": 90,
+            "defense": 87
           }
         },
         {
@@ -8072,12 +8072,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 54,
-            "passing": 72,
-            "dribbling": 70,
-            "physical": 80,
-            "defense": 78
+            "speed": 86,
+            "shooting": 58,
+            "passing": 76,
+            "dribbling": 74,
+            "physical": 84,
+            "defense": 82
           }
         },
         {
@@ -8088,12 +8088,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 87,
-            "shooting": 77,
-            "passing": 71,
-            "dribbling": 80,
-            "physical": 78,
-            "defense": 55
+            "speed": 91,
+            "shooting": 81,
+            "passing": 75,
+            "dribbling": 84,
+            "physical": 82,
+            "defense": 59
           }
         }
       ]
@@ -8113,12 +8113,12 @@
           "nationality": "BEL",
           "loan_status": null,
           "stats": {
-            "speed": 65,
-            "shooting": 15,
-            "passing": 75,
-            "dribbling": 34,
-            "physical": 88,
-            "defense": 91
+            "speed": 71,
+            "shooting": 21,
+            "passing": 81,
+            "dribbling": 40,
+            "physical": 94,
+            "defense": 96
           }
         },
         {
@@ -8129,12 +8129,12 @@
           "nationality": "UKR",
           "loan_status": null,
           "stats": {
-            "speed": 62,
-            "shooting": 13,
-            "passing": 70,
-            "dribbling": 29,
-            "physical": 81,
-            "defense": 85
+            "speed": 68,
+            "shooting": 19,
+            "passing": 76,
+            "dribbling": 35,
+            "physical": 87,
+            "defense": 91
           }
         },
         {
@@ -8145,12 +8145,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 83,
-            "shooting": 55,
-            "passing": 76,
-            "dribbling": 67,
-            "physical": 91,
-            "defense": 91
+            "speed": 89,
+            "shooting": 61,
+            "passing": 82,
+            "dribbling": 73,
+            "physical": 96,
+            "defense": 96
           }
         },
         {
@@ -8161,12 +8161,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 52,
-            "passing": 77,
-            "dribbling": 68,
-            "physical": 88,
-            "defense": 89
+            "speed": 90,
+            "shooting": 58,
+            "passing": 83,
+            "dribbling": 74,
+            "physical": 94,
+            "defense": 95
           }
         },
         {
@@ -8177,12 +8177,12 @@
           "nationality": "AUT",
           "loan_status": null,
           "stats": {
-            "speed": 79,
-            "shooting": 64,
-            "passing": 83,
-            "dribbling": 77,
-            "physical": 84,
-            "defense": 86
+            "speed": 85,
+            "shooting": 70,
+            "passing": 89,
+            "dribbling": 83,
+            "physical": 90,
+            "defense": 92
           }
         },
         {
@@ -8193,12 +8193,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 88,
-            "shooting": 60,
-            "passing": 76,
-            "dribbling": 79,
-            "physical": 85,
-            "defense": 84
+            "speed": 94,
+            "shooting": 66,
+            "passing": 82,
+            "dribbling": 85,
+            "physical": 91,
+            "defense": 90
           }
         },
         {
@@ -8209,12 +8209,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 63,
-            "passing": 80,
-            "dribbling": 78,
-            "physical": 82,
-            "defense": 84
+            "speed": 88,
+            "shooting": 69,
+            "passing": 86,
+            "dribbling": 84,
+            "physical": 88,
+            "defense": 90
           }
         },
         {
@@ -8225,12 +8225,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 85,
-            "shooting": 58,
-            "passing": 75,
-            "dribbling": 75,
-            "physical": 81,
-            "defense": 80
+            "speed": 91,
+            "shooting": 64,
+            "passing": 81,
+            "dribbling": 81,
+            "physical": 87,
+            "defense": 86
           }
         },
         {
@@ -8241,12 +8241,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 76,
-            "shooting": 46,
-            "passing": 72,
-            "dribbling": 63,
-            "physical": 83,
-            "defense": 79
+            "speed": 82,
+            "shooting": 52,
+            "passing": 78,
+            "dribbling": 69,
+            "physical": 89,
+            "defense": 85
           }
         },
         {
@@ -8257,12 +8257,12 @@
           "nationality": "ENG",
           "loan_status": null,
           "stats": {
-            "speed": 87,
-            "shooting": 92,
-            "passing": 92,
-            "dribbling": 88,
-            "physical": 92,
-            "defense": 79
+            "speed": 93,
+            "shooting": 90,
+            "passing": 96,
+            "dribbling": 94,
+            "physical": 96,
+            "defense": 85
           }
         },
         {
@@ -8273,12 +8273,12 @@
           "nationality": "CRO",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 75,
-            "passing": 91,
-            "dribbling": 89,
-            "physical": 74,
-            "defense": 75
+            "speed": 84,
+            "shooting": 81,
+            "passing": 96,
+            "dribbling": 95,
+            "physical": 80,
+            "defense": 81
           }
         },
         {
@@ -8289,12 +8289,12 @@
           "nationality": "URU",
           "loan_status": null,
           "stats": {
-            "speed": 86,
-            "shooting": 80,
-            "passing": 84,
-            "dribbling": 83,
-            "physical": 89,
-            "defense": 80
+            "speed": 92,
+            "shooting": 86,
+            "passing": 90,
+            "dribbling": 89,
+            "physical": 95,
+            "defense": 86
           }
         },
         {
@@ -8305,12 +8305,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 85,
-            "shooting": 73,
-            "passing": 83,
-            "dribbling": 84,
-            "physical": 84,
-            "defense": 79
+            "speed": 91,
+            "shooting": 79,
+            "passing": 89,
+            "dribbling": 90,
+            "physical": 90,
+            "defense": 85
           }
         },
         {
@@ -8321,12 +8321,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 81,
-            "shooting": 70,
-            "passing": 82,
-            "dribbling": 78,
-            "physical": 88,
-            "defense": 85
+            "speed": 87,
+            "shooting": 76,
+            "passing": 88,
+            "dribbling": 84,
+            "physical": 94,
+            "defense": 91
           }
         },
         {
@@ -8337,12 +8337,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 70,
-            "passing": 85,
-            "dribbling": 83,
-            "physical": 76,
-            "defense": 73
+            "speed": 84,
+            "shooting": 76,
+            "passing": 91,
+            "dribbling": 89,
+            "physical": 82,
+            "defense": 79
           }
         },
         {
@@ -8353,12 +8353,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 78,
-            "passing": 80,
-            "dribbling": 86,
-            "physical": 72,
-            "defense": 62
+            "speed": 90,
+            "shooting": 84,
+            "passing": 86,
+            "dribbling": 92,
+            "physical": 78,
+            "defense": 68
           }
         },
         {
@@ -8369,12 +8369,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 91,
-            "shooting": 84,
-            "passing": 76,
-            "dribbling": 91,
-            "physical": 77,
-            "defense": 58
+            "speed": 96,
+            "shooting": 90,
+            "passing": 82,
+            "dribbling": 96,
+            "physical": 83,
+            "defense": 64
           }
         },
         {
@@ -8385,12 +8385,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 94,
-            "shooting": 93,
-            "passing": 82,
-            "dribbling": 94,
-            "physical": 82,
-            "defense": 60
+            "speed": 96,
+            "shooting": 96,
+            "passing": 88,
+            "dribbling": 96,
+            "physical": 88,
+            "defense": 66
           }
         },
         {
@@ -8401,12 +8401,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 87,
-            "shooting": 81,
-            "passing": 78,
-            "dribbling": 87,
-            "physical": 74,
-            "defense": 60
+            "speed": 93,
+            "shooting": 87,
+            "passing": 84,
+            "dribbling": 93,
+            "physical": 80,
+            "defense": 66
           }
         },
         {
@@ -8417,12 +8417,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 87,
-            "shooting": 82,
-            "passing": 72,
-            "dribbling": 84,
-            "physical": 76,
-            "defense": 55
+            "speed": 93,
+            "shooting": 88,
+            "passing": 78,
+            "dribbling": 90,
+            "physical": 82,
+            "defense": 61
           }
         },
         {
@@ -8433,12 +8433,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 83,
-            "shooting": 73,
-            "passing": 75,
-            "dribbling": 78,
-            "physical": 78,
-            "defense": 72
+            "speed": 89,
+            "shooting": 79,
+            "passing": 81,
+            "dribbling": 84,
+            "physical": 84,
+            "defense": 78
           }
         },
         {
@@ -8449,12 +8449,12 @@
           "nationality": "TUR",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 79,
-            "passing": 84,
-            "dribbling": 85,
-            "physical": 71,
-            "defense": 62
+            "speed": 86,
+            "shooting": 85,
+            "passing": 90,
+            "dribbling": 91,
+            "physical": 77,
+            "defense": 68
           }
         },
         {
@@ -8465,12 +8465,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 46,
-            "passing": 72,
-            "dribbling": 62,
-            "physical": 83,
-            "defense": 81
+            "speed": 84,
+            "shooting": 52,
+            "passing": 78,
+            "dribbling": 68,
+            "physical": 89,
+            "defense": 87
           }
         },
         {
@@ -8481,12 +8481,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 79,
-            "shooting": 67,
-            "passing": 78,
-            "dribbling": 76,
-            "physical": 78,
-            "defense": 70
+            "speed": 85,
+            "shooting": 73,
+            "passing": 84,
+            "dribbling": 82,
+            "physical": 84,
+            "defense": 76
           }
         },
         {
@@ -8497,12 +8497,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 77,
-            "shooting": 47,
-            "passing": 71,
-            "dribbling": 61,
-            "physical": 82,
-            "defense": 79
+            "speed": 83,
+            "shooting": 53,
+            "passing": 77,
+            "dribbling": 67,
+            "physical": 88,
+            "defense": 85
           }
         }
       ]
@@ -8522,12 +8522,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 63,
-            "shooting": 14,
-            "passing": 77,
-            "dribbling": 34,
-            "physical": 83,
-            "defense": 90
+            "speed": 67,
+            "shooting": 18,
+            "passing": 81,
+            "dribbling": 38,
+            "physical": 87,
+            "defense": 94
           }
         },
         {
@@ -8538,12 +8538,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 60,
-            "shooting": 13,
-            "passing": 71,
-            "dribbling": 29,
-            "physical": 79,
-            "defense": 83
+            "speed": 64,
+            "shooting": 17,
+            "passing": 75,
+            "dribbling": 33,
+            "physical": 83,
+            "defense": 87
           }
         },
         {
@@ -8554,12 +8554,12 @@
           "nationality": "URU",
           "loan_status": null,
           "stats": {
-            "speed": 85,
-            "shooting": 56,
-            "passing": 76,
-            "dribbling": 67,
-            "physical": 91,
-            "defense": 91
+            "speed": 89,
+            "shooting": 60,
+            "passing": 80,
+            "dribbling": 71,
+            "physical": 95,
+            "defense": 95
           }
         },
         {
@@ -8570,12 +8570,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 89,
-            "shooting": 63,
-            "passing": 78,
-            "dribbling": 81,
-            "physical": 82,
-            "defense": 82
+            "speed": 93,
+            "shooting": 67,
+            "passing": 82,
+            "dribbling": 85,
+            "physical": 86,
+            "defense": 86
           }
         },
         {
@@ -8586,12 +8586,12 @@
           "nationality": "FRA",
           "loan_status": null,
           "stats": {
-            "speed": 86,
-            "shooting": 60,
-            "passing": 79,
-            "dribbling": 80,
-            "physical": 83,
-            "defense": 88
+            "speed": 90,
+            "shooting": 64,
+            "passing": 83,
+            "dribbling": 84,
+            "physical": 87,
+            "defense": 92
           }
         },
         {
@@ -8602,12 +8602,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 46,
-            "passing": 77,
-            "dribbling": 68,
-            "physical": 83,
-            "defense": 85
+            "speed": 82,
+            "shooting": 50,
+            "passing": 81,
+            "dribbling": 72,
+            "physical": 87,
+            "defense": 89
           }
         },
         {
@@ -8618,12 +8618,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 77,
-            "shooting": 44,
-            "passing": 76,
-            "dribbling": 66,
-            "physical": 82,
-            "defense": 83
+            "speed": 81,
+            "shooting": 48,
+            "passing": 80,
+            "dribbling": 70,
+            "physical": 86,
+            "defense": 87
           }
         },
         {
@@ -8634,12 +8634,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 57,
-            "passing": 74,
-            "dribbling": 73,
-            "physical": 79,
-            "defense": 79
+            "speed": 88,
+            "shooting": 61,
+            "passing": 78,
+            "dribbling": 77,
+            "physical": 83,
+            "defense": 83
           }
         },
         {
@@ -8650,12 +8650,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 55,
-            "passing": 73,
-            "dribbling": 71,
-            "physical": 79,
-            "defense": 78
+            "speed": 86,
+            "shooting": 59,
+            "passing": 77,
+            "dribbling": 75,
+            "physical": 83,
+            "defense": 82
           }
         },
         {
@@ -8666,12 +8666,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 76,
-            "passing": 93,
-            "dribbling": 92,
-            "physical": 74,
-            "defense": 72
+            "speed": 86,
+            "shooting": 80,
+            "passing": 96,
+            "dribbling": 96,
+            "physical": 78,
+            "defense": 76
           }
         },
         {
@@ -8682,12 +8682,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 74,
-            "passing": 87,
-            "dribbling": 86,
-            "physical": 79,
-            "defense": 78
+            "speed": 88,
+            "shooting": 78,
+            "passing": 91,
+            "dribbling": 90,
+            "physical": 83,
+            "defense": 82
           }
         },
         {
@@ -8698,12 +8698,12 @@
           "nationality": "NED",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 72,
-            "passing": 88,
-            "dribbling": 85,
-            "physical": 80,
-            "defense": 77
+            "speed": 84,
+            "shooting": 76,
+            "passing": 92,
+            "dribbling": 89,
+            "physical": 84,
+            "defense": 81
           }
         },
         {
@@ -8714,12 +8714,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 83,
-            "shooting": 80,
-            "passing": 85,
-            "dribbling": 85,
-            "physical": 77,
-            "defense": 70
+            "speed": 87,
+            "shooting": 84,
+            "passing": 89,
+            "dribbling": 89,
+            "physical": 81,
+            "defense": 74
           }
         },
         {
@@ -8730,12 +8730,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 79,
-            "shooting": 65,
-            "passing": 82,
-            "dribbling": 79,
-            "physical": 81,
-            "defense": 80
+            "speed": 83,
+            "shooting": 69,
+            "passing": 86,
+            "dribbling": 83,
+            "physical": 85,
+            "defense": 84
           }
         },
         {
@@ -8746,12 +8746,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 82,
-            "shooting": 77,
-            "passing": 81,
-            "dribbling": 82,
-            "physical": 76,
-            "defense": 69
+            "speed": 86,
+            "shooting": 81,
+            "passing": 85,
+            "dribbling": 86,
+            "physical": 80,
+            "defense": 73
           }
         },
         {
@@ -8762,12 +8762,12 @@
           "nationality": "GER",
           "loan_status": null,
           "stats": {
-            "speed": 75,
-            "shooting": 78,
-            "passing": 88,
-            "dribbling": 82,
-            "physical": 78,
-            "defense": 74
+            "speed": 79,
+            "shooting": 82,
+            "passing": 92,
+            "dribbling": 86,
+            "physical": 82,
+            "defense": 78
           }
         },
         {
@@ -8778,12 +8778,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 92,
-            "shooting": 82,
-            "passing": 83,
-            "dribbling": 94,
-            "physical": 72,
-            "defense": 58
+            "speed": 96,
+            "shooting": 86,
+            "passing": 87,
+            "dribbling": 96,
+            "physical": 76,
+            "defense": 62
           }
         },
         {
@@ -8794,12 +8794,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 88,
-            "shooting": 84,
-            "passing": 78,
-            "dribbling": 88,
-            "physical": 77,
-            "defense": 63
+            "speed": 92,
+            "shooting": 88,
+            "passing": 82,
+            "dribbling": 92,
+            "physical": 81,
+            "defense": 67
           }
         },
         {
@@ -8810,12 +8810,12 @@
           "nationality": "POL",
           "loan_status": null,
           "stats": {
-            "speed": 78,
-            "shooting": 93,
-            "passing": 79,
-            "dribbling": 80,
-            "physical": 93,
-            "defense": 52
+            "speed": 82,
+            "shooting": 96,
+            "passing": 83,
+            "dribbling": 84,
+            "physical": 96,
+            "defense": 56
           }
         },
         {
@@ -8826,12 +8826,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 85,
-            "shooting": 79,
-            "passing": 73,
-            "dribbling": 80,
-            "physical": 75,
-            "defense": 58
+            "speed": 89,
+            "shooting": 83,
+            "passing": 77,
+            "dribbling": 84,
+            "physical": 79,
+            "defense": 62
           }
         },
         {
@@ -8842,12 +8842,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 86,
-            "shooting": 78,
-            "passing": 72,
-            "dribbling": 83,
-            "physical": 72,
-            "defense": 57
+            "speed": 90,
+            "shooting": 82,
+            "passing": 76,
+            "dribbling": 87,
+            "physical": 76,
+            "defense": 61
           }
         },
         {
@@ -8858,12 +8858,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 85,
-            "shooting": 77,
-            "passing": 73,
-            "dribbling": 81,
-            "physical": 73,
-            "defense": 58
+            "speed": 89,
+            "shooting": 81,
+            "passing": 77,
+            "dribbling": 85,
+            "physical": 77,
+            "defense": 62
           }
         },
         {
@@ -8874,12 +8874,12 @@
           "nationality": "BRA",
           "loan_status": null,
           "stats": {
-            "speed": 84,
-            "shooting": 78,
-            "passing": 70,
-            "dribbling": 79,
-            "physical": 80,
-            "defense": 56
+            "speed": 88,
+            "shooting": 82,
+            "passing": 74,
+            "dribbling": 83,
+            "physical": 84,
+            "defense": 60
           }
         },
         {
@@ -8890,12 +8890,12 @@
           "nationality": "ESP",
           "loan_status": null,
           "stats": {
-            "speed": 80,
-            "shooting": 67,
-            "passing": 80,
-            "dribbling": 78,
-            "physical": 79,
-            "defense": 75
+            "speed": 84,
+            "shooting": 71,
+            "passing": 84,
+            "dribbling": 82,
+            "physical": 83,
+            "defense": 79
           }
         },
         {
@@ -8906,12 +8906,12 @@
           "nationality": "DEN",
           "loan_status": null,
           "stats": {
-            "speed": 76,
-            "shooting": 48,
-            "passing": 78,
-            "dribbling": 67,
-            "physical": 84,
-            "defense": 84
+            "speed": 80,
+            "shooting": 52,
+            "passing": 82,
+            "dribbling": 71,
+            "physical": 88,
+            "defense": 88
           }
         }
       ]
