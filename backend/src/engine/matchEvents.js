@@ -10,6 +10,29 @@ const GOAL_DESCRIPTIONS = [
   'カウンターアタック。スピードで相手DFを置き去りにし、GKをかわしてゴールへ押し込んだ。',
 ]
 
+// ゴールカットシーン用・短いシュート瞬間テキスト
+const SHOT_MOMENTS = [
+  '1人かわして右足を振り抜いた！',
+  'DFに身体を当てられながら強引にシュート！',
+  'ペナルティエリア外から豪快なミドル弾！',
+  'GKと1対1、冷静に右足で流し込んだ！',
+  'ダイレクトボレーで叩き込んだ！',
+  '2人のDFをかいくぐりゴール右隅へ！',
+  'スルーパスに抜け出して左足一閃！',
+  'ファーサイドに走り込みヘディング炸裂！',
+  'ターンして反転、右足でゴール隅へ！',
+  'クロスにダイレクトで合わせた！',
+  '密集を抜けて体を当てながら押し込んだ！',
+  'コーナーの流れからゴール前で合わせた！',
+]
+
+const PK_MOMENTS = [
+  'GKの動きを見て右隅に冷静に沈めた！',
+  '強烈なキックでゴール左上に突き刺した！',
+  'GKが逆を突かれたPKキック！',
+  '落ち着いてど真ん中に流し込んだ！',
+]
+
 const DESCRIPTIONS = {
   shot_on_target: [
     '{player}が強烈なミドルシュート！GK{gk}が渾身のセーブで弾き出した。',
@@ -132,6 +155,7 @@ export function generateMatchEvents(player1, player2, result, score, startMinute
       scorer: scorer ? scorer.skipper_name : 'Unknown',
       scorerId: scorer ? scorer.id : null,
       assist: assist ? assist.skipper_name : null,
+      shotMoment: SHOT_MOMENTS[Math.floor(Math.random() * SHOT_MOMENTS.length)],
       description: GOAL_DESCRIPTIONS[Math.floor(Math.random() * GOAL_DESCRIPTIONS.length)],
     })
   }
@@ -149,6 +173,7 @@ export function generateMatchEvents(player1, player2, result, score, startMinute
       scorer: scorer ? scorer.skipper_name : 'Unknown',
       scorerId: scorer ? scorer.id : null,
       assist: assist ? assist.skipper_name : null,
+      shotMoment: SHOT_MOMENTS[Math.floor(Math.random() * SHOT_MOMENTS.length)],
       description: GOAL_DESCRIPTIONS[Math.floor(Math.random() * GOAL_DESCRIPTIONS.length)],
     })
   }
@@ -195,6 +220,7 @@ export function generateMatchEvents(player1, player2, result, score, startMinute
         scorer: kicker ? kicker.skipper_name : 'Unknown',
         scorerId: kicker ? kicker.id : null,
         assist: null,
+        shotMoment: PK_MOMENTS[Math.floor(Math.random() * PK_MOMENTS.length)],
         description: `${kicker ? kicker.skipper_name : 'キッカー'}がPKを右隅に突き刺した！GK${gk ? gk.skipper_name : ''}は逆を突かれた。`,
       })
     } else {

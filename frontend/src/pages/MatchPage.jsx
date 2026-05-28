@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { simulateFirstHalf, simulateSecondHalf } from '../api/gameApi'
+import GoalCutscene from '../components/GoalCutscene'
 
 const EVENT_CONFIG = {
   goal:           { icon: '⚽', color: '#2ed573', label: 'GOAL!' },
@@ -126,6 +127,7 @@ function MatchPage() {
   const [scoreAnimate, setScoreAnimate] = useState({ player1: false, player2: false })
   const [finished, setFinished] = useState(false)
   const [eventFilter, setEventFilter] = useState('all')
+  const [goalCutscene, setGoalCutscene] = useState(null)
 
   const timerRef = useRef(null)
   const minuteRef = useRef(0)
@@ -180,16 +182,14 @@ function MatchPage() {
         minuteRef.current = ev.minute
         setGameMinute(ev.minute)
 
-        setVisibleEvents(prev => {
-          const next = [...prev, ev]
-          if (ev.type === 'goal' || ev.type === 'pk_goal') {
-            const side = ev.team === player1?.teamId || ev.teamName === player1?.teamName ? 'player1' : 'player2'
-            setDisplayScore(s => ({ ...s, [side]: s[side] + 1 }))
-            setScoreAnimate(p => ({ ...p, [side]: true }))
-            setTimeout(() => setScoreAnimate(p => ({ ...p, [side]: false })), 500)
-          }
-          return next
-        })
+        if (ev.type === 'goal' || ev.type === 'pk_goal') {
+          const side = ev.team === player1?.teamId || ev.teamName === player1?.teamName ? 'player1' : 'player2'
+          setDisplayScore(s => ({ ...s, [side]: s[side] + 1 }))
+          setScoreAnimate(p => ({ ...p, [side]: true }))
+          setTimeout(() => setScoreAnimate(p => ({ ...p, [side]: false })), 500)
+          setGoalCutscene(ev)
+        }
+        setVisibleEvents(prev => [...prev, ev])
 
         eventIndexRef.current = idx + 1
       } else {
@@ -223,6 +223,7 @@ function MatchPage() {
   }, [matchResult])
 
   const handleSkip = () => {
+    setGoalCutscene(null)
     clearInterval(timerRef.current)
     const allEvents = matchResult?.events || []
     setVisibleEvents(allEvents)
@@ -330,6 +331,11 @@ function MatchPage() {
 
   return (
     <>
+    {/* ── Goal Cutscene ─────────────────────────────────── */}
+    {goalCutscene && !showIntro && phase !== 'halftime' && (
+      <GoalCutscene event={goalCutscene} onDismiss={() => setGoalCutscene(null)} />
+    )}
+
     {/* ── Match Intro Splash ────────────────────────────── */}
     {showIntro && (
       <div
